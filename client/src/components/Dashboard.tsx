@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import MuiDrawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { Link } from 'react-router-dom';
 
 interface AppBarProps extends MuiAppBarProps {
 	open?: boolean;
@@ -64,7 +65,7 @@ export default function PrimarySearchAppBar({
 }: {
 	children: React.ReactNode;
 }) {
-	const [open, setOpen] = useState<boolean>(false);
+	const [open, setOpen] = useState<boolean>(true);
 	const drawerToggler = () => setOpen(prev => !prev);
 
 	return (
@@ -93,6 +94,9 @@ export default function PrimarySearchAppBar({
 				variant="permanent"
 				open={open}
 				anchor={'left'}
+				sx={{
+					height: '100vh'
+				}}
 				onClose={drawerToggler}>
 				<Toolbar
 					sx={{
@@ -110,8 +114,9 @@ export default function PrimarySearchAppBar({
 					flexDirection="column"
 					justifyContent="flex-start"
 					alignItems="flex-start"
-					border="1px solid lightgrey">
-					AAA
+					// border="1px solid lightgrey"
+					padding={'20px'}>
+					<Link to={'/app/test1'}>Контрольная работа 1</Link>
 				</Box>
 			</Drawer>
 			{children}
