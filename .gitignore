@@ -5,3 +5,4 @@ venv/
 .eslintrc
 .prettierrc
 .vscode/
+*.pdf
