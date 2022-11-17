@@ -6,9 +6,16 @@ export const test1api = createApi({
 		baseUrl: 'http://192.168.54.10:8000/solve_task',
 	}),
 	endpoints: (build) => ({
-		gcdEx: build.mutation<{data: Array<string | Array<Array<number>>>}, {args: [number, number]}>({
+		gcdEx: build.mutation<APIResponse, {args: [number, number]}>({
 			query: (payload) => ({
 				url: '?alg_key=ext_bin_gcd',
+				method: 'GET',
+				params: payload
+			})
+		}),
+		karatsuba: build.mutation<APIResponse, {args: [number, number]}>({
+			query: (payload) => ({
+				url: '?alg_key=karatsuba',
 				method: 'GET',
 				params: payload
 			})
@@ -16,4 +23,4 @@ export const test1api = createApi({
 	})
 });
 
-export const {useGcdExMutation} = test1api;
+export const {useGcdExMutation, useKaratsubaMutation} = test1api;

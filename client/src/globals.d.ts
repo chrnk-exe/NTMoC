@@ -10,10 +10,10 @@ declare interface BinGCDOutput {
 declare type matrix = Array<Array<number>>
 declare type ResponseType = 'string' | 'array' | 'matrix'
 
-declare type APIResponse = APIResponse[]
+declare type APIResponse = APIResponseItem[]
 
 declare interface APIResponseItem {
-    label: string
+    label?: string
     data: string | Array<number> | matrix
     type: 'string' | 'array' | 'matrix'
 }

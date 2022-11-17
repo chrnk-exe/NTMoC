@@ -1,3 +1,5 @@
+import pandas as pd
+
 steps = []
 
 def karatsuba(a, b):
@@ -22,6 +24,9 @@ def karatsuba(a, b):
     C = karatsuba(tA, tB)
     result = (10 ** (2*n)) * A + (10 ** n) * (C - A - B) + B
     # print('non simple karatsuba: ', a, b, result)
+    # df = pd.DataFrame(
+    #     data={'a': a, 'b': b, 'n': n, 'A1': A1, 'B1': B1, 'A': A, 'A0': A0}
+    # )
     steps.append([a, b, n, A1, B1, A, A0, B0, B, tA, tB, C, result])
     return result
     

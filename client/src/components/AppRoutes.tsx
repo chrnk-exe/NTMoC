@@ -17,6 +17,9 @@ const AppRoutes = () => {
 				}>
 				<Route index element={<MainPage />} />
 				<Route path={'/app/test1'} element={<FirstTest />} />
+				<Route path={'/app/test2'} element={<FirstTest />} />
+				<Route path={'/app/test3'} element={<FirstTest />} />
+
 			</Route>
 		</Routes>
 	);

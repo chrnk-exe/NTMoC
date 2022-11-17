@@ -1,5 +1,5 @@
 [{
     "label": "Step description",
-    "type": "string | array | matrix",
+    "type": "string | array | matrix | array_karatsuba",
     "data": "data"
 }]

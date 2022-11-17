@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -8,13 +9,15 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import MuiDrawer from '@mui/material/Drawer';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { Link } from 'react-router-dom';
+import Navigation from './Navigation';
+import Button from '@mui/material/Button';
+// import { Link } from 'react-router-dom';
 
 interface AppBarProps extends MuiAppBarProps {
 	open?: boolean;
 }
 
-const drawerWidth = 240;
+const drawerWidth = 270;
 
 const AppBar = styled(MuiAppBar, {
 	shouldForwardProp: prop => prop !== 'open',
@@ -39,13 +42,14 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
 	'& .MuiDrawer-paper': {
 		position: 'relative',
-		whiteSpace: 'nowrap',
 		width: drawerWidth,
+		maxWidth: drawerWidth,
 		transition: theme.transitions.create('width', {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.enteringScreen,
 		}),
 		boxSizing: 'border-box',
+		overflowX: 'hidden',
 		...(!open && {
 			overflowX: 'hidden',
 			transition: theme.transitions.create('width', {
@@ -68,6 +72,8 @@ export default function PrimarySearchAppBar({
 	const [open, setOpen] = useState<boolean>(true);
 	const drawerToggler = () => setOpen(prev => !prev);
 
+	const navigate = useNavigate();
+
 	return (
 		<Box display={'flex'} sx={{ flexGrow: 1 }}>
 			<AppBar position="absolute" open={open}>
@@ -81,13 +87,16 @@ export default function PrimarySearchAppBar({
 						sx={{ mr: 2 }}>
 						<MenuIcon />
 					</IconButton>
-					<Typography
-						variant="h6"
-						noWrap
-						component="div"
-						sx={{ display: { xs: 'none', sm: 'block' } }}>
-						Теоретико числовые методы криптографии
-					</Typography>
+					
+					<Button variant='outlined' sx={{color: '#FFFFF1'}} onClick={() => navigate('/app')}>
+						<Typography
+							variant="h6"
+							noWrap
+							component="div"
+							sx={{ display: { xs: 'none', sm: 'block' } }}>
+							Теоретико числовые методы криптографии
+						</Typography>
+					</Button>
 				</Toolbar>
 			</AppBar>
 			<Drawer
@@ -109,15 +118,7 @@ export default function PrimarySearchAppBar({
 						<ChevronLeftIcon />
 					</IconButton>
 				</Toolbar>
-				<Box
-					display="flex"
-					flexDirection="column"
-					justifyContent="flex-start"
-					alignItems="flex-start"
-					// border="1px solid lightgrey"
-					padding={'20px'}>
-					<Link to={'/app/test1'}>Контрольная работа 1</Link>
-				</Box>
+				<Navigation />
 			</Drawer>
 			<Box
 				component="main"
