@@ -1,5 +1,5 @@
 import pandas as pd
-from algorithms.addition_doubling import add_double
+from addition_doubling import add_double
 
 def fast_pow(a, b, m):
     # print(f"Воспользуемся алгоритмом быстрого возведения в степень {b}^{a} (mod {m})")
@@ -33,9 +33,3 @@ def fast_pow(a, b, m):
     # print("Result: {}".format((b * c) % m))
     
     return [df, (b * c) % m, helpTables]
-
-# r = fast_pow(18, 9, 41, 1)
-# for i in r[2]:
-#     print(i, end="\n--------------------\n")
-# print(r[0])
-# print(f'Result: {r[1]}')

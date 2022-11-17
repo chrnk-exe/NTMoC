@@ -28,3 +28,7 @@ def karatsuba(a, b):
 def karatsuba_steps(a, b):
     karatsuba(a, b)
     return steps[::-1]
+
+for i in karatsuba_steps(395, 310):
+    print(i)
+# print(karatsuba_steps(4980, 816))

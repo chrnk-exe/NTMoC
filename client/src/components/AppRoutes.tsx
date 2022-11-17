@@ -1,23 +1,24 @@
 import React from 'react';
-import App from './App';
-import AboutEtu from './AboutEtu';
-import { Routes, Route, Navigate } from 'react-router';
+import MainPage from './MainPage';
+import { Routes, Route, Navigate, Outlet } from 'react-router';
 import FirstTest from './Tests/FirstTest';
+import Dashboard from './Dashboard';
 
 const AppRoutes = () => {
 	return (
-		<div>
-			<Routes>
-				<Route
-					path="/"
-					element={ <Navigate to={'/app'} />}
-				/>
-				<Route path="app" element={<App />}>
-					<Route index element={<AboutEtu />}/>
-					<Route path={'/app/test1'} element={<FirstTest />}/>
-				</Route>
-			</Routes>
-		</div>
+		<Routes>
+			<Route path="/" element={<Navigate to={'/app'} />} />
+			<Route
+				path="app"
+				element={
+					<Dashboard>
+						<Outlet />
+					</Dashboard>
+				}>
+				<Route index element={<MainPage />} />
+				<Route path={'/app/test1'} element={<FirstTest />} />
+			</Route>
+		</Routes>
 	);
 };
 

@@ -69,7 +69,7 @@ export default function PrimarySearchAppBar({
 	const drawerToggler = () => setOpen(prev => !prev);
 
 	return (
-		<Box sx={{ flexGrow: 1 }}>
+		<Box display={'flex'} sx={{ flexGrow: 1 }}>
 			<AppBar position="absolute" open={open}>
 				<Toolbar>
 					<IconButton
@@ -95,7 +95,7 @@ export default function PrimarySearchAppBar({
 				open={open}
 				anchor={'left'}
 				sx={{
-					height: '100vh'
+					height: '100vh',
 				}}
 				onClose={drawerToggler}>
 				<Toolbar
@@ -119,7 +119,20 @@ export default function PrimarySearchAppBar({
 					<Link to={'/app/test1'}>Контрольная работа 1</Link>
 				</Box>
 			</Drawer>
-			{children}
+			<Box
+				component="main"
+				sx={{
+					backgroundColor: theme =>
+						theme.palette.mode === 'light'
+							? theme.palette.grey[100]
+							: theme.palette.grey[900],
+					flexGrow: 1,
+					// height: 'calc(100vh - 8px)',
+					overflow: 'auto',
+					marginTop: 8,
+				}}>
+				{children}
+			</Box>
 		</Box>
 	);
 }

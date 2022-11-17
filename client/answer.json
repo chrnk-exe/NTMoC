@@ -1,0 +1,5 @@
+[{
+    "label": "Step description",
+    "type": "string | array | matrix",
+    "data": "data"
+}]

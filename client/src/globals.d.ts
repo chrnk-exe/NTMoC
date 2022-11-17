@@ -1,6 +1,6 @@
 declare interface BinGCDInput {
-    a: number,
-    b: number
+    A: number,
+    B: number
 }
 
 declare interface BinGCDOutput { 

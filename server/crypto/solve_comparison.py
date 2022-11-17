@@ -1,7 +1,30 @@
-from algorithms.addition_doubling import add_double
-from algorithms.fast_pow import fast_pow
+# from algorithms.addition_doubling import add_double
+# from algorithms.fast_pow import fast_pow
 import pandas as pd
 import numpy as np
+
+def add_double(a, b, m, onlyResult=False):
+    df = pd.DataFrame(
+        index=[
+            'a', 'b', 'c'
+        ]
+    )
+    c = 0
+    i = 1
+
+    while a != 1:
+        df[str(i)] = [a, b, c]
+        c = (c + b * (a % 2)) % m
+        b = (b * 2) % m
+        a = a // 2
+        i += 1
+
+    df[str(i)] = [a, b, c]
+
+    if onlyResult:
+        return (b + c) % m
+    else:
+        return [df, (b + c) % m]
 
 def is_mutsimple(a, b):
     return True if np.gcd(a, b) == 1 else False
@@ -71,7 +94,7 @@ def solve(a, b, m):
     solution.append(f"x={m2*b1 + b2} + {m2*m1}t, t - целое")  
     return solution
     
-for i in solve(24, 52, 116):
-    print(i)
+# for i in solve(646, 745, 1269):
+#     print(i)
 
-    
+# print(451*646%1269)

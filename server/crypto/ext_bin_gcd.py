@@ -1,4 +1,3 @@
-from operator import truediv
 import numpy as np
 
 def with_odd_num(arr):
@@ -53,4 +52,3 @@ def ext_bin_gcd(a, b, output=False):
     steps.append(f'{k*bm[0]} = {a*k} * {bm[1]} + {b*k} * {bm[2]}')
     
     return steps
-
