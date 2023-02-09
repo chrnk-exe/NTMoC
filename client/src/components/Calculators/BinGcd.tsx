@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
-	useGcdExMutation,
+	useBinGcdMutation,
 } from '../../store/services/test1api';
 import AnswerItem from '../AnswerItem';
 import {isResponse} from '../../typeguards';
 
 
 
-const ExtBinGcd = () => {
+const BinGcd = () => {
 	const [A, setA] = useState<number>(4980);
 	const [B, setB] = useState<number>(816);
-	const [getAnswer] = useGcdExMutation();
+	const [getAnswer] = useBinGcdMutation();
 	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
 
 	const getAnswerHandler = async () => {
@@ -55,4 +55,4 @@ const ExtBinGcd = () => {
 	);
 };
 
-export default ExtBinGcd;
+export default BinGcd;
