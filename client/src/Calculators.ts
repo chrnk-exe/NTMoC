@@ -37,3 +37,91 @@ export const CalculatorRoutes = [
 		title: 'Перевод из CC в полиадический код'
 	}
 ];
+
+export const FactorizationRoutes = [
+	{
+		link: '/dixon',
+		title: 'Алгоритм Диксона'
+	},
+	{
+		link: '/rho_pollard_fact',
+		title: 'Ро-метод Полларда'
+	},
+	{
+		link: '/rho_pollard_floyd_fact',
+		title: 'Ро-метод Полларда (Мод. Флойда)'
+	},
+	{
+		link: '/p_1_pollard',
+		title: 'P-1 метод Полларда'
+	},
+	{
+		link: '/ferma_fact',
+		title: 'Метод Ферма'
+	},
+];
+
+export const LogarithmRoutes = [
+	{
+		link: '/adleman',
+		title: 'Алгоритм Адлемана'
+	},
+	{
+		link: '/gelfond_shanks',
+		title: 'Алгоритм Гельфонда-Шенкса'
+	},
+	{
+		link: '/rho_pollard_floyd_ind',
+		title: 'Ро-метод Полларда'
+	}
+];
+
+export const ComparisonsRoutes = [
+	{
+		link: '/tonelli_shenks',
+		title: 'Алгоритм Тонелли-Шенкса'
+	},
+	{
+		link: '/tonelli_shenks_ext',
+		title: 'Обобщённый алгоритм Тонелли-Шенкса'
+	},
+	{
+		link: '/chipolla',
+		title: 'Алгоритм Чиполлы'
+	},
+	{
+		link: '/berlekamp_rabin',
+		title: 'Алгоритм Берлекэмпа-Рабина'
+	},
+	{
+		link: '/polyg_hellman',
+		title: 'Алгоритм Полига-Хеллмана'
+	},
+	{
+		link: '/linear_comparison',
+		title: 'Решение линейного сравнения'
+	}
+];
+
+export default [
+	{
+		title: 'Калькуляторы',
+		Routes: CalculatorRoutes,
+		About: 'Страничка о калькуляторах',
+	},
+	{
+		title: 'Методы Факторизации',
+		Routes: FactorizationRoutes,
+		About: 'Инфа о методах факторизации',
+	},
+	{
+		title: 'Методы Дискретного логарифмирования',
+		Routes: LogarithmRoutes,
+		About: 'Инфа о методах Дискретного логарифмирования',
+	},
+	{
+		title: 'Решение сравнений',
+		Routes: ComparisonsRoutes,
+		About: 'Инфа о методах решения сравнения',
+	}
+];

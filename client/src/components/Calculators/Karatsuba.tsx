@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Box, Button, TextField} from '@mui/material';
-import {useKaratsubaMutation} from '../../store/services/test1api';
+import {useKaratsubaMutation} from '../../store/services/api';
 import AnswerItem from '../AnswerItem';
 import {isResponse} from '../../typeguards';
 

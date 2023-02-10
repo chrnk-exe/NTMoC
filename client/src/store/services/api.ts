@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const test1api = createApi({
+export const api = createApi({
 	reducerPath: 'firstTest',
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'http://192.168.78.10:8000/solve_task',
@@ -20,7 +20,7 @@ export const test1api = createApi({
 				params: payload
 			})
 		}),
-		linearComparasion: build.mutation<APIResponse, {args: [number, number, number]}>({
+		linearComparison: build.mutation<APIResponse, {args: [number, number, number]}>({
 			query: (payload) => ({
 				url: '?alg_key=solve_comparison',
 				method: 'GET',
@@ -37,4 +37,4 @@ export const test1api = createApi({
 	})
 });
 
-export const {useGcdExMutation, useKaratsubaMutation, useLinearComparasionMutation, useBinGcdMutation} = test1api;
+export const {useGcdExMutation, useKaratsubaMutation, useLinearComparisonMutation, useBinGcdMutation} = api;

@@ -5,7 +5,7 @@ import ExtBinGcd from './Calculators/ExtBinGcd';
 const MainPage = () => {
 	return (
 		<Box display="flex" justifyContent="center" alignItems="center">
-			<ExtBinGcd />
+			НА ЭТОМ САЙТЕ КРУТЫЕ КАЛЬКУЛЯТОРЫ!
 		</Box>
 	);
 };

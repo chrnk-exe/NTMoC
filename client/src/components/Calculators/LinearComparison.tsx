@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import {Box, Button, TextField} from '@mui/material';
 import AnswerItem from '../AnswerItem';
-import {useLinearComparasionMutation} from '../../store/services/test1api';
+import {useLinearComparisonMutation} from '../../store/services/api';
 import {isResponse} from '../../typeguards';
 
-const LinearComparasion = () => {
+const LinearComparison = () => {
 	const [A, setA] = useState<number>(896);
 	const [B, setB] = useState<number>(649);
 	const [M, setM] = useState(1475);
-	const [getAnswer] = useLinearComparasionMutation();
+	const [getAnswer] = useLinearComparisonMutation();
 	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
 
 	const getAnswerHandler = async () => {
@@ -55,4 +55,4 @@ const LinearComparasion = () => {
 	</Box>;
 };
 
-export default LinearComparasion;
+export default LinearComparison;

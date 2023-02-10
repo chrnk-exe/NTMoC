@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
 	useBinGcdMutation,
-} from '../../store/services/test1api';
+} from '../../store/services/api';
 import AnswerItem from '../AnswerItem';
 import {isResponse} from '../../typeguards';
-
 
 
 const BinGcd = () => {

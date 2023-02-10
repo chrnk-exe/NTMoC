@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
 	useGcdExMutation,
-} from '../../store/services/test1api';
+} from '../../store/services/api';
 import AnswerItem from '../AnswerItem';
 import {isResponse} from '../../typeguards';
 
