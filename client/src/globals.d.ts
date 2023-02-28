@@ -12,8 +12,36 @@ declare type ResponseType = 'string' | 'array' | 'matrix' | 'system'
 
 declare type APIResponse = APIResponseItem[]
 
-declare interface APIResponseItem {
+declare type APIResponseItem = APIResponseItemString
+    | APIResponseItemMatrix
+    | APIResponseItemArray
+    | APIResponseItemSystem
+
+// declare interface APIResponseItem {
+//     label?: string
+//     data: string | Array<number> | matrix | Array<string>
+//     type: 'string' | 'array' | 'matrix' | 'system'
+// }
+declare interface APIResponseItemString {
     label?: string
-    data: string | Array<number> | matrix | Array<string>
-    type: 'string' | 'array' | 'matrix' | 'system'
+    data: string
+    type: 'string'
+}
+
+declare interface APIResponseItemMatrix {
+    label?: string
+    data: matrix
+    type: 'matrix'
+}
+
+declare interface APIResponseItemArray {
+    label?: string
+    data: Array<number>
+    type: 'array'
+}
+
+declare interface APIResponseItemSystem {
+    label?: string
+    data: Array<string>
+    type: 'system'
 }
