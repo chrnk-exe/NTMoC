@@ -16,12 +16,6 @@ declare type APIResponseItem = APIResponseItemString
     | APIResponseItemMatrix
     | APIResponseItemArray
     | APIResponseItemSystem
-
-// declare interface APIResponseItem {
-//     label?: string
-//     data: string | Array<number> | matrix | Array<string>
-//     type: 'string' | 'array' | 'matrix' | 'system'
-// }
 declare interface APIResponseItemString {
     label?: string
     data: string

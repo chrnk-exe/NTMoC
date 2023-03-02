@@ -5,8 +5,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Navigation from './Navigation';
 import Button from '@mui/material/Button';
-import {AppBar, Drawer, Icon} from "@mui/material";
+import {AppBar, Drawer} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
+
+
+const menuWidth = '27vw';
 
 export default function PrimarySearchAppBar({
 	children,
@@ -14,56 +17,53 @@ export default function PrimarySearchAppBar({
 	children: React.ReactNode;
 }) {
 	const [open, setOpen] = useState<boolean>(true);
-	const drawerToggler = () => setOpen(prev => !prev);
+	const drawerToggle = () => setOpen(prev => !prev);
 
 	const navigate = useNavigate();
 
 	return (
-		<Box display={'flex'} sx={{ flexGrow: 1 }}>
+		<Box display={'flex'} flexGrow={1}>
 			<Drawer
 				variant="permanent" open={open} anchor={'left'}
 				sx={{
 					height: '100vh',
-					zIndex: 123
+					zIndex: 100,
+					'& .MuiDrawer-paper': {
+						boxSizing: 'border-box',
+						width: menuWidth,
+						mt: 8,
+						height: 'calc(100vh - 64px)',
+					}
 				}}
-				onClose={drawerToggler}>
-				<Toolbar
-					sx={{
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'flex-end',
-						px: [1],
-					}}>
-				</Toolbar>
+				onClose={drawerToggle}>
 				<Navigation />
 			</Drawer>
 
-			<AppBar component="nav">
+			<AppBar component="nav" sx={{bgcolor: '#339353'}}>
 				<Toolbar >
-                    <Box display={"flex"} justifyContent={"flex-start"} alignItems={"center"}>
-                        <Icon fontSize={"large"}>
-                            <FunctionsIcon fontSize={"large"}/>
-                        </Icon>
-                        <Button variant='outlined'
-                                sx={{color: '#FFFFF1', alignItems: 'center', display: 'flex', justifyContent: 'flex-start', p: 0}}
-                                onClick={() => navigate('/app')}
-
-                        >
-                            <Box display={"flex"} justifyContent={"flex-start"} alignItems={"center"}>
-                                <Typography noWrap textAlign={"center"}
-                                            sx={{color: '#FFFFF1', alignItems: 'center', display: 'flex', justifyContent: 'flex-start'}}
-                                >
+					<Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
+						<FunctionsIcon fontSize={'large'}/>
+						<Button
+							sx={{color: '#FFFFF1', alignItems: 'center', display: 'flex', justifyContent: 'flex-start', p: 0}}
+							onClick={() => navigate('/app')}
+						>
+							<Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
+								<Typography noWrap textAlign={'center'}
+									sx={{color: '#FFFFF1', alignItems: 'center', display: 'flex', justifyContent: 'flex-start'}}
+								>
                                     Теоретико числовые методы криптографии
-                                </Typography>
-                            </Box>
-                        </Button>
-                    </Box>
+								</Typography>
+							</Box>
+						</Button>
+					</Box>
 				</Toolbar>
 			</AppBar>
 
 			<Box
 				component="main"
 				sx={{
+					// zIndex: 101,
+					ml: menuWidth,
 					backgroundColor: theme =>
 						theme.palette.mode === 'light'
 							? theme.palette.grey[100]

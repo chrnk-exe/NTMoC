@@ -6,7 +6,8 @@ import ExtBinGcd from './Calculators/ExtBinGcd';
 import Karatsuba from './Calculators/Karatsuba';
 import LinearComparison from './Calculators/LinearComparison';
 import BinGcd from './Calculators/BinGcd';
-import AddDouble from "./Calculators/AddDouble";
+import AddDouble from './Calculators/AddDouble';
+import GelfondShanks from './Calculators/GelfondShanks';
 
 const AppRoutes = () => {
 	return (
@@ -26,6 +27,7 @@ const AppRoutes = () => {
 				<Route path={'/app/solve_lin_comparison'} element={<LinearComparison/>}/>
 				<Route path={'/app/bin_gcd'} element={<BinGcd/>}/>
 				<Route path={'/app/add_double'} element={<AddDouble/>}/>
+				<Route path={'/app/gelfond_shanks'} element={<GelfondShanks/>}/>
 			</Route>
 		</Routes>
 	);
