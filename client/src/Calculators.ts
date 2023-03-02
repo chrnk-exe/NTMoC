@@ -103,7 +103,7 @@ export const ComparisonsRoutes = [
 	}
 ];
 
-export default [
+export const MenuList = [
 	{
 		title: 'Калькуляторы',
 		Routes: CalculatorRoutes,

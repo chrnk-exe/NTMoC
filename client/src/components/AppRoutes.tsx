@@ -6,6 +6,7 @@ import ExtBinGcd from './Calculators/ExtBinGcd';
 import Karatsuba from './Calculators/Karatsuba';
 import LinearComparison from './Calculators/LinearComparison';
 import BinGcd from './Calculators/BinGcd';
+import AddDouble from "./Calculators/AddDouble";
 
 const AppRoutes = () => {
 	return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
 				<Route path={'/app/karatsuba'} element={<Karatsuba/>} />
 				<Route path={'/app/solve_lin_comparison'} element={<LinearComparison/>}/>
 				<Route path={'/app/bin_gcd'} element={<BinGcd/>}/>
+				<Route path={'/app/add_double'} element={<AddDouble/>}/>
 			</Route>
 		</Routes>
 	);
