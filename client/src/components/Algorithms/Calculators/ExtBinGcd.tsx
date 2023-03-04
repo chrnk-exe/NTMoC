@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
 	useGcdExMutation,
-} from '../../store/services/api';
-import AnswerItem from '../AnswerItem';
-import {isResponse} from '../../typeguards';
+} from '../../../store/services/api';
+import AnswerItem from '../../AnswerItem';
+import {isResponse} from '../../../typeguards';
 
 
-
-const ExtBinGcd = () => {
+export default function ExtBinGcd() {
 	const [A, setA] = useState<number>(4980);
 	const [B, setB] = useState<number>(816);
 	const [getAnswer] = useGcdExMutation();
@@ -19,11 +18,10 @@ const ExtBinGcd = () => {
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
 
-	// args=4980,816
 	return (
-		<Box display="flex" justifyContent="center" alignItems="center">
-			<Box display="flex" flexDirection="column" pt="10px">
-				<Box display="flex" justifyContent="center" alignItems="center">
+		<Box display={"flex"} justifyContent="center" alignItems="center">
+			<Box display={"flex"} flexDirection={"column"} pt="10px">
+				<Box display={"flex"} justifyContent="center" alignItems="center">
 					<TextField
 						sx={{ bgcolor: '#FFFFF1' }}
 						type="number"
@@ -41,18 +39,15 @@ const ExtBinGcd = () => {
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
 				<Box
-					display="flex"
-					flexDirection="column"
-					justifyContent="flex-start"
-					alignItems="flex-start">
+					display={"flex"}
+					flexDirection={"column"}
+					justifyContent={"flex-start"}
+					alignItems={"flex-start"}>
 					{answer.map((item, index) => (
 						<AnswerItem key={index} {...item} />
 					))}
 				</Box>
 			</Box>
 		</Box>
-
 	);
 };
-
-export default ExtBinGcd;

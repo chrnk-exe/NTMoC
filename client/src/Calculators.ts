@@ -21,14 +21,6 @@ export const CalculatorRoutes = [
 		title: 'Расширенный бинарный алгоритм Евклида',
 	},
 	{
-		link: '/solve_lin_comparasion',
-		title: 'Решить линейное сравнение (составной модуль)'
-	},
-	{
-		link: '/solve_lin_comparasion_cto',
-		title: 'Решить линейное сравнение (КТО)'
-	},
-	{
 		link: '/to_cc',
 		title: 'Перевод в китайский код'
 	},
@@ -56,7 +48,7 @@ export const FactorizationRoutes = [
 		title: 'P-1 метод Полларда'
 	},
 	{
-		link: '/ferma_fact',
+		link: '/fermat',
 		title: 'Метод Ферма'
 	},
 ];
@@ -100,7 +92,15 @@ export const ComparisonsRoutes = [
 	{
 		link: '/linear_comparison',
 		title: 'Решение линейного сравнения'
-	}
+	},
+	{
+		link: '/solve_lin_comparasion',
+		title: 'Решить линейное сравнение (составной модуль)'
+	},
+	{
+		link: '/solve_lin_comparasion_cto',
+		title: 'Решить линейное сравнение (КТО)'
+	},
 ];
 
 export const MenuList = [

@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
-	useBinGcdMutation,
-} from '../../store/services/api';
-import AnswerItem from '../AnswerItem';
-import {isResponse} from '../../typeguards';
+	useAddDoubleMutation,
+} from '../../../store/services/api';
+import AnswerItem from '../../AnswerItem';
+import {isResponse} from '../../../typeguards';
 
 
-const BinGcd = () => {
+export default function AddDouble() {
 	const [A, setA] = useState<number>(4980);
 	const [B, setB] = useState<number>(816);
-	const [getAnswer] = useBinGcdMutation();
+	const [m, setM] = useState<number>(7);
+	const [getAnswer] = useAddDoubleMutation();
 	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
 
 	const getAnswerHandler = async () => {
-		const result = await getAnswer({ args: [A, B] });
+		const result = await getAnswer({ args: [A, B, m] });
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
 
-	// args=4980,816
 	return (
-		<Box display="flex" justifyContent="center" alignItems="center">
-			<Box display="flex" flexDirection="column" pt="10px">
-				<Box display="flex" justifyContent="center" alignItems="center">
+		<Box display={"flex"} justifyContent="center" alignItems="center">
+			<Box display={"flex"} flexDirection={"column"} pt="10px">
+				<Box display={"flex"} justifyContent="center" alignItems="center">
 					<TextField
 						sx={{ bgcolor: '#FFFFF1' }}
 						type="number"
@@ -37,21 +37,25 @@ const BinGcd = () => {
 						value={B}
 						onChange={e => setB(+e.target.value)}
 					/>
+					<TextField
+						sx={{ bgcolor: '#FFFFF1' }}
+						label="m"
+						type="number"
+						value={m}
+						onChange={e => setM(+e.target.value)}
+					/>
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
 				<Box
-					display="flex"
-					flexDirection="column"
-					justifyContent="flex-start"
-					alignItems="flex-start">
+					display={"flex"}
+					flexDirection={"column"}
+					justifyContent={"flex-start"}
+					alignItems={"flex-start"}>
 					{answer.map((item, index) => (
 						<AnswerItem key={index} {...item} />
 					))}
 				</Box>
 			</Box>
 		</Box>
-
 	);
 };
-
-export default BinGcd;

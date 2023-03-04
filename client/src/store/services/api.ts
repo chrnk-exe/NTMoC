@@ -7,56 +7,101 @@ export const api = createApi({
 		baseUrl: 'http://192.168.145.10:8000/solve_task',
 	}),
 	endpoints: (build) => ({
+		// ======= Calculators =======
 		gcdEx: build.mutation<APIResponse, { args: [number, number] }>({
 			query: (payload) => ({
-				url: '?alg_key=ext_bin_gcd',
-				method: 'GET',
-				params: payload
+				url: '?alg_key=ext_bin_gcd', method: 'GET', params: payload
 			})
 		}),
 		karatsuba: build.mutation<APIResponse, { args: [number, number] }>({
 			query: (payload) => ({
-				url: '?alg_key=karatsuba',
-				method: 'GET',
-				params: payload
-			})
-		}),
-		linearComparison: build.mutation<APIResponse, { args: [number, number, number] }>({
-			query: (payload) => ({
-				url: '?alg_key=solve_comparison',
-				method: 'GET',
-				params: payload
+				url: '?alg_key=karatsuba', method: 'GET', params: payload
 			})
 		}),
 		binGcd: build.mutation<APIResponse, { args: [number, number] }>({
 			query: (payload) => ({
-				url: '?alg_key=bin_gcd',
-				method: 'GET',
-				params: payload
+				url: '?alg_key=bin_gcd', method: 'GET', params: payload
 			})
 		}),
 		addDouble: build.mutation<APIResponse, { args: [number, number, number] }>({
 			query: (payload) => ({
-				url: '?alg_key=add_double',
-				method: 'GET',
-				params: payload
+				url: '?alg_key=add_double', method: 'GET', params: payload
 			})
 		}),
+		fastPow: build.mutation<APIResponse, { args: [number, number] }>({
+			query: (payload) => ({
+				url: '?alg_key=fast_pow', method: 'GET', params: payload
+			})
+		}),
+		toCC: build.mutation<APIResponse, { args: [number] }>({
+			query: (payload) => ({
+				url: '?alg_key=dixon', method: 'GET', params: payload
+			})
+		}),
+
+        // ======= Factorization =======
+		dixon: build.mutation<APIResponse, { args: [number] }>({
+			query: (payload) => ({
+				url: '?alg_key=dixon', method: 'GET', params: payload
+			})
+		}),
+		pollard: build.mutation<APIResponse, { args: [number] }>({
+			query: (payload) => ({
+				url: '?alg_key=pollard', method: 'GET', params: payload
+			})
+		}),
+		pollardFloyd: build.mutation<APIResponse, { args: [number] }>({
+			query: (payload) => ({
+				url: '?alg_key=pollard_floyd', method: 'GET', params: payload
+			})
+		}),
+		p1Pollard: build.mutation<APIResponse, { args: [number] }>({
+			query: (payload) => ({
+				url: '?alg_key=p_1_pollard', method: 'GET', params: payload
+			})
+		}),
+		fermat: build.mutation<APIResponse, { args: [number] }>({
+			query: (payload) => ({
+				url: '?alg_key=fermat', method: 'GET', params: payload
+			})
+		}),
+
+        // ======= Discrete Logarithms =======
 		gelfondShanks: build.mutation<APIResponse, {args: [number, number, number] }> ({
 			query: (payload) => ({
-				url: '?alg_key=gelfond_shanks',
-				method: 'GET',
-				params: payload
+				url: '?alg_key=gelfond_shanks', method: 'GET', params: payload
 			})
-		})
+		}),
+
+        // ======= Comparisons =======
+        linearComparison: build.mutation<APIResponse, { args: [number, number, number] }>({
+			query: (payload) => ({
+				url: '?alg_key=solve_comparison', method: 'GET', params: payload
+			})
+		}),
 	})
 });
 
 export const {
+	// ======= Calculators =======
 	useGcdExMutation,
 	useKaratsubaMutation,
-	useLinearComparisonMutation,
 	useBinGcdMutation,
 	useAddDoubleMutation,
-	useGelfondShanksMutation
+	useFastPowMutation,
+	useToCCMutation,
+
+	// ======= Factorization =======
+	useDixonMutation,
+	usePollardMutation,
+	usePollardFloydMutation,
+	useP1PollardMutation,
+	useFermatMutation,
+
+	// ======= Discrete Logarithms =======
+	useGelfondShanksMutation,
+
+	// ======= Comparisons =======
+	useLinearComparisonMutation,
+
 } = api;
