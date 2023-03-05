@@ -17,11 +17,11 @@ export default function ExtBinGcd() {
 		const result = await getAnswer({ args: [A, B] });
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
-
+	
 	return (
-		<Box display={"flex"} justifyContent="center" alignItems="center">
-			<Box display={"flex"} flexDirection={"column"} pt="10px">
-				<Box display={"flex"} justifyContent="center" alignItems="center">
+		<Box display={'flex'} justifyContent="center" alignItems="center">
+			<Box display={'flex'} flexDirection={'column'} pt="10px">
+				<Box display={'flex'} justifyContent="center" alignItems="center">
 					<TextField
 						sx={{ bgcolor: '#FFFFF1' }}
 						type="number"
@@ -39,10 +39,10 @@ export default function ExtBinGcd() {
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
 				<Box
-					display={"flex"}
-					flexDirection={"column"}
-					justifyContent={"flex-start"}
-					alignItems={"flex-start"}>
+					display={'flex'}
+					flexDirection={'column'}
+					justifyContent={'flex-start'}
+					alignItems={'flex-start'}>
 					{answer.map((item, index) => (
 						<AnswerItem key={index} {...item} />
 					))}
@@ -50,4 +50,4 @@ export default function ExtBinGcd() {
 			</Box>
 		</Box>
 	);
-};
+}

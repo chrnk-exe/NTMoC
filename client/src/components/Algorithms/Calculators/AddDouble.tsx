@@ -7,7 +7,7 @@ import AnswerItem from '../../AnswerItem';
 import {isResponse} from '../../../typeguards';
 
 
-export default function AddDouble() {
+const AddDouble = () => {
 	const [A, setA] = useState<number>(4980);
 	const [B, setB] = useState<number>(816);
 	const [m, setM] = useState<number>(7);
@@ -19,10 +19,11 @@ export default function AddDouble() {
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
 
+	
 	return (
-		<Box display={"flex"} justifyContent="center" alignItems="center">
-			<Box display={"flex"} flexDirection={"column"} pt="10px">
-				<Box display={"flex"} justifyContent="center" alignItems="center">
+		<Box display={'flex'} justifyContent="center" alignItems="center">
+			<Box display={'flex'} flexDirection={'column'} pt="10px">
+				<Box display={'flex'} justifyContent="center" alignItems="center">
 					<TextField
 						sx={{ bgcolor: '#FFFFF1' }}
 						type="number"
@@ -47,10 +48,10 @@ export default function AddDouble() {
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
 				<Box
-					display={"flex"}
-					flexDirection={"column"}
-					justifyContent={"flex-start"}
-					alignItems={"flex-start"}>
+					display={'flex'}
+					flexDirection={'column'}
+					justifyContent={'flex-start'}
+					alignItems={'flex-start'}>
 					{answer.map((item, index) => (
 						<AnswerItem key={index} {...item} />
 					))}
@@ -59,3 +60,5 @@ export default function AddDouble() {
 		</Box>
 	);
 };
+
+export default AddDouble;

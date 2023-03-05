@@ -16,9 +16,9 @@ export default function Karatsuba() {
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
 
-	return <Box display={"flex"} justifyContent="center" alignItems="center">
-		<Box display={"flex"} flexDirection={"column"} pt="10px">
-			<Box display={"flex"} justifyContent="center" alignItems="center">
+	return <Box display={'flex'} justifyContent="center" alignItems="center">
+		<Box display={'flex'} flexDirection={'column'} pt="10px">
+			<Box display={'flex'} justifyContent="center" alignItems="center">
 				<TextField
 					sx={{ bgcolor: '#FFFFF1' }}
 					type="number"
@@ -36,14 +36,14 @@ export default function Karatsuba() {
 				<Button onClick={getAnswerHandler}>Get Answer!</Button>
 			</Box>
 			<Box
-				display={"flex"}
-				flexDirection={"column"}
-				justifyContent={"flex-start"}
-				alignItems={"flex-start"}>
+				display={'flex'}
+				flexDirection={'column'}
+				justifyContent={'flex-start'}
+				alignItems={'flex-start'}>
 				{answer.map((item, index) => (
 					<AnswerItem key={index} {...item} />
 				))}
 			</Box>
 		</Box>
 	</Box>;
-};
+}
