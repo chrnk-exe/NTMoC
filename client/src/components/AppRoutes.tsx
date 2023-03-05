@@ -15,6 +15,7 @@ import Pollard from './Algorithms/Factorization/Pollard';
 import PollardFloyd from './Algorithms/Factorization/PollardFloyd';
 import P1Pollard from './Algorithms/Factorization/P1Pollard';
 import Fermat from './Algorithms/Factorization/Fermat';
+import NotFound from './NotFound';
 
 const AppRoutes = () => {
 	return (
@@ -49,7 +50,10 @@ const AppRoutes = () => {
 
 				{/* ======= Comparisons ======= */}
 				<Route path={'/app/solve_lin_comparison'} element={<LinearComparison/>}/>
+
 			</Route>
+			{/* ======= 404 Route =======*/}
+			<Route path={'*'} element={<NotFound/>} />
 		</Routes>
 	);
 };
