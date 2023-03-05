@@ -33,6 +33,15 @@ export default function PrimarySearchAppBar({
 						width: menuWidth,
 						mt: 8,
 						height: 'calc(100vh - 64px)',
+						overflowX: 'hidden'
+					},
+					'& .MuiPaper-root::-webkit-scrollbar-thumb': {
+						// bgColor: 'darkgrey',
+						borderRadius: '5px'
+					},
+					'& .MuiPaper-root::-webkit-scrollbar' : {
+						width: '10px',
+						paddingLeft: '2px'
 					}
 				}}
 				onClose={drawerToggle}>

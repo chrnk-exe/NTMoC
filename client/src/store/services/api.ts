@@ -39,7 +39,8 @@ export const api = createApi({
 			})
 		}),
 
-        // ======= Factorization =======
+		
+		// ======= Factorization =======
 		dixon: build.mutation<APIResponse, { args: [number] }>({
 			query: (payload) => ({
 				url: '?alg_key=dixon', method: 'GET', params: payload
@@ -66,15 +67,15 @@ export const api = createApi({
 			})
 		}),
 
-        // ======= Discrete Logarithms =======
+		// ======= Discrete Logarithms =======
 		gelfondShanks: build.mutation<APIResponse, {args: [number, number, number] }> ({
 			query: (payload) => ({
 				url: '?alg_key=gelfond_shanks', method: 'GET', params: payload
 			})
 		}),
 
-        // ======= Comparisons =======
-        linearComparison: build.mutation<APIResponse, { args: [number, number, number] }>({
+		// ======= Comparisons =======
+		linearComparison: build.mutation<APIResponse, { args: [number, number, number] }>({
 			query: (payload) => ({
 				url: '?alg_key=solve_comparison', method: 'GET', params: payload
 			})

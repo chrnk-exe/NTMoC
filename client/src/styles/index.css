@@ -65,3 +65,25 @@ input[type=number] {
   bottom: 25%;
   border-top-right-radius: .8em;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #339353;
+  border-radius: 15px;
+  transition: all 0.5s ease-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #12C44E;
+}
