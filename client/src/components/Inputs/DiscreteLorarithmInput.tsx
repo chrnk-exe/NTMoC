@@ -11,19 +11,13 @@ interface Props {
 }
 const DiscreteLogarithmInput: FC<Props> = (
 	{FreeVar, setFreeVar, Module, setModule, degreeBasis, setDegreeBases}) => {
-	console.log('degreeBasis: ', degreeBasis);
+
 	const inputHandler = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-		setFunction: (newState: number) => void,
-		state: number) => {
+		setFunction: (newState: number) => void) => {
 		let { value } = e.target;
-		console.log(value);
-		value = (+value).toString();
-		console.log(value);
-		console.log(+value);
-
-		setFunction(value.length <= 5 ? +value : +state);
-		return 0;
+		value = (+value).toString().slice(0, 5);
+		setFunction(+value);
 	};
 
 	return (
@@ -38,27 +32,28 @@ const DiscreteLogarithmInput: FC<Props> = (
 			<TextField
 				type={'number'}
 				variant={'standard'}
-				value={FreeVar}
-				onChange={(e) => inputHandler(e, setFreeVar, FreeVar)}
+				value={FreeVar === 0 ? '' : FreeVar}
+				onChange={(e) => inputHandler(e, setFreeVar)}
+				error={FreeVar === 0}
 				InputProps={{
-					inputProps: {max: 100000, style: {textAlign: 'center', fontSize: '1.5em'}}
+					inputProps: {max: 99999, style: {textAlign: 'center', fontSize: '1.5em'}}
 				}}
 				sx={{
 
 					width: (FreeVar.toString().length * 15 + 15).toString() + 'px',
 				}}
 			/>
-			{'='}
+			{'≡'}
 			<TextField
 				type={'number'}
 				variant={'standard'}
-				value={degreeBasis}
-				onChange={(e) => inputHandler(e, setDegreeBases, degreeBasis)}
+				value={degreeBasis === 0 ? '' : degreeBasis}
+				onChange={(e) => inputHandler(e, setDegreeBases)}
+				error={degreeBasis === 0}
 				InputProps={{
-					inputProps: {max: 100000, style: {textAlign: 'center', fontSize: '1.5em'}}
+					inputProps: {max: 99999, style: {textAlign: 'center', fontSize: '1.5em'}}
 				}}
 				sx={{
-
 					width: (degreeBasis.toString().length * 15 + 15).toString() + 'px',
 				}}
 			/>
@@ -72,19 +67,23 @@ const DiscreteLogarithmInput: FC<Props> = (
 					right: -8,
 					top: -39,
 				}}>
-					{' x'}
+					{' 𝑥'}
 				</Typography>
 			</Box>
 			<Typography fontSize={'1em'}>
-				{'(mod '}
+				{'( '}
+			</Typography>
+			<Typography fontSize={'1em'} fontStyle={'italic'}>
+				{'mod '}
 			</Typography>
 			<TextField
 				type={'number'}
 				variant={'standard'}
-				value={Module}
-				onChange={(e) => inputHandler(e, setModule, Module)}
+				value={Module === 0 ? '' : Module}
+				onChange={(e) => inputHandler(e, setModule)}
+				error={Module === 0}
 				InputProps={{
-					inputProps: {max: 100000, style: {textAlign: 'center', fontSize: '1.5em'}}
+					inputProps: {max: 99999, style: {textAlign: 'center', fontSize: '1.5em'}}
 				}}
 				sx={{
 

@@ -3,6 +3,7 @@ import {Box, Button, TextField} from '@mui/material';
 import AnswerItem from '../../AnswerItem';
 import {useLinearComparisonMutation} from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
+import LinearComparisonInput from '../../Inputs/LinearComparisonInput';
 
 
 export default function LinearComparison() {
@@ -20,29 +21,9 @@ export default function LinearComparison() {
 	return <Box display={'flex'} justifyContent="center" alignItems="center">
 		<Box display={'flex'} flexDirection={'column'} pt="10px">
 			<Box display={'flex'} justifyContent="center" alignItems="center">
-				<TextField
-					sx={{ bgcolor: '#FFFFF1' }}
-					type="number"
-					label="A"
-					value={A}
-					onChange={e => setA(+e.target.value)}
-				/>
-				<TextField
-					sx={{ bgcolor: '#FFFFF1' }}
-					label="B"
-					type="number"
-					value={B}
-					onChange={e => setB(+e.target.value)}
-				/>
-				<TextField
-					sx={{ bgcolor: '#FFFFF1' }}
-					label="M"
-					type="number"
-					value={M}
-					onChange={e => setM(+e.target.value)}
-				/>
-				<Button onClick={getAnswerHandler}>Get Answer!</Button>
+				<LinearComparisonInput A={A} B={B} Module={M} setA={setA} setB={setB} setModule={setM}/>
 			</Box>
+			<Button onClick={getAnswerHandler}>Get Answer!</Button>
 			<Box
 				display={'flex'}
 				flexDirection={'column'}

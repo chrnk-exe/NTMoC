@@ -34,7 +34,7 @@ const Navigation = () => {
 							px: 3, py: 1.5,
 						}}>
 							<Box display={'flex'} gap={2.5} alignItems={'center'}>
-								<CalculateIcon fontSize={'large'} color={'primary'} />
+								<CalculateIcon fontSize={'large'} color={'success'} />
 								<Typography
 									maxWidth={'21vw'}
 									fontSize={'1.2em'}>
@@ -48,7 +48,7 @@ const Navigation = () => {
 								<List key={index} component="div" disablePadding>
 									<ListItemButton
 										sx={{p: 0.5, pl: 4}}
-										onClick={() => navigate(`/app${route.link}`)}>
+										onClick={() => navigate(`${route.link}`)}>
 										<Box display={'flex'} gap={3}>
 											<RemoveIcon/>
 											<Typography

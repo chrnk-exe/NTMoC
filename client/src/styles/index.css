@@ -68,12 +68,12 @@ input[type=number] {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 /* Handle */

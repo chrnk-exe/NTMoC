@@ -2,9 +2,9 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
 
 export const api = createApi({
-	reducerPath: 'firstTest',
+	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'http://192.168.145.10:8000/solve_task',
+		baseUrl: 'http://192.168.73.10:8000/solve_task',
 	}),
 	endpoints: (build) => ({
 		// ======= Calculators =======

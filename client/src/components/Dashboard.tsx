@@ -8,7 +8,6 @@ import Button from '@mui/material/Button';
 import {AppBar, Drawer} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 
-
 const menuWidth = '27vw';
 
 export default function PrimarySearchAppBar({

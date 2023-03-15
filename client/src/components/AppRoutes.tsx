@@ -20,9 +20,9 @@ import NotFound from './NotFound';
 const AppRoutes = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<Navigate to={'/app'}/>}/>
+			{/*<Route path="/" element={<Navigate to={'/app'}/>}/>*/}
 			<Route
-				path="app"
+				path="/"
 				element={
 					<Dashboard>
 						<Outlet/>
@@ -31,25 +31,25 @@ const AppRoutes = () => {
 				<Route index element={<MainPage/>}/>
 
 				{/* ======= Calculators ======= */}
-				<Route path={'/app/add_double'} element={<AddDouble/>}/>
-				<Route path={'/app/fast_pow'} element={<FastPow/>}/>
-				<Route path={'/app/bin_gcd'} element={<BinGcd/>}/>
-				<Route path={'/app/ext_bin_gcd'} element={<ExtBinGcd/>}/>
-				<Route path={'/app/karatsuba'} element={<Karatsuba/>}/>
-				<Route path={'/app/to_cc'} element={<ToChineseCode/>}/>
+				<Route path={'/add_double'} element={<AddDouble/>}/>
+				<Route path={'/fast_pow'} element={<FastPow/>}/>
+				<Route path={'/bin_gcd'} element={<BinGcd/>}/>
+				<Route path={'/ext_bin_gcd'} element={<ExtBinGcd/>}/>
+				<Route path={'/karatsuba'} element={<Karatsuba/>}/>
+				<Route path={'/to_cc'} element={<ToChineseCode/>}/>
 
 				{/* ======= Factorization ======= */}
-				<Route path={'/app/dixon'} element={<Dixon/>}/>
-				<Route path={'/app/rho_pollard_fact'} element={<Pollard/>}/>
-				<Route path={'/app/rho_pollard_floyd_fact'} element={<PollardFloyd/>}/>
-				<Route path={'/app/p_1_pollard'} element={<P1Pollard/>}/>
-				<Route path={'/app/fermat'} element={<Fermat/>}/>
+				<Route path={'/dixon'} element={<Dixon/>}/>
+				<Route path={'/rho_pollard_fact'} element={<Pollard/>}/>
+				<Route path={'/rho_pollard_floyd_fact'} element={<PollardFloyd/>}/>
+				<Route path={'/p_1_pollard'} element={<P1Pollard/>}/>
+				<Route path={'/fermat'} element={<Fermat/>}/>
 
 				{/* ======= Discrete Logarithms ======= */}
-				<Route path={'/app/gelfond_shanks'} element={<GelfondShanks/>}/>
+				<Route path={'/gelfond_shanks'} element={<GelfondShanks/>}/>
 
 				{/* ======= Comparisons ======= */}
-				<Route path={'/app/solve_lin_comparison'} element={<LinearComparison/>}/>
+				<Route path={'/solve_lin_comparison'} element={<LinearComparison/>}/>
 
 			</Route>
 			{/* ======= 404 Route =======*/}
