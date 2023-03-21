@@ -7,26 +7,29 @@ declare type APIResponseItem = APIResponseItemString
     | APIResponseItemMatrix
     | APIResponseItemArray
     | APIResponseItemSystem
-declare interface APIResponseItemString {
+
+
+declare interface APIResponseItemBase {
     label?: string
+    showDetails: Boolean
+}
+
+declare interface APIResponseItemString extends APIResponseItemBase {
     data: string
     type: 'string'
 }
 
-declare interface APIResponseItemMatrix {
-    label?: string
+declare interface APIResponseItemMatrix extends APIResponseItemBase {
     data: matrix
     type: 'matrix'
 }
 
-declare interface APIResponseItemArray {
-    label?: string
+declare interface APIResponseItemArray extends APIResponseItemBase {
     data: Array<number>
     type: 'array'
 }
 
-declare interface APIResponseItemSystem {
-    label?: string
+declare interface APIResponseItemSystem extends APIResponseItemBase {
     data: Array<string>
     type: 'system'
 }

@@ -3,8 +3,8 @@ import { Box, TextField, Button } from '@mui/material';
 import {
 	useBinGcdMutation,
 } from '../../../store/services/api';
-import AnswerItem from '../../AnswerItem';
 import {isResponse} from '../../../typeguards';
+import AnswerBlock from "../../common/AnswerBlock";
 
 
 export default function BinGcd() {
@@ -38,15 +38,7 @@ export default function BinGcd() {
 					/>
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
-				<Box
-					display={'flex'}
-					flexDirection={'column'}
-					justifyContent={'flex-start'}
-					alignItems={'flex-start'}>
-					{answer.map((item, index) => (
-						<AnswerItem key={index} {...item} />
-					))}
-				</Box>
+				<AnswerBlock answer={answer}/>
 			</Box>
 		</Box>
 	);

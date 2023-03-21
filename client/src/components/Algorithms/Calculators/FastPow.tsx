@@ -3,19 +3,20 @@ import { Box, TextField, Button } from '@mui/material';
 import {
 	useFastPowMutation,
 } from '../../../store/services/api';
-import AnswerItem from '../../AnswerItem';
 import {isResponse} from '../../../typeguards';
+import AnswerBlock from "../../common/AnswerBlock";
 
 
 
 export default function FastPow() {
 	const [A, setA] = useState<number>(4980);
 	const [B, setB] = useState<number>(816);
+	const [m, setM] = useState<number>(816);
 	const [getAnswer] = useFastPowMutation();
 	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
 
 	const getAnswerHandler = async () => {
-		const result = await getAnswer({ args: [A, B] });
+		const result = await getAnswer({ args: [A, B, m] });
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
 
@@ -37,17 +38,16 @@ export default function FastPow() {
 						value={B}
 						onChange={e => setB(+e.target.value)}
 					/>
+					<TextField
+						sx={{ bgcolor: '#FFFFF1' }}
+						label="m"
+						type="number"
+						value={m}
+						onChange={e => setM(+e.target.value)}
+					/>
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
-				<Box
-					display={'flex'}
-					flexDirection={'column'}
-					justifyContent={'flex-start'}
-					alignItems={'flex-start'}>
-					{answer.map((item, index) => (
-						<AnswerItem key={index} {...item} />
-					))}
-				</Box>
+				<AnswerBlock {...answer}/>
 			</Box>
 		</Box>
 	);

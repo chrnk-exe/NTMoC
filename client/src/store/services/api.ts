@@ -4,7 +4,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 export const api = createApi({
 	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'http://192.168.73.10:8000/solve_task',
+		baseUrl: 'http://127.0.0.1:8000/solve_task',
 	}),
 	endpoints: (build) => ({
 		// ======= Calculators =======
@@ -28,14 +28,14 @@ export const api = createApi({
 				url: '?alg_key=add_double', method: 'GET', params: payload
 			})
 		}),
-		fastPow: build.mutation<APIResponse, { args: [number, number] }>({
+		fastPow: build.mutation<APIResponse, { args: [number, number, number] }>({
 			query: (payload) => ({
 				url: '?alg_key=fast_pow', method: 'GET', params: payload
 			})
 		}),
 		toCC: build.mutation<APIResponse, { args: [number] }>({
 			query: (payload) => ({
-				url: '?alg_key=dixon', method: 'GET', params: payload
+				url: '?alg_key=to_cc', method: 'GET', params: payload
 			})
 		}),
 
