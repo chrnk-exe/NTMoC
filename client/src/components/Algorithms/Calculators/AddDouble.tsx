@@ -48,7 +48,6 @@ const AddDouble = () => {
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
 				<AnswerBlock answer={answer}/>
-
 			</Box>
 		</Box>
 	);
