@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Box} from '@mui/material';
 import DiscreteLogarithmInput from '../../Inputs/DiscreteLorarithmInput';
 import {useGelfondShanksMutation} from '../../../store/services/api';
-import AnswerBlock from "../../common/AnswerBlock";
+import AnswerBlock from '../../common/AnswerBlock';
 
 
 
@@ -18,6 +18,6 @@ export default function GelfondShanks() {
 		<Box display={'flex'} justifyContent={'center'} alignItems={'center'} mt={2}>
 			<DiscreteLogarithmInput
 				FreeVar={a} setFreeVar={setA} Module={m} setModule={setM} degreeBasis={g} setDegreeBases={setG}/>
-			<AnswerBlock {...answer}/>
+			<AnswerBlock answer={answer}/>
 		</Box>);
 }

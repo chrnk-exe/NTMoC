@@ -3,7 +3,7 @@ import {Box, Button, TextField} from '@mui/material';
 import {useLinearComparisonMutation} from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
 import LinearComparisonInput from '../../Inputs/LinearComparisonInput';
-import AnswerBlock from "../../common/AnswerBlock";
+import AnswerBlock from '../../common/AnswerBlock';
 
 
 export default function LinearComparison() {
@@ -24,7 +24,7 @@ export default function LinearComparison() {
 				<LinearComparisonInput A={A} B={B} Module={M} setA={setA} setB={setB} setModule={setM}/>
 			</Box>
 			<Button onClick={getAnswerHandler}>Get Answer!</Button>
-			<AnswerBlock {...answer}/>
+			<AnswerBlock answer={answer}/>
 		</Box>
 	</Box>;
 }

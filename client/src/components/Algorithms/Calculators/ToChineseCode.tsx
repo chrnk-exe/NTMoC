@@ -4,7 +4,7 @@ import {
 	useToCCMutation,
 } from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
-import AnswerBlock from "../../common/AnswerBlock";
+import AnswerBlock from '../../common/AnswerBlock';
 
 
 export default function ToChineseCode() {
@@ -30,7 +30,7 @@ export default function ToChineseCode() {
 					/>
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
-				<AnswerBlock {...answer}/>
+				<AnswerBlock answer={answer}/>
 			</Box>
 		</Box>
 	);

@@ -4,7 +4,7 @@ import {
 	useDixonMutation,
 } from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
-import AnswerBlock from "../../common/AnswerBlock";
+import AnswerBlock from '../../common/AnswerBlock';
 
 
 export default function Fermat() {
@@ -30,7 +30,7 @@ export default function Fermat() {
 					/>
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
-				<AnswerBlock {...answer}/>
+				<AnswerBlock answer={answer}/>
 			</Box>
 		</Box>
 	);

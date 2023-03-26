@@ -4,7 +4,7 @@ import {
 	useAddDoubleMutation,
 } from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
-import AnswerBlock from "../../common/AnswerBlock";
+import AnswerBlock from '../../common/AnswerBlock';
 
 
 const AddDouble = () => {
@@ -12,7 +12,7 @@ const AddDouble = () => {
 	const [B, setB] = useState<number>(816);
 	const [m, setM] = useState<number>(7);
 	const [getAnswer] = useAddDoubleMutation();
-	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
+	const [answer, setAnswer] = useState<APIResponse>([]);
 
 	const getAnswerHandler = async () => {
 		const result = await getAnswer({ args: [A, B, m] });
@@ -48,6 +48,7 @@ const AddDouble = () => {
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>
 				<AnswerBlock answer={answer}/>
+
 			</Box>
 		</Box>
 	);

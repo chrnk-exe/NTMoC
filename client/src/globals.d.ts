@@ -11,7 +11,7 @@ declare type APIResponseItem = APIResponseItemString
 
 declare interface APIResponseItemBase {
     label?: string
-    showDetails: Boolean
+    showDetails: boolean
 }
 
 declare interface APIResponseItemString extends APIResponseItemBase {
