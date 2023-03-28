@@ -53,7 +53,7 @@ export default function PrimarySearchAppBar({
 						<FunctionsIcon fontSize={'large'}/>
 						<Button
 							sx={{color: '#FFFFF1', alignItems: 'center', display: 'flex', justifyContent: 'flex-start', p: 0}}
-							onClick={() => navigate('/app')}
+							onClick={() => navigate('/')}
 						>
 							<Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
 								<Typography noWrap textAlign={'center'}
@@ -70,14 +70,12 @@ export default function PrimarySearchAppBar({
 			<Box
 				component="main"
 				sx={{
-					// zIndex: 101,
 					ml: menuWidth,
 					backgroundColor: theme =>
 						theme.palette.mode === 'light'
 							? theme.palette.grey[100]
 							: theme.palette.grey[900],
 					flexGrow: 1,
-					// height: 'calc(100vh - 8px)',
 					overflow: 'auto',
 					marginTop: 8,
 				}}>

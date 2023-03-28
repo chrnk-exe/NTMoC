@@ -125,3 +125,10 @@ export const MenuList = [
 		About: 'Инфа о методах решения сравнения',
 	}
 ];
+
+export default [
+	...CalculatorRoutes,
+	...FactorizationRoutes,
+	...LogarithmRoutes,
+	...ComparisonsRoutes
+];

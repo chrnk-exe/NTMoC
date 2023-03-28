@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
-import {Box, Button, TextField, Typography} from '@mui/material';
+import {Box, Button,  TextField, Typography} from '@mui/material';
 import {useKaratsubaMutation} from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
 import AnswerBlock from '../../common/AnswerBlock';
-
+import KaratsubaExample from '../../Examples/Calculators/KaratsubaExample';
+// import {useLocation} from 'react-router';
+// import Routes from '../../../Calculators';
 
 export default function Karatsuba() {
+
+	// const {pathname} = useLocation();
+	// console.log(Routes.find(item => item.link === pathname));
+
 	const [A, setA] = useState<number>(4980);
 	const [B, setB] = useState<number>(816);
 	const [getAnswer] = useKaratsubaMutation();
@@ -16,7 +22,6 @@ export default function Karatsuba() {
 		if(isResponse<APIResponse>(result))setAnswer(result.data);
 	};
 
-	console.log(answer);
 
 	const inputHandler = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -27,7 +32,12 @@ export default function Karatsuba() {
 	};
 
 	return <Box display={'flex'} justifyContent="center" alignItems="center">
-		<Box display={'flex'} flexDirection={'column'} pt="10px">
+		<Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} pt="10px">
+
+			<Typography variant={'h5'} sx={{m: 1}}>
+				{'Алгоритм умножения чисел Карацубы'}
+			</Typography>
+
 			<Box display={'flex'} justifyContent="center" alignItems="center">
 				<TextField
 					type={'number'}
@@ -44,7 +54,7 @@ export default function Karatsuba() {
 					}}
 				/>
 				<Typography fontSize={'1.5em'} sx={{mx: 1}}>
-					{'+'}
+					{'×'}
 				</Typography>
 				<TextField
 					type={'number'}
@@ -60,9 +70,12 @@ export default function Karatsuba() {
 						width: (B.toString().length * 15 + 15).toString() + 'px',
 					}}
 				/>
-				<Button onClick={getAnswerHandler}>Get Answer!</Button>
 			</Box>
+			<Button variant={'contained'} onClick={getAnswerHandler} sx={{m: 1, width: '150px'}}>Решить!</Button>
+
 			<AnswerBlock answer={answer}/>
+
+			<KaratsubaExample/>
 		</Box>
 	</Box>;
 }
