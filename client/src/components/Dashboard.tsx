@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import {AppBar, Drawer} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 
-const menuWidth = '27vw';
+const menuWidth = '26vw';
 
 export default function PrimarySearchAppBar({
 	children,
@@ -21,7 +21,7 @@ export default function PrimarySearchAppBar({
 	const navigate = useNavigate();
 
 	return (
-		<Box display={'flex'} flexGrow={1}>
+		<Box display={'flex'} flexGrow={1} >
 			<Drawer
 				variant="permanent" open={open} anchor={'left'}
 				sx={{
@@ -30,6 +30,7 @@ export default function PrimarySearchAppBar({
 					'& .MuiDrawer-paper': {
 						boxSizing: 'border-box',
 						width: menuWidth,
+						minWidth: 290,
 						mt: 8,
 						height: 'calc(100vh - 64px)',
 						overflowX: 'hidden'

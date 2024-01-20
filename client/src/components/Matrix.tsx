@@ -16,6 +16,7 @@ const Matrix = ({ data }: { data: matrix }) => {
 						{row.map((item, index) => (
 							<TableCell
 								sx={{
+									minWidth: 40,
 									padding: '5px',
 									borderRight: '1px solid lightgrey',
 								}}

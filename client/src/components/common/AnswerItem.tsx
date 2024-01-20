@@ -12,7 +12,7 @@ const AnswerItem = ({data, label, type, showDetails}: APIResponseItem) => {
 	return (
 		<Box mt='15px'>
 			<Collapse in={showDetails}>
-				<Box p='5px' pb='10px'><Latex>{`$$${label}$$`}</Latex></Box>
+				<Box p='5px' pb='10px' fontSize={17}>{label}</Box>
 			</Collapse>
 			{
 				type === 'string' ? <Latex>{`$$${data}$$`}</Latex> :
