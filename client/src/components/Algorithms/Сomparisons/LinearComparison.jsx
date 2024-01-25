@@ -7,15 +7,15 @@ import AnswerBlock from '../../common/AnswerBlock';
 
 
 export default function LinearComparison() {
-	const [A, setA] = useState<number>(896);
-	const [B, setB] = useState<number>(649);
+	const [A, setA] = useState(896);
+	const [B, setB] = useState(649);
 	const [M, setM] = useState(1475);
 	const [getAnswer] = useLinearComparisonMutation();
-	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
+	const [answer, setAnswer] = useState([]);
 
 	const getAnswerHandler = async () => {
 		const result = await getAnswer({ args: [A, B, M] });
-		if(isResponse<APIResponse>(result))setAnswer(result.data);
+		if(isResponse(result))setAnswer(result.data);
 	};
 
 	return <Box display={'flex'} justifyContent="center" alignItems="center">

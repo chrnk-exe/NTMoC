@@ -10,12 +10,8 @@ import FunctionsIcon from '@mui/icons-material/Functions';
 
 const menuWidth = '26vw';
 
-export default function PrimarySearchAppBar({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
-	const [open, setOpen] = useState<boolean>(true);
+export default function PrimarySearchAppBar({children}) {
+	const [open, setOpen] = useState(true);
 	const drawerToggle = () => setOpen(prev => !prev);
 
 	const navigate = useNavigate();

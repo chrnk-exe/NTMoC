@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import { CircularProgress, Box } from '@mui/material';
-import classes from '../styles/NotFound.module.sass';
 
 const NotFound = () => {
 

@@ -1,14 +1,9 @@
-import React, {type FC, useState} from 'react';
+import React, {useState} from 'react';
 import {Box, Switch, FormGroup, FormControlLabel} from '@mui/material';
 import AnswerItem from './AnswerItem';
 
-interface Props {
-    answer: APIResponse
-
-}
-
-const AnswerBlock: FC<Props> = ({answer}) => {
-    const [showDetails, setShowDetails] = useState<boolean>(true);
+const AnswerBlock = ({answer}) => {
+    const [showDetails, setShowDetails] = useState(true);
 
     return (
         <Box>
@@ -29,11 +24,9 @@ const AnswerBlock: FC<Props> = ({answer}) => {
                 </Box>
             }
 
-            <Box
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'flex-start'}
-                alignItems={'flex-start'}>
+            <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'}
+                 alignItems={'flex-start'}
+            >
                 {
                     answer.map((item, index) =>
                         <AnswerItem key={index} {...item} showDetails={showDetails}/>

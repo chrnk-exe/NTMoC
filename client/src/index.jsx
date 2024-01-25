@@ -8,8 +8,7 @@ import AppRoutes from './components/AppRoutes';
 import './styles/index.css';
 import theme from './styles/theme';
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const container = document.getElementById('root')!;
+const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(

@@ -11,7 +11,7 @@ export default function GelfondShanks() {
 	const [m, setM] = useState(29);
 	const [g, setG] = useState(4);
 	const [getAnswer] = useGelfondShanksMutation();
-	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
+	const [answer, setAnswer] = useState([]);
 
 
 	return (

@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
-	useP1PollardMutation,
+	usePollardFloydMutation,
 } from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
 import AnswerBlock from '../../common/AnswerBlock';
 
 
-export default function P1Pollard() {
-	const [A, setA] = useState<number>(4980);
-	const [getAnswer] = useP1PollardMutation();
-	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
+export default function PollardFloyd() {
+	const [A, setA] = useState(4980);
+	const [getAnswer] = usePollardFloydMutation();
+	const [answer, setAnswer] = useState([]);
 
 	const getAnswerHandler = async () => {
 		const result = await getAnswer({ args: [A] });
-		if(isResponse<APIResponse>(result))setAnswer(result.data);
+		if(isResponse(result))setAnswer(result.data);
 	};
 
 	return (

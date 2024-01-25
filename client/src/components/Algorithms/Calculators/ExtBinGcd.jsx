@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import {
-	useFastPowMutation,
+	useGcdExMutation,
 } from '../../../store/services/api';
 import {isResponse} from '../../../typeguards';
 import AnswerBlock from '../../common/AnswerBlock';
 
 
-
-export default function FastPow() {
-	const [A, setA] = useState<number>(4980);
-	const [B, setB] = useState<number>(816);
-	const [m, setM] = useState<number>(816);
-	const [getAnswer] = useFastPowMutation();
-	const [answer, setAnswer] = useState<APIResponseItem[]>([]);
+export default function ExtBinGcd() {
+	const [A, setA] = useState(4980);
+	const [B, setB] = useState(816);
+	const [getAnswer] = useGcdExMutation();
+	const [answer, setAnswer] = useState([]);
 
 	const getAnswerHandler = async () => {
-		const result = await getAnswer({ args: [A, B, m] });
-		if(isResponse<APIResponse>(result))setAnswer(result.data);
+		const result = await getAnswer({ args: [A, B] });
+		if(isResponse(result))setAnswer(result.data);
 	};
-
+	
 	return (
 		<Box display={'flex'} justifyContent="center" alignItems="center">
 			<Box display={'flex'} flexDirection={'column'} pt="10px">
@@ -37,13 +35,6 @@ export default function FastPow() {
 						type="number"
 						value={B}
 						onChange={e => setB(+e.target.value)}
-					/>
-					<TextField
-						sx={{ bgcolor: '#FFFFF1' }}
-						label="m"
-						type="number"
-						value={m}
-						onChange={e => setM(+e.target.value)}
 					/>
 					<Button onClick={getAnswerHandler}>Get Answer!</Button>
 				</Box>

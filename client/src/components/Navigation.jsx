@@ -17,8 +17,8 @@ import {MenuList} from '../Calculators';
 
 
 const Navigation = () => {
-	const [open, setOpen] = useState<boolean[]>(Array(MenuList.length).fill(false));
-	const handleClick = (chosenList: number) => setOpen(prevState => prevState.map(
+	const [open, setOpen] = useState(Array(MenuList.length).fill(false));
+	const handleClick = (chosenList) => setOpen(prevState => prevState.map(
 		(listItem, index) => index === chosenList
 			? !listItem : listItem
 	));

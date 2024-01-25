@@ -8,13 +8,13 @@ import AnswerBlock from '../../common/AnswerBlock';
 
 
 export default function ToChineseCode() {
-    const [A, setA] = useState<number>(4980);
+    const [A, setA] = useState(4980);
     const [getAnswer] = useToCCMutation();
-    const [answer, setAnswer] = useState<APIResponseItem[]>([]);
+    const [answer, setAnswer] = useState([]);
 
     const getAnswerHandler = async () => {
         const result = await getAnswer({args: [A]});
-        if (isResponse<APIResponse>(result)) setAnswer(result.data);
+        if (isResponse(result)) setAnswer(result.data);
     };
 
     return (
