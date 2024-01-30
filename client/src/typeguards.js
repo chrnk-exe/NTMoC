@@ -1,3 +1,3 @@
-export function isResponse({response}) {
+export function isResponse(response) {
 	return 'data' in response;
 }

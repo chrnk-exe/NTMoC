@@ -24,9 +24,7 @@ const AnswerBlock = ({answer}) => {
                 </Box>
             }
 
-            <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'}
-                 alignItems={'flex-start'}
-            >
+            <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}>
                 {
                     answer.map((item, index) =>
                         <AnswerItem key={index} {...item} showDetails={showDetails}/>

@@ -1,7 +1,16 @@
-import React from 'react';
-import {TextField, Box, Typography} from '@mui/material';
+import React, {useEffect, useState} from 'react';
+import {Box, TextField, Typography} from '@mui/material';
 
-const DiscreteLogarithmInput = ({FreeVar, setFreeVar, Module, setModule, degreeBasis, setDegreeBases}) => {
+
+export default function GelfondShanksInput({updateArgs}) {
+    const [FreeVar, setFreeVar] = useState(16);
+    const [Module, setModule] = useState(29);
+    const [degreeBasis, setDegreeBases] = useState(4);
+
+    useEffect(() => {
+        updateArgs([FreeVar, Module, degreeBasis])
+    }, [FreeVar, Module, degreeBasis]);
+
     const inputHandler = (e, setFunction) => {
         let {value} = e.target;
         value = (+value).toString().slice(0, 5);
@@ -82,7 +91,5 @@ const DiscreteLogarithmInput = ({FreeVar, setFreeVar, Module, setModule, degreeB
                 {')'}
             </Typography>
         </Box>
-    );
-};
-
-export default DiscreteLogarithmInput;
+    )
+}
