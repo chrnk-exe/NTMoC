@@ -1,105 +1,115 @@
+import AddDoubleInput from "./components/Algorithms/Inputs/Calculators/AddDoubleInput";
+import FastPowInput from "./components/Algorithms/Inputs/Calculators/FastPowInput";
+import KaratsubaInput from "./components/Algorithms/Inputs/Calculators/KaratsubaInput";
+import KaratsubaExample from "./components/Examples/Calculators/KaratsubaExample";
+import BinGcdInput from "./components/Algorithms/Inputs/Calculators/BinGcdInput";
+import ExtBinGcdInput from "./components/Algorithms/Inputs/Calculators/ExtBinGcdInput";
+import GelfondShanksInput from "./components/Algorithms/Inputs/DiscreteLogarithms/GelfondShanksInput";
+import LinearComparisonInput from "./components/Algorithms/Inputs/Сomparisons/LinearComparisonInput";
+import OneFieldInput from "./components/Algorithms/Inputs/common/OneFieldInput";
+
 
 export const CalculatorRoutes = [
 	{
-		link: '/add_double',
-		title: 'Сложение удвоение'
+		type: 'add_double', title: 'Сложение удвоение',
+		Input: AddDoubleInput, Theory: null, Example: null
 	},
 	{
-		link: '/fast_pow',
-		title: 'Быстрое возведение степени'
+		type: 'fast_pow', title: 'Быстрое возведение степени',
+		Input: FastPowInput, Theory: null, Example: null
 	},
 	{
-		link: '/karatsuba',
-		title: 'Алгоритм Карацубы'
+		type: 'karatsuba', title: 'Алгоритм Карацубы',
+		Input: KaratsubaInput, Theory: null, Example: KaratsubaExample
 	},
 	{
-		link: '/bin_gcd',
-		title: 'Бинарный алгоритм Евклида'
+		type: 'bin_gcd', title: 'Бинарный алгоритм Евклида',
+		Input: BinGcdInput, Theory: null, Example: null
 	},
 	{
-		link: '/ext_bin_gcd',
-		title: 'Расширенный бинарный алгоритм Евклида',
+		type: 'ext_bin_gcd', title: 'Расширенный бинарный алгоритм Евклида',
+		Input: ExtBinGcdInput, Theory: null, Example: null
 	},
 	{
-		link: '/to_cc',
-		title: 'Перевод в китайский код'
+		type: 'to_cc', title: 'Перевод в китайский код',
+		Input: OneFieldInput, Theory: null, Example: null
 	},
 	{
-		link: '/from_cc_to_polycode',
-		title: 'Перевод из CC в полиадический код'
+		type: 'from_cc_to_polycode', title: 'Перевод из CC в полиадический код',
+		Input: null, Theory: null, Example: null
 	}
 ];
 
 export const FactorizationRoutes = [
 	{
-		link: '/dixon',
-		title: 'Алгоритм Диксона'
+		type: 'dixon', title: 'Алгоритм Диксона',
+		Input: OneFieldInput, Theory: null, Example: null
 	},
 	{
-		link: '/rho_pollard_fact',
-		title: 'Ро-метод Полларда'
+		type: 'rho_pollard_fact', title: 'Ро-метод Полларда',
+		Input: OneFieldInput, Theory: null, Example: null
 	},
 	{
-		link: '/rho_pollard_floyd_fact',
-		title: 'Ро-метод Полларда (Мод. Флойда)'
+		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
+		Input: OneFieldInput, Theory: null, Example: null
 	},
 	{
-		link: '/p_1_pollard',
-		title: 'P-1 метод Полларда'
+		type: 'p_1_pollard', title: 'P-1 метод Полларда',
+		Input: OneFieldInput, Theory: null, Example: null
 	},
 	{
-		link: '/fermat',
-		title: 'Метод Ферма'
+		type: 'fermat', title: 'Метод Ферма',
+		Input: OneFieldInput, Theory: null, Example: null
 	},
 ];
 
 export const LogarithmRoutes = [
 	{
-		link: '/adleman',
-		title: 'Алгоритм Адлемана'
+		type: 'adleman', title: 'Алгоритм Адлемана',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/gelfond_shanks',
-		title: 'Алгоритм Гельфонда-Шенкса'
+		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
+		Input: GelfondShanksInput, Theory: null, Example: null
 	},
 	{
-		link: '/rho_pollard_floyd_ind',
-		title: 'Ро-метод Полларда'
+		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
+		Input: null, Theory: null, Example: null
 	}
 ];
 
 export const ComparisonsRoutes = [
 	{
-		link: '/tonelli_shenks',
-		title: 'Алгоритм Тонелли-Шенкса'
+		type: 'tonelli_shenks', title: 'Алгоритм Тонелли-Шенкса',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/tonelli_shenks_ext',
-		title: 'Обобщённый алгоритм Тонелли-Шенкса'
+		type: 'tonelli_shenks_ext', title: 'Обобщённый алгоритм Тонелли-Шенкса',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/chipolla',
-		title: 'Алгоритм Чиполлы'
+		type: 'chipolla', title: 'Алгоритм Чиполлы',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/berlekamp_rabin',
-		title: 'Алгоритм Берлекэмпа-Рабина'
+		type: 'berlekamp_rabin', title: 'Алгоритм Берлекэмпа-Рабина',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/polyg_hellman',
-		title: 'Алгоритм Полига-Хеллмана'
+		type: 'polyg_hellman', title: 'Алгоритм Полига-Хеллмана',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/linear_comparison',
-		title: 'Решение линейного сравнения'
+		type: 'linear_comparison', title: 'Решение линейного сравнения',
+		Input: null, Theory: null, Example: null
 	},
 	{
-		link: '/solve_lin_comparasion',
-		title: 'Решить линейное сравнение (составной модуль)'
+		type: 'solve_lin_comparison', title: 'Решить линейное сравнение (составной модуль)',
+		Input: LinearComparisonInput, Theory: null, Example: null
 	},
 	{
-		link: '/solve_lin_comparasion_cto',
-		title: 'Решить линейное сравнение (КТО)'
+		type: 'solve_lin_comparasion_cto', title: 'Решить линейное сравнение (КТО)',
+		Input: null, Theory: null, Example: null
 	},
 ];
 
@@ -126,7 +136,7 @@ export const MenuList = [
 	}
 ];
 
-export default [
+export const AlgRoutes = [
 	...CalculatorRoutes,
 	...FactorizationRoutes,
 	...LogarithmRoutes,

@@ -27,11 +27,11 @@ export default function BaseAlgorithm({title, type, Input, Theory, Example}) {
                 </Typography>
 
                 {Input && <Input updateArgs={setArgs}/>}
+                <Button disabled={!Input} variant={'contained'} onClick={getAnswerHandler} sx={{m: 1, width: '150px'}}>Решить!</Button>
+                <AnswerBlock answer={answer}/>
+
                 {Theory && <Theory/>}
                 {Example && <Example/>}
-
-                <Button variant={'contained'} onClick={getAnswerHandler} sx={{m: 1, width: '150px'}}>Решить!</Button>
-                <AnswerBlock answer={answer}/>
             </Box>
         </Box>
     )

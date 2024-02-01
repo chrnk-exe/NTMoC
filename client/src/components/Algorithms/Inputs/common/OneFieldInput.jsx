@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Box, TextField} from '@mui/material';
 
 
-export default function P1Pollard({updateArgs}) {
+export default function OneFieldInput({updateArgs}) {
     const [A, setA] = useState(4980);
 
     useEffect(() => {
