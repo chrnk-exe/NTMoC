@@ -1,7 +1,6 @@
 import {Box, Button, Typography} from "@mui/material";
 import AnswerBlock from "../common/AnswerBlock";
 import React, {Fragment, useEffect, useState} from "react";
-import {isResponse} from "../../typeguards";
 import {useBaseSolveMutation} from "../../store/services/api";
 import {useParams} from "react-router";
 import {Algorithms} from "../../Calculators";
@@ -28,7 +27,7 @@ export default function BaseAlgorithm() {
 
     const getAnswerHandler = async () => {
         const result = await getAnswer({type, args});
-        if (isResponse(result)) setAnswer(result.data);
+        setAnswer(result.data);
     };
 
     const CustomDivider = () => <Box py={2} width={1} height={1} borderTop={'2px dashed green'}/>
