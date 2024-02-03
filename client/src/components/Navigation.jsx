@@ -39,7 +39,7 @@ const Navigation = () => {
     return (
         <List sx={{pt: 0.7, pb: 3}} maxH>
             {
-                MenuList.map((list, index) =>
+                MenuList.map((list,index) =>
                     <React.Fragment key={index}>
                         <ListItemButton
                             onClick={() => handleClick(index)}

@@ -7,7 +7,7 @@ import {
 	TableCell,
 } from '@mui/material';
 
-const Matrix = ({ data }: { data: matrix }) => {
+const Matrix = ({ data }) => {
 	return (
 		<TableContainer sx={{ width: 'min-content' }} component={Paper}>
 			<Table>
