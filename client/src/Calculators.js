@@ -9,6 +9,12 @@ import LinearComparisonInput from "./components/Algorithms/Inputs/Сomparisons/L
 import OneFieldInput from "./components/Algorithms/Inputs/common/OneFieldInput";
 
 
+import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
+import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
+import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
+import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
+
+
 export const CalculatorRoutes = [
 	{
 		type: 'add_double', title: 'Сложение удвоение',
@@ -118,25 +124,29 @@ export const MenuList = [
 		title: 'Калькуляторы',
 		Routes: CalculatorRoutes,
 		About: 'Страничка о калькуляторах',
+		icon: CalculateOutlinedIcon
 	},
 	{
 		title: 'Методы Факторизации',
 		Routes: FactorizationRoutes,
 		About: 'Инфа о методах факторизации',
+		icon: AcUnitOutlinedIcon
 	},
 	{
 		title: 'Методы Дискретного логарифмирования',
 		Routes: LogarithmRoutes,
 		About: 'Инфа о методах Дискретного логарифмирования',
+		icon: DiamondOutlinedIcon
 	},
 	{
 		title: 'Решение сравнений',
 		Routes: ComparisonsRoutes,
 		About: 'Инфа о методах решения сравнения',
+		icon: BalanceOutlinedIcon
 	}
 ];
 
-export const AlgRoutes = [
+export const Algorithms = [
 	...CalculatorRoutes,
 	...FactorizationRoutes,
 	...LogarithmRoutes,

@@ -5,15 +5,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Navigation from './Navigation';
 import Button from '@mui/material/Button';
-import {AppBar, Drawer} from '@mui/material';
+import {AppBar} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import {Panel, PanelGroup, PanelResizeHandle} from "react-resizable-panels";
 
-const menuWidth = '27vw';
 
-export default function PrimarySearchAppBar({children}) {
+export default function Dashboard({children}) {
     const [open, setOpen] = useState(true);
     const drawerToggle = () => setOpen(prev => !prev);
+
+    const [hoverState, setHoverState] = useState(false);
 
     const navigate = useNavigate();
 
@@ -34,13 +35,14 @@ export default function PrimarySearchAppBar({children}) {
                             onClick={() => navigate('/')}
                         >
                             <Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
-                                <Typography noWrap textAlign={'center'}
-                                            sx={{
-                                                color: '#FFFFF1',
-                                                alignItems: 'center',
-                                                display: 'flex',
-                                                justifyContent: 'flex-start'
-                                            }}
+                                <Typography
+                                    noWrap textAlign={'center'}
+                                    sx={{
+                                        color: '#FFFFF1',
+                                        alignItems: 'center',
+                                        display: 'flex',
+                                        justifyContent: 'flex-start'
+                                    }}
                                 >
                                     Теоретико числовые методы криптографии
                                 </Typography>
@@ -50,48 +52,59 @@ export default function PrimarySearchAppBar({children}) {
                 </Toolbar>
             </AppBar>
 
-            <Box height={'calc(100vh - 64px)'} width={1} mt={8}>
+            <Box width={1} mt={8}>
                 <PanelGroup direction="horizontal">
-                    <Panel defaultSize={28} minSize={20} maxSize={50}>
+                    <Panel defaultSize={31} minSize={20} maxSize={50}>
                         <Box
                             variant="permanent" open={open}
                             anchor={'left'}
                             sx={{
-                                // height: '100vh',
                                 height: 'calc(100vh - 64px)',
-
                                 zIndex: 100,
                                 boxSizing: 'border-box',
-                                // width: 1,
-                                // minWidth: 365,
-                                overflowX: 'hidden',
+                                backgroundColor: hoverState ? '#43be6d' : '#f5f5f5',
+                                transition: 'all .2s linear',
+
                                 '&::-webkit-scrollbar-thumb': {
-                                    // bgColor: 'darkgrey',
-                                    borderRadius: '5px'
+                                    borderRadius: '5px',
+                                    backgroundColor: 'inherit',
                                 },
                                 '&::-webkit-scrollbar': {
                                     width: '5px',
-                                    paddingLeft: '2px'
-                                }
+                                    paddingLeft: '2px',
+                                    backgroundColor: hoverState ? 'white' : '#f5f5f5',
+                                },
+                                overflow: 'auto',
+
+                                ':hover': {
+                                    overflowY: 'auto',
+                                },
                             }}
                             onClose={drawerToggle}
                         >
-                            <Navigation/>
+                            <Box
+                                bgcolor={'white'}
+                                onMouseEnter={e => setHoverState(true)}
+                                onMouseLeave={e => setHoverState(false)}
+                                sx={{
+                                    minHeight: 'calc(100vh - 64px)',
+                                }}
+                            >
+                                <Navigation/>
+                            </Box>
                         </Box>
                     </Panel>
-                    <PanelResizeHandle/>
+                    <PanelResizeHandle hidden={hoverState}/>
 
                     <Panel minSize={20}>
                         <Box
                             component="main"
                             sx={{
-                                // ml: menuWidth,
                                 backgroundColor: theme =>
                                     theme.palette.mode === 'light'
                                         ? theme.palette.grey[100]
                                         : theme.palette.grey[900],
-                                flexGrow: 1,
-                                overflow: 'auto',
+                                overflowY: 'auto',
                                 height: 'calc(100vh - 64px)',
                             }}>
                             {children}
