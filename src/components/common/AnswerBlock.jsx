@@ -5,34 +5,35 @@ import AnswerItem from './AnswerItem';
 const AnswerBlock = ({answer}) => {
     const [showDetails, setShowDetails] = useState(true);
 
-    return (
-        <Box>
+    if (answer) return (
+        <Box width={1}>
             {
                 answer.length !== 0 &&
-                <Box m={0.5}>
+                <Box m={0.5} pb={2}>
                     <FormGroup>
                         <FormControlLabel
+                            label='Показать детали'
                             control={
                                 <Switch
                                     checked={showDetails}
                                     onChange={e => setShowDetails(e.target.checked)}
                                 />
                             }
-                            label='Показать детали'
                         />
                     </FormGroup>
                 </Box>
             }
 
-            <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}>
+            <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 {
                     answer.map((item, index) =>
-                        <AnswerItem key={index} {...item} showDetails={showDetails}/>
+                        <AnswerItem key={index} index={index} {...item} showDetails={showDetails}/>
                     )
                 }
             </Box>
         </Box>
-    );
+    )
+    else return <Box>Calculate...</Box>
 };
 
 export default AnswerBlock;

@@ -1,11 +1,8 @@
-import React, {type FC} from 'react';
+import React from 'react';
 import {Box, Typography} from '@mui/material';
 
-interface Props {
-	data: Array<string>
-}
 
-const System: FC<Props> = ({data}) => {
+const System = ({data}) => {
 	return (
 		<Box display={'flex'} flexDirection={'column'} alignItems={'center'} justifyContent={'center'}>
 			{

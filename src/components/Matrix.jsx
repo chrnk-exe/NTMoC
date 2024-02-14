@@ -19,8 +19,11 @@ const Matrix = ({ data }) => {
 									minWidth: 40,
 									padding: '5px',
 									borderRight: '1px solid lightgrey',
+									fontSize: 16
 								}}
-								key={index}>
+								key={index}
+								align={"center"}
+							>
 								{item}
 							</TableCell>
 						))}

@@ -4,15 +4,15 @@ import { Box, Typography } from '@mui/material';
 
 export default function ErrorPage() {
 	return (
-		<Box display={'flex'} justifyContent={'center'} alignItems={'center'} sx={{
-			width: 1,
-			height: 0.9
-		}}>
-			<Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} padding={20}>
+		<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+			<Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} px={20} pt={10}>
 				<Typography variant={'h2'} align={'center'}>
+					<span style={{fontWeight: 500, paddingRight: 20}}>
+						404.
+					</span>
 					Не лезь блять,
 				</Typography>
-				<Typography sx={{mt: 3}} variant={'body1'} align={'center'}>
+				<Typography sx={{my: 5}} variant={'body1'} align={'center'}>
 					дебил сука ебаный. Ты чё, хххуёл, я те сказали что ли? Залезь, наххуй, нака обратно, блядь! Дебил, блядь.
 					— Она тебя сожрёт, блядь. Нахуй ты б?..
 					— АААА!
@@ -41,7 +41,6 @@ export default function ErrorPage() {
 				{/*<Latex displayMode={true}>{String.raw`$$x_1,_2 = {-b \pm \sqrt{b^2-4ac} \over 2a}$$`}</Latex>*/}
 
 				<Box
-					mt={4}
 					component={'img'}
 					src={'https://www.ttelegraf.ru/wp-content/uploads/2022/08/medved-fotostok-e1660887476383.jpg'}
 					width={500}

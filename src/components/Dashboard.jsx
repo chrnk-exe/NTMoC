@@ -10,12 +10,13 @@ import FunctionsIcon from '@mui/icons-material/Functions';
 import {Panel, PanelGroup, PanelResizeHandle} from "react-resizable-panels";
 
 
+const AD = true;
+
 export default function Dashboard({children}) {
     const [open, setOpen] = useState(true);
     const drawerToggle = () => setOpen(prev => !prev);
 
     const [hoverState, setHoverState] = useState(false);
-
     const navigate = useNavigate();
 
     return (
@@ -54,7 +55,7 @@ export default function Dashboard({children}) {
 
             <Box width={1} mt={8}>
                 <PanelGroup direction="horizontal">
-                    <Panel defaultSize={31} minSize={20} maxSize={50}>
+                    <Panel defaultSize={28} minSize={20} maxSize={50}>
                         <Box
                             variant="permanent" open={open}
                             anchor={'left'}
@@ -96,7 +97,7 @@ export default function Dashboard({children}) {
                     </Panel>
                     <PanelResizeHandle hidden={hoverState}/>
 
-                    <Panel minSize={20}>
+                    <Panel minSize={20} height={'calc(100vh - 64px)'}>
                         <Box
                             component="main"
                             sx={{
@@ -106,13 +107,35 @@ export default function Dashboard({children}) {
                                         : theme.palette.grey[900],
                                 overflowY: 'auto',
                                 height: 'calc(100vh - 64px)',
-                            }}>
+                                maxHeight: 'calc(100vh - 64px)',
+                                '&::-webkit-scrollbar-thumb': {
+                                    borderRadius: '5px',
+                                },
+                                '&::-webkit-scrollbar': {
+                                    width: '5px',
+                                    paddingLeft: '2px',
+                                },
+                            }}
+                        >
                             {children}
                         </Box>
                     </Panel>
+                    {
+                        AD &&
+                        <Panel defaultSize={10.5}>
+                            <Box pl={1} ml={2}>
+                                {
+                                    [...Array(40)].map(x =>
+                                        <Box fontSize={16} fontWeight={600} color={'gray'}>
+                                            Реклама &nbsp;&nbsp;&nbsp;Реклама
+                                        </Box>
+                                    )
+                                }
+                            </Box>
+                        </Panel>
+                    }
                 </PanelGroup>
             </Box>
-
         </Box>
     );
 }
