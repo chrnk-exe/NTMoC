@@ -18,7 +18,10 @@ const AnswerItem = ({data, label, type, showDetails, index}) => {
                     {index}
                 </Box>
             </Box>
-            <Box border={'1px dashed green'} borderRadius={5} width={1} py={1.5} px={3}>
+            <Box
+                border={'1px dashed green'} borderRadius={5} width={1} py={1.5} px={3}
+                overflow={'auto'}
+            >
                 <Collapse in={showDetails}>
                     <Box py={'5px'} pb={1.5} fontSize={17}>{label}</Box>
                 </Collapse>

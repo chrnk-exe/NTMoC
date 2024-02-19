@@ -14,8 +14,7 @@ const KaratsubaExample = () => {
     return (
         <Box
             display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}
-            sx={{width: 1}}
-            fontSize={17} gap={0.5}
+            sx={{width: 1}} fontSize={17} gap={0.5}
         >
             <Typography fontSize={'large'}>
                 Пример:
@@ -64,14 +63,24 @@ const KaratsubaExample = () => {
 
             <Table sx={{bgcolor: '#FFFFF1', my: 2}}>
                 <TableBody>
-                    <TableRow>{
-                        TableHeaderItems.map((item, index) => <TableCell sx={{fontSize: 16}}
-                                                                         key={index}>{item}</TableCell>)
-                    }</TableRow>
-                    <TableRow>{
-                        TableDataItems.map((item, index) => <TableCell sx={{fontSize: 16}}
-                                                                       key={index}>{item}</TableCell>)
-                    }</TableRow>
+                    <TableRow>
+                        {
+                            TableHeaderItems.map((item, index) =>
+                                <TableCell sx={{fontSize: 16}} key={index}>
+                                    {item}
+                                </TableCell>
+                            )
+                        }
+                    </TableRow>
+                    <TableRow>
+                        {
+                            TableDataItems.map((item, index) =>
+                                <TableCell sx={{fontSize: 16}} key={index}>
+                                    {item}
+                                </TableCell>
+                            )
+                        }
+                    </TableRow>
                 </TableBody>
             </Table>
             <Box sx={{alignSelf: 'center', my: 1}}>

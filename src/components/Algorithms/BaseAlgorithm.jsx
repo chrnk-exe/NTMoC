@@ -34,7 +34,7 @@ export default function BaseAlgorithm() {
 
     return algorithm ? (
         <Box display={'flex'} justifyContent={'center'} alignItems={'center'} pt="10px">
-            <Box width={8.5/10} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+            <Box width={9/10} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 <CustomDivider/>
                 <Typography fontSize={20} sx={{mb: 2}}>
                     {algorithm.title}
