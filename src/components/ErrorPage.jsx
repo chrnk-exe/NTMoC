@@ -42,7 +42,7 @@ export default function ErrorPage() {
 
 				<Box
 					component={'img'}
-					src={'https://www.ttelegraf.ru/wp-content/uploads/2022/08/medved-fotostok-e1660887476383.jpg'}
+					src={'bear.jpg'}
 					width={500}
 					height={"auto"}
 				>

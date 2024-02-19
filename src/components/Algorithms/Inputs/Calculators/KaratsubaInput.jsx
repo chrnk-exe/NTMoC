@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Box, TextField, Typography} from '@mui/material';
 
 export default function KaratsubaInput({updateArgs}) {
-    const [A, setA] = useState(4980);
-    const [B, setB] = useState(816);
+    const [A, setA] = useState(1);
+    const [B, setB] = useState(2);
 
     useEffect(() => {
         updateArgs([A, B])
@@ -16,7 +16,7 @@ export default function KaratsubaInput({updateArgs}) {
     };
 
     return (
-        <Box>
+        <Box display={"flex"}>
             <TextField
                 type={'number'}
                 variant={'standard'}

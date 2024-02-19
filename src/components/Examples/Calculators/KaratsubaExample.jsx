@@ -62,7 +62,7 @@ const KaratsubaExample = () => {
                 Для удобства вычислений стоит построить небольшую табличку
             </Typography>
 
-            <Table sx={{bgcolor: '#FFFFF1'}}>
+            <Table sx={{bgcolor: '#FFFFF1', my: 2}}>
                 <TableBody>
                     <TableRow>{
                         TableHeaderItems.map((item, index) => <TableCell sx={{fontSize: 16}}

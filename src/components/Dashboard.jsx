@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import {AppBar} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import {Panel, PanelGroup, PanelResizeHandle} from "react-resizable-panels";
+import Advertising from "../Advertising";
 
 
 const AD = true;
@@ -123,15 +124,7 @@ export default function Dashboard({children}) {
                     {
                         AD &&
                         <Panel defaultSize={10.5}>
-                            <Box pl={1} ml={2}>
-                                {
-                                    [...Array(40)].map(x =>
-                                        <Box fontSize={16} fontWeight={600} color={'gray'}>
-                                            Реклама &nbsp;&nbsp;&nbsp;Реклама
-                                        </Box>
-                                    )
-                                }
-                            </Box>
+                            <Advertising/>
                         </Panel>
                     }
                 </PanelGroup>

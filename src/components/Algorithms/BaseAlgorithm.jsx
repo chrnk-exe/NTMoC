@@ -36,13 +36,17 @@ export default function BaseAlgorithm() {
         <Box display={'flex'} justifyContent={'center'} alignItems={'center'} pt="10px">
             <Box width={8.5/10} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 <CustomDivider/>
-                <Typography fontSize={20} sx={{m: 1}}>
+                <Typography fontSize={20} sx={{mb: 2}}>
                     {algorithm.title}
                 </Typography>
 
                 {algorithm.Input && <algorithm.Input updateArgs={setArgs}/>}
-                <Button disabled={!algorithm.Input} variant={'contained'} onClick={getAnswerHandler} sx={{m: 1, width: '150px'}}>
-                    Решить!
+
+                <Button
+                    disabled={!algorithm.Input} variant={'contained'} onClick={getAnswerHandler}
+                    sx={{mt: 3, width: '150px'}}
+                >
+                    Решить
                 </Button>
 
                 {
