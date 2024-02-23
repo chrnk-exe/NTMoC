@@ -1,12 +1,12 @@
-import AddDoubleInput from "./components/Algorithms/Inputs/Calculators/AddDoubleInput";
-import FastPowInput from "./components/Algorithms/Inputs/Calculators/FastPowInput";
-import KaratsubaInput from "./components/Algorithms/Inputs/Calculators/KaratsubaInput";
-import KaratsubaExample from "./components/Examples/Calculators/KaratsubaExample";
-import BinGcdInput from "./components/Algorithms/Inputs/Calculators/BinGcdInput";
-import ExtBinGcdInput from "./components/Algorithms/Inputs/Calculators/ExtBinGcdInput";
-import GelfondShanksInput from "./components/Algorithms/Inputs/DiscreteLogarithms/GelfondShanksInput";
-import LinearComparisonInput from "./components/Algorithms/Inputs/Сomparisons/LinearComparisonInput";
-import OneFieldInput from "./components/Algorithms/Inputs/common/OneFieldInput";
+import AddDoubleInput from "./components/algorithms/Inputs/Calculators/AddDoubleInput";
+import FastPowInput from "./components/algorithms/Inputs/Calculators/FastPowInput";
+import KaratsubaInput from "./components/algorithms/Inputs/Calculators/KaratsubaInput";
+import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
+import BinGcdInput from "./components/algorithms/Inputs/Calculators/BinGcdInput";
+import ExtBinGcdInput from "./components/algorithms/Inputs/Calculators/ExtBinGcdInput";
+import GelfondShanksInput from "./components/algorithms/Inputs/DiscreteLogarithms/GelfondShanksInput";
+import LinearComparisonInput from "./components/algorithms/Inputs/Сomparisons/LinearComparisonInput";
+import OneFieldInput from "./components/algorithms/Inputs/common/OneFieldInput";
 
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';

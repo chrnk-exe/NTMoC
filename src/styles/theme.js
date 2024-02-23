@@ -5,6 +5,9 @@ export default responsiveFontSizes(
 		palette: {
 			primary: {
 				main: '#339353',
+			},
+			secondary: {
+				main: '#fff'
 			}
 		},
 	}),

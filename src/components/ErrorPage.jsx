@@ -5,14 +5,26 @@ import { Box, Typography } from '@mui/material';
 export default function ErrorPage() {
 	return (
 		<Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
-			<Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} px={20} pt={10}>
+			<Box
+				display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'} px={20} pt={10}
+			>
+				<Box
+					top={10}
+					component={'img'}
+					position={"absolute"}
+					src={'bear.jpg'}
+					height={'100vh'}
+					sx={{opacity: 0.2}}
+					zIndex={0}
+				/>
+
 				<Typography variant={'h2'} align={'center'}>
-					<span style={{fontWeight: 500, paddingRight: 20}}>
+					<span style={{fontWeight: 300, paddingRight: 20}}>
 						404.
 					</span>
 					Не лезь блять,
 				</Typography>
-				<Typography sx={{my: 5}} variant={'body1'} align={'center'}>
+				<Typography sx={{my: 6}} variant={'body1'} align={'center'}>
 					дебил сука ебаный. Ты чё, хххуёл, я те сказали что ли? Залезь, наххуй, нака обратно, блядь! Дебил, блядь.
 					— Она тебя сожрёт, блядь. Нахуй ты б?..
 					— АААА!
@@ -40,13 +52,6 @@ export default function ErrorPage() {
 				{/*<Latex>{'$$ 1\\ watt = 1\\ W = {1\\ joule \\over 1\\ second} = J/s = 1\\ J s^{-1} $$'}</Latex>*/}
 				{/*<Latex displayMode={true}>{String.raw`$$x_1,_2 = {-b \pm \sqrt{b^2-4ac} \over 2a}$$`}</Latex>*/}
 
-				<Box
-					component={'img'}
-					src={'bear.jpg'}
-					width={500}
-					height={"auto"}
-				>
-				</Box>
 			</Box>
 		</Box>
 	);

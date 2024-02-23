@@ -8,7 +8,8 @@ import Button from '@mui/material/Button';
 import {AppBar} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import {Panel, PanelGroup, PanelResizeHandle} from "react-resizable-panels";
-import Advertising from "../Advertising";
+import Advertising from "./Advertising";
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 
 
 const AD = true;
@@ -21,34 +22,20 @@ export default function Dashboard({children}) {
     const navigate = useNavigate();
 
     return (
-        <Box display={'flex'} flexGrow={1}>
+        <Box display={'flex'} >
             <AppBar component="nav" sx={{bgcolor: '#339353'}}>
                 <Toolbar>
-                    <Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
-                        <FunctionsIcon fontSize={'large'}/>
-                        <Button
-                            sx={{
-                                color: '#FFFFF1',
-                                alignItems: 'center',
-                                display: 'flex',
-                                justifyContent: 'flex-start',
-                                p: 0
-                            }}
-                            onClick={() => navigate('/')}
-                        >
-                            <Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
-                                <Typography
-                                    noWrap textAlign={'center'}
-                                    sx={{
-                                        color: '#FFFFF1',
-                                        alignItems: 'center',
-                                        display: 'flex',
-                                        justifyContent: 'flex-start'
-                                    }}
-                                >
+                    <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={1} mx={1}>
+                        <Box display={'flex'} alignItems={'center'}>
+                            <FunctionsIcon fontSize={'large'}/>
+                            <Button onClick={() => navigate('/')}>
+                                <Typography color={'#FFFFF1'} noWrap>
                                     Теоретико числовые методы криптографии
                                 </Typography>
-                            </Box>
+                            </Button>
+                        </Box>
+                        <Button onClick={() => navigate('/discussion')}>
+                            <ChatOutlinedIcon color={"secondary"} fontSize={'large'}/>
                         </Button>
                     </Box>
                 </Toolbar>
@@ -56,7 +43,7 @@ export default function Dashboard({children}) {
 
             <Box width={1} mt={8}>
                 <PanelGroup direction="horizontal">
-                    <Panel defaultSize={28} minSize={20} maxSize={50}>
+                    <Panel defaultSize={28} minSize={20} maxSize={50} style={{zIndex: 3}}>
                         <Box
                             variant="permanent" open={open}
                             anchor={'left'}
@@ -123,7 +110,7 @@ export default function Dashboard({children}) {
                     </Panel>
                     {
                         AD &&
-                        <Panel defaultSize={10.5}>
+                        <Panel defaultSize={10.5} style={{zIndex: 3}}>
                             <Advertising/>
                         </Panel>
                     }

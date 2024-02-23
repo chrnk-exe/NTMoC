@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, Collapse} from '@mui/material';
-import Matrix from '../Matrix';
-import System from '../System';
+import Matrix from '../steps/Matrix';
+import System from '../steps/System';
 import Latex from 'react-latex';
 
 

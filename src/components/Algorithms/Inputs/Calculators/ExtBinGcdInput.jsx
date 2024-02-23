@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import { Box, TextField } from '@mui/material';
+import {Box, Stack, TextField, Typography} from '@mui/material';
+import {CustomTextField} from "../common/CustomTextField";
 
 
 export default function ExtBinGcdInput({updateArgs}) {
@@ -11,21 +12,27 @@ export default function ExtBinGcdInput({updateArgs}) {
 	}, [A, B]);
 
 	return (
-		<Box>
-			<TextField
-				sx={{ bgcolor: '#FFFFF1' }}
-				type="number"
-				label="A"
-				value={A}
-				onChange={e => setA(+e.target.value)}
-			/>
-			<TextField
-				sx={{ bgcolor: '#FFFFF1' }}
-				label="B"
-				type="number"
-				value={B}
-				onChange={e => setB(+e.target.value)}
-			/>
-		</Box>
+		<Stack direction={"row"} alignItems={"center"} spacing={0.5}>
+			{/*<Typography fontStyle={'italic'} fontSize={'1em'} color={'gray'} >*/}
+			{/*	<Latex style={{color: 'gray'}} >*/}
+			{/*		$$D$$*/}
+			{/*	</Latex>*/}
+			{/*</Typography>*/}
+			<Typography fontFamily={'Times New Roman'} fontStyle={'italic'} fontSize={'1em'} pr={0.8}>
+				D
+			</Typography>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{'('}
+			</Typography>
+			<CustomTextField value={A} setValue={setA}/>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.7}>
+				{','}
+			</Typography>
+
+			<CustomTextField value={B} setValue={setB}/>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{')'}
+			</Typography>
+		</Stack>
 	);
 }
