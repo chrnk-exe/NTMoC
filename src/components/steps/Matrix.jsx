@@ -2,7 +2,6 @@ import React from 'react';
 import {
     Table,
     TableContainer,
-    Paper,
     TableRow,
     TableCell,
 } from '@mui/material';
@@ -10,11 +9,17 @@ import {
 const Matrix = ({data}) => {
     return (
         <TableContainer
-            // sx={{width: 'min-content'}}
-            // component={Paper}
             sx={{
-                py: 1
+                '&::-webkit-scrollbar-thumb': {
+                    borderRadius: '2px',
+                },
+                '&::-webkit-scrollbar': {
+                    width: '5px',
+                    height: '5px',
+                },
+                // pb: 1
             }}
+
         >
             <Table>
                 {
@@ -22,8 +27,8 @@ const Matrix = ({data}) => {
                         <TableRow
                             key={index}
                             sx={{
-                                "&:last-child th, &:last-child td": {
-                                    borderBottom: 0, borderRight: 0
+                                "&:last-child td": {
+                                    borderBottom: 0,
                                 },
                                 // '.MuiTableCell-root': {
                                 //     "&:last-child th, &:last-child td": {
@@ -31,7 +36,6 @@ const Matrix = ({data}) => {
                                 //     },
                                 //
                                 // }
-
                             }}
                         >
                             {
@@ -39,7 +43,7 @@ const Matrix = ({data}) => {
                                     <TableCell
                                         sx={{
                                             minWidth: 40, p: 1,
-                                            borderRight: '1px solid lightgrey',
+                                            borderRight: index === row.length - 1 ? '' : '1px solid lightgrey',
                                             fontSize: 16,
                                         }}
                                         key={index} align={"center"}

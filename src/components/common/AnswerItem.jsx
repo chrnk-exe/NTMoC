@@ -19,18 +19,26 @@ const AnswerItem = ({data, label, type, showDetails, index}) => {
                 </Box>
             </Box>
             <Box
-                border={'1px dashed green'} borderRadius={5} width={1} py={1.5} px={3}
+                border={'1px dashed green'} borderRadius={5} width={1} py={1.5} px={1}
                 overflow={'auto'}
             >
                 <Collapse in={showDetails}>
-                    <Box py={'5px'} pb={1.5} fontSize={17}>{label}</Box>
+                    <Box py={'5px'} px={2} pb={1.5} fontSize={16} color={'#555'}>{label}</Box>
                 </Collapse>
                 {
-                    type === 'string' ? <Latex>{`$$${data}$$`}</Latex> :
+                    type === 'string' ? (
+                            <Box px={2}>
+                                <Latex>{`$$${data}$$`}</Latex>
+                            </Box>
+                        ) :
                         type === 'matrix' ? <Matrix data={data}/> :
-                            type === 'array' ? <Box>{data.join(' ')}</Box> :
+                            type === 'array' ? <Box px={3}>{data.join(' ')}</Box> :
                                 type === 'system' ? <System data={data}/> :
-                                    type === 'latex' ? <Latex>{data}</Latex> : null
+                                    type === 'latex' ? (
+                                        <Box px={2}>
+                                            <Latex>{data}</Latex>
+                                        </Box>
+                                    ) : null
                 }
             </Box>
         </Box>

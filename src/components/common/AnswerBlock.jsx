@@ -3,7 +3,7 @@ import {Box, Switch, FormGroup, FormControlLabel} from '@mui/material';
 import AnswerItem from './AnswerItem';
 
 const AnswerBlock = ({answer}) => {
-    const [showDetails, setShowDetails] = useState(true);
+    const [showDetails, setShowDetails] = useState(false);
 
     if (answer) return (
         <Box width={1}>
