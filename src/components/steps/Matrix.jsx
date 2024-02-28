@@ -5,6 +5,7 @@ import {
     TableRow,
     TableCell,
 } from '@mui/material';
+import Latex from "react-latex";
 
 const Matrix = ({data}) => {
     return (
@@ -48,7 +49,9 @@ const Matrix = ({data}) => {
                                         }}
                                         key={index} align={"center"}
                                     >
-                                        {item}
+                                        <Latex>
+                                            {`$$${item}$$`}
+                                        </Latex>
                                     </TableCell>
                                 )
                             }

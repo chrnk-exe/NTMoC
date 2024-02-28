@@ -92,3 +92,6 @@ input[type=number] {
 ::-webkit-scrollbar-thumb:hover {
   background: #12C44E;
 }
+
+.label > span > span > span.katex { font-size: 1.1em !important; }
+.katex { font-size: 1.16em !important; }

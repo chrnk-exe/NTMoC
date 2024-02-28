@@ -4,7 +4,7 @@ import AnswerItem from './AnswerItem';
 
 
 const AnswerBlock = ({answer}) => {
-    const [showDetails, setShowDetails] = useState(false);
+    const [showDetails, setShowDetails] = useState(true);
 
     return answer && (
         <Box width={1}>

@@ -3,9 +3,9 @@ import {Box, TextField, Button, Typography, Stack} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
 
 export default function FastPowInput({updateArgs}) {
-    const [A, setA] = useState(4980);
-    const [B, setB] = useState(816);
-    const [m, setM] = useState(816);
+    const [A, setA] = useState(123);
+    const [B, setB] = useState(12);
+    const [m, setM] = useState(213);
 
     useEffect(() => {
         updateArgs([A, B, m])
