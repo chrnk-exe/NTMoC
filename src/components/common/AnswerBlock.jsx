@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import {Box, Switch, FormGroup, FormControlLabel} from '@mui/material';
 import AnswerItem from './AnswerItem';
 
+
 const AnswerBlock = ({answer}) => {
     const [showDetails, setShowDetails] = useState(false);
 
-    if (answer) return (
+    return answer && (
         <Box width={1}>
             {
                 answer.length !== 0 &&
@@ -33,7 +34,6 @@ const AnswerBlock = ({answer}) => {
             </Box>
         </Box>
     )
-    else return <Box>Calculate...</Box>
 };
 
 export default AnswerBlock;

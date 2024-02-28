@@ -34,8 +34,12 @@ export default function Dashboard({children}) {
                                 </Typography>
                             </Button>
                         </Box>
-                        <Button onClick={() => navigate('/discussion')}>
+                        <Button onClick={() => navigate('/discussion')} sx={{color: 'white'}}>
                             <ChatOutlinedIcon color={"secondary"} fontSize={'large'}/>
+                            <Box pl={1}>
+                                Обсуждения
+                            </Box>
+
                         </Button>
                     </Box>
                 </Toolbar>
@@ -59,7 +63,6 @@ export default function Dashboard({children}) {
                                     backgroundColor: 'inherit',
                                 },
                                 '&::-webkit-scrollbar': {
-                                    width: '5px',
                                     paddingLeft: '2px',
                                     backgroundColor: hoverState ? 'white' : '#f5f5f5',
                                 },
