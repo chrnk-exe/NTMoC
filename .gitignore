@@ -2,6 +2,8 @@ node_modules/
 
 .idea
 
+build/
+
 .env
 venv/
 .eslintrc

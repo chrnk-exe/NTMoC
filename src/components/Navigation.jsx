@@ -49,7 +49,7 @@ const Navigation = () => {
                         >
                             <Box display={'flex'} gap={2.5} alignItems={'center'}>
                                 <list.icon fontSize={'large'} color={'success'}/>
-                                <Typography maxWidth={'21vw'} fontSize={'1.2em'}>
+                                <Typography maxWidth={'21vw'} fontSize={18}>
                                     {list.title}
                                 </Typography>
                             </Box>
@@ -82,7 +82,7 @@ const Navigation = () => {
                                                         display={"flex"} justifyContent={"flex-start"} alignItems={"center"}
                                                         direction={'row'} width={68} spacing={0.25}
                                                     >
-                                                        <Tooltip title={`Calc: ${alg.Input ? 'Есть' : 'Нет'}`}>
+                                                        <Tooltip title={`input: ${alg.Input ? 'Есть' : 'Нет'}`}>
                                                             <FunctionsIcon sx={{
                                                                 color: alg.Input ? '#3f51b5' : '#999',
                                                                 transform: 'scale(0.9)'
@@ -106,7 +106,8 @@ const Navigation = () => {
 
                                                     <Typography
                                                         // maxWidth={'20vw'}
-                                                        fontSize={18}
+                                                        fontSize={17}
+                                                        sx={{pr: 3}}
                                                     >
                                                         {alg.title}
                                                     </Typography>

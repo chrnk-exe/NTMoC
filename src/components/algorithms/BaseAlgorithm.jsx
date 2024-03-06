@@ -58,7 +58,7 @@ export default function BaseAlgorithm() {
 
                 <Button
                     disabled={!algorithm.Input || loading} variant={'outlined'} onClick={getAnswerHandler}
-                    sx={{mt: 3, width: '150px'}}
+                    sx={{my: 3, width: '150px'}}
                 >
                     Решить
                 </Button>
@@ -79,7 +79,9 @@ export default function BaseAlgorithm() {
                     )
                 }
                 {
-                    errorData
+                    <Box mb={3}>
+                        {errorData}
+                    </Box>
                 }
 
                 {
@@ -90,14 +92,14 @@ export default function BaseAlgorithm() {
                         </Fragment>
                     )
                 }
-                {/*{*/}
-                {/*    algorithm.Example && (*/}
-                {/*        <Fragment>*/}
-                {/*            <algorithm.Example/>*/}
-                {/*            <CustomDivider/>*/}
-                {/*        </Fragment>*/}
-                {/*    )*/}
-                {/*}*/}
+                {
+                    algorithm.Example && (
+                        <Fragment>
+                            <algorithm.Example/>
+                            <CustomDivider/>
+                        </Fragment>
+                    )
+                }
             </Box>
         </Box>
     ) : algorithm === undefined ? (

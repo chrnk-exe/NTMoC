@@ -1,34 +1,42 @@
 import React, {useState} from 'react';
-import {Box, Switch, FormGroup, FormControlLabel} from '@mui/material';
+import {Box, Switch, FormGroup, FormControlLabel, Typography} from '@mui/material';
 import AnswerItem from './AnswerItem';
-
+import Button from "@mui/material/Button";
+import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 
 const AnswerBlock = ({answer}) => {
     const [showDetails, setShowDetails] = useState(true);
 
-    return answer && (
+    return answer && answer.length > 0 && (
         <Box width={1}>
-            {
-                answer.length !== 0 &&
-                <Box m={0.5} pb={2}>
-                    <FormGroup>
-                        <FormControlLabel
-                            label='Показать детали'
-                            control={
-                                <Switch
-                                    checked={showDetails}
-                                    onChange={e => setShowDetails(e.target.checked)}
-                                />
-                            }
-                        />
-                    </FormGroup>
-                </Box>
-            }
-
             <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+                <AnswerItem {...answer[0]} index={<Box fontSize={14}>Ответ</Box>}/>
                 {
-                    answer.map((item, index) =>
-                        <AnswerItem key={index} index={index} {...item} showDetails={showDetails}/>
+                    answer.length > 1 &&
+                    <Box my={0.5} mt={1.5} display={"flex"} justifyContent={"center"} alignItems={"center"} width={1}>
+                        {
+                            showDetails ? (
+                                <Button
+                                    startIcon={<ArrowUpwardOutlinedIcon/>}
+                                    onClick={e => setShowDetails(false)}
+                                >
+                                    Скрыть пошаговое решение
+                                </Button>
+                            ) : (
+                                <Button
+                                    startIcon={<ArrowDownwardOutlinedIcon/>}
+                                    onClick={e => setShowDetails(true)}
+                                >
+                                    Показать пошаговое решение
+                                </Button>
+                            )
+                        }
+                    </Box>
+                }
+                {
+                    showDetails && answer.slice(1).map((item, index) =>
+                        <AnswerItem key={index} index={index + 1} {...item} />
                     )
                 }
             </Box>

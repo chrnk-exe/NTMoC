@@ -47,7 +47,7 @@ export default function Dashboard({children}) {
 
             <Box width={1} mt={8}>
                 <PanelGroup direction="horizontal">
-                    <Panel defaultSize={28} minSize={20} maxSize={50} style={{zIndex: 3}}>
+                    <Panel defaultSize={29} minSize={20} maxSize={50} style={{zIndex: 3}}>
                         <Box
                             variant="permanent" open={open}
                             anchor={'left'}

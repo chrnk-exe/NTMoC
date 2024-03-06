@@ -13,6 +13,7 @@ import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
+import ChineseCodeToInt from "./components/algorithms/Inputs/Calculators/ChineseCodeToInt";
 
 
 export const CalculatorRoutes = [
@@ -37,11 +38,15 @@ export const CalculatorRoutes = [
 		Input: ExtBinGcdInput, Theory: null, Example: null
 	},
 	{
-		type: 'to_cc', title: 'Перевод в китайский код',
-		Input: OneFieldInput, Theory: null, Example: null
+		type: 'cc_to_int', title: 'Перевод китайского кода в число (Китайская теорема об остатках)',
+		Input: ChineseCodeToInt, Theory: null, Example: null
 	},
 	{
-		type: 'from_cc_to_polycode', title: 'Перевод из CC в полиадический код',
+		type: 'int_to_cc', title: 'Перевод числа в китайский код',
+		Input: null, Theory: null, Example: null
+	},
+	{
+		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
 		Input: null, Theory: null, Example: null
 	}
 ];
@@ -127,13 +132,13 @@ export const MenuList = [
 		icon: CalculateOutlinedIcon
 	},
 	{
-		title: 'Методы Факторизации',
+		title: 'Методы факторизации',
 		Routes: FactorizationRoutes,
 		About: 'Инфа о методах факторизации',
 		icon: AcUnitOutlinedIcon
 	},
 	{
-		title: 'Методы Дискретного логарифмирования',
+		title: 'Методы дискретного логарифмирования',
 		Routes: LogarithmRoutes,
 		About: 'Инфа о методах Дискретного логарифмирования',
 		icon: DiamondOutlinedIcon

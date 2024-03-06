@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Box, TextField, Button, Typography, Stack} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
+import Latex from "react-latex";
 
 export default function FastPowInput({updateArgs}) {
     const [A, setA] = useState(123);
@@ -27,7 +28,9 @@ export default function FastPowInput({updateArgs}) {
                     {'('}
                 </Typography>
                 <Typography fontSize={'0.95em'} fontStyle={'italic'} pl={0.2} pr={0.4} color={'gray'}>
-                    {'mod '}
+                    <Latex>
+                        {'$mod $'}
+                    </Latex>
                 </Typography>
                 <CustomTextField value={m} setValue={setM}/>
                 <Typography fontSize={'1em'} color={'gray'} pl={0.2}>

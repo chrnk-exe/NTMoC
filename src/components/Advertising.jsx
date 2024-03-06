@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import React from "react";
+import React, {useState} from "react";
 import {Stack} from "@mui/material";
 
 export default function Advertising() {
@@ -16,8 +16,10 @@ export default function Advertising() {
         return output
     }
 
+    const [ads, setAds] = useState(get_random_choices(12, 3));
+
     return (
-        <Box pt={2} bgcolor={'white'} height={1}>
+        <Box pt={2} pr={0.5} bgcolor={'white'} height={1}>
             {/*<Box pl={1} ml={2}>*/}
             {/*    {*/}
             {/*        [...Array(40)].map(x =>*/}
@@ -28,13 +30,13 @@ export default function Advertising() {
             {/*    }*/}
             {/*</Box>*/}
             <Stack spacing={2} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
-                {get_random_choices(12, 3).map(
+                {ads.map(
                     (file, index) =>
                         <Box
                             key={index}
                             component={'img'}
                             src={`ads/${file}.png`}
-                            width={180}
+                            width={160}
                             height={"auto"}
                         />
                 )}

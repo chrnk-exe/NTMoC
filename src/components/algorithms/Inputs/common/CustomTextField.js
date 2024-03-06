@@ -27,7 +27,9 @@ export const CustomTextField = ({value, setValue, fontSize, dopRange=1, size=1})
                 width: inputWidth(),
                 '& .MuiInput-input': {
                     py: 0.35
-                }
+                },
+                '& .MuiInput-underline:before': { borderBottomColor: 'primary.main', borderWidth: '1px' },
+                '& .MuiInput-underline:after': { borderBottomColor: 'primary.main' },
             }}
         />
     )

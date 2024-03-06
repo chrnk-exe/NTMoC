@@ -5,8 +5,8 @@ import Latex from "react-latex";
 
 
 export default function BinGcdInput({updateArgs}) {
-	const [A, setA] = useState(4980);
-	const [B, setB] = useState(816);
+	const [A, setA] = useState(980);
+	const [B, setB] = useState(84);
 
 	useEffect(() => {
 		updateArgs([A, B])
