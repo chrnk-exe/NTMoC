@@ -103,9 +103,8 @@ export default function Dashboard({children}) {
                     </Panel>
                     <PanelResizeHandle hidden={hoverState}/>
 
-                    <Panel minSize={20} height={'calc(100vh - 64px)'}>
-                        <Box display={"flex"}>
-
+                    <Panel minSize={20} >
+                        <Box display={"flex"} height={'calc(100vh - 64px)'}>
                             <Box
                                 component="main"
                                 width={1}
