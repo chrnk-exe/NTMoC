@@ -18,11 +18,11 @@ import ChineseCodeToInt from "./components/algorithms/Inputs/Calculators/Chinese
 
 export const CalculatorRoutes = [
 	{
-		type: 'add_double', title: 'Сложение удвоение',
+		type: 'add_double', title: 'Произведение чисел по модулю',
 		Input: AddDoubleInput, Theory: null, Example: null
 	},
 	{
-		type: 'fast_pow', title: 'Быстрое возведение степени',
+		type: 'fast_pow', title: 'Возведение в степень по модулю',
 		Input: FastPowInput, Theory: null, Example: null
 	},
 	{

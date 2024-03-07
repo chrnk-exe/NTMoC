@@ -82,7 +82,7 @@ const Navigation = () => {
                                                         display={"flex"} justifyContent={"flex-start"} alignItems={"center"}
                                                         direction={'row'} width={68} spacing={0.25}
                                                     >
-                                                        <Tooltip title={`input: ${alg.Input ? 'Есть' : 'Нет'}`}>
+                                                        <Tooltip title={`Ввод: ${alg.Input ? 'Есть' : 'Нет'}`}>
                                                             <FunctionsIcon sx={{
                                                                 color: alg.Input ? '#3f51b5' : '#999',
                                                                 transform: 'scale(0.9)'

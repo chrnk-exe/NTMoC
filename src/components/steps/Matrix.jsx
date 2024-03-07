@@ -9,19 +9,7 @@ import Latex from "react-latex";
 
 const Matrix = ({data}) => {
     return (
-        <TableContainer
-            sx={{
-                '&::-webkit-scrollbar-thumb': {
-                    borderRadius: '2px',
-                },
-                '&::-webkit-scrollbar': {
-                    width: '5px',
-                    height: '5px',
-                },
-                // pb: 1
-            }}
-
-        >
+        <TableContainer>
             <Table>
                 {
                     data.map((row, index) =>

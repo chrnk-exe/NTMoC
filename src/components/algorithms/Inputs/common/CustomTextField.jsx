@@ -2,7 +2,7 @@ import {TextField} from "@mui/material";
 import React from "react";
 
 
-export const CustomTextField = ({value, setValue, fontSize, dopRange=1, size=1}) => {
+export const CustomTextField = ({value, setValue, fontSize, size=1}) => {
     const inputHandler = (e, setFunction) => {
         let {value} = e.target;
         value = (+value).toString().slice(0, 5);

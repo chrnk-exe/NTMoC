@@ -7,8 +7,6 @@ import Button from "@mui/material/Button";
 
 
 const AnswerItem = ({data, label, type, showDetails, index, answer}) => {
-    console.log(data, type);
-
     const color = '#00ab32'
     return (
         <Box

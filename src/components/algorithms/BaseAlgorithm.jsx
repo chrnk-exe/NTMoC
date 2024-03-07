@@ -5,6 +5,7 @@ import {useBaseSolveMutation} from "../../store/services/api";
 import {useParams} from "react-router";
 import {Algorithms} from "../../Calculators";
 import ErrorPage from "../ErrorPage";
+import {useSearchParams} from "react-router-dom";
 
 export default function BaseAlgorithm() {
     const [args, setArgs] = useState([]);
@@ -13,9 +14,20 @@ export default function BaseAlgorithm() {
     const [algorithm, setAlgorithm] = useState(null);
     const [errorData, setErrorData] = useState(null);
 
+    const [buttonDisable, setButtonDisable] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const {type} = useParams();
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        const query_args = searchParams.get('args')
+        if (type && query_args) {
+            setArgs(query_args);
+            getAnswerHandler(type, query_args);
+        }
+    }, [searchParams, type]);
 
     useEffect(() => {
         if (type) {
@@ -26,12 +38,12 @@ export default function BaseAlgorithm() {
         setErrorData(null);
     }, [type]);
 
-    const getAnswerHandler = async () => {
+    const getAnswerHandler = async (type_value, args_value) => {
         setErrorData(null);
         setAnswer([]);
         setLoading(true);
 
-        const result = await getAnswer({type, args});
+        const result = await getAnswer({type: type_value, args: args_value});
         setLoading(false);
 
         if ('data' in result) {
@@ -40,6 +52,17 @@ export default function BaseAlgorithm() {
             setErrorData(result.error.data);
         }
     };
+
+    function uuidv4() {
+        return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+        );
+    }
+
+    const saveToStorage = (type, args) => {
+        sessionStorage.setItem(sessionStorage.length, JSON.stringify({type, args}))
+        window.dispatchEvent(new Event('storage'))
+    }
 
     const CustomDivider = ({mt}) => <Box mt={mt ? mt : 4} mb={4} width={1} height={1} borderTop={'2px dashed green'}/>
 
@@ -53,11 +76,16 @@ export default function BaseAlgorithm() {
                 </Typography>
 
                 <Box borderRadius={2} border={'1px solid lightgrey'} py={3} px={4} fontSize={'1.6em'}>
-                    {algorithm.Input && <algorithm.Input updateArgs={setArgs}/>}
+                    {algorithm.Input && <algorithm.Input updateArgs={setArgs} setDisable={setButtonDisable}/>}
                 </Box>
 
                 <Button
-                    disabled={!algorithm.Input || loading} variant={'outlined'} onClick={getAnswerHandler}
+                    disabled={!algorithm.Input || loading || buttonDisable}
+                    variant={'outlined'}
+                    onClick={e => {
+                        saveToStorage(type, args);
+                        getAnswerHandler(type, args);
+                    }}
                     sx={{my: 3, width: '150px'}}
                 >
                     Решить

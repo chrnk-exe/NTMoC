@@ -2,15 +2,27 @@ import React, {useEffect, useState} from 'react';
 import {Box, TextField, Button, Typography, Stack} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
 import Latex from "react-latex";
+import {useSearchParams} from "react-router-dom";
 
 export default function FastPowInput({updateArgs}) {
     const [A, setA] = useState(123);
     const [B, setB] = useState(12);
     const [m, setM] = useState(213);
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     useEffect(() => {
         updateArgs([A, B, m])
     }, [A, B, m]);
+
+    useEffect(() => {
+        const args = searchParams.get('args')?.split(',')
+        if (args?.length > 2) {
+            setA(args[0]);
+            setB(args[1]);
+            setM(args[2]);
+        }
+    }, [searchParams]);
 
     return (
         <Box display={"flex"} mt={2} alignItems={"center"}>

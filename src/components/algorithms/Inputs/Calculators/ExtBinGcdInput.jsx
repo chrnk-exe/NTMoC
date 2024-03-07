@@ -1,15 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Stack, TextField, Typography} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
+import Latex from "react-latex";
+import {useSearchParams} from "react-router-dom";
 
 
 export default function ExtBinGcdInput({updateArgs}) {
 	const [A, setA] = useState(980);
 	const [B, setB] = useState(84);
 
+	const [searchParams, setSearchParams] = useSearchParams();
+
 	useEffect(() => {
 		updateArgs([A, B])
 	}, [A, B]);
+
+	useEffect(() => {
+		const args = searchParams.get('args')?.split(',')
+		if (args?.length > 1) {
+			setA(args[0]);
+			setB(args[1]);
+		}
+	}, [searchParams]);
 
 	return (
 		<Stack direction={"row"} alignItems={"center"} spacing={0.5}>
@@ -18,8 +30,10 @@ export default function ExtBinGcdInput({updateArgs}) {
 			{/*		$$D$$*/}
 			{/*	</Latex>*/}
 			{/*</Typography>*/}
-			<Typography fontFamily={'Times New Roman'} fontStyle={'italic'} fontSize={'1em'} pr={0.8}>
-				D
+			<Typography fontSize={'1em'} color={'gray'} pr={0.5}>
+				<Latex style={{color: 'gray'}} >
+					$D$
+				</Latex>
 			</Typography>
 			<Typography fontSize={'1em'} color={'gray'} >
 				{'('}

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Box, Stack, TextField, Typography} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
 import Latex from "react-latex";
+import {useSearchParams} from "react-router-dom";
 
 
 export default function AddDoubleInput({updateArgs}) {
@@ -9,9 +10,20 @@ export default function AddDoubleInput({updateArgs}) {
     const [B, setB] = useState(816);
     const [m, setM] = useState(7);
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     useEffect(() => {
         updateArgs([A, B, m])
     }, [A, B, m]);
+
+    useEffect(() => {
+        const args = searchParams.get('args')?.split(',')
+        if (args?.length > 2) {
+            setA(args[0]);
+            setB(args[1]);
+            setM(args[2]);
+        }
+    }, [searchParams]);
 
     return (
         <Stack direction={"row"} spacing={0.7} alignItems={"center"}>

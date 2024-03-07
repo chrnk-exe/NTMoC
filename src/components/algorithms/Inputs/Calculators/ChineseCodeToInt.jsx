@@ -5,10 +5,28 @@ import Button from "@mui/material/Button";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import Latex from "react-latex";
+import {useSearchParams} from "react-router-dom";
 
 
-export default function ChineseCodeToInt({updateArgs}) {
-    const [lines, setLines] = useState([[1, 2]]);
+export default function ChineseCodeToInt({updateArgs, setDisable}) {
+    const [lines, setLines] = useState([[1, 2], [2, 3]]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    useEffect(() => {
+        updateArgs(lines);
+        setDisable(lines?.length < 1);
+    }, [lines]);
+
+    useEffect(() => {
+        const args = searchParams.get('args')?.split(',')
+        if (args) {
+            let newLines = []
+            for (let i = 0; i < args.length; i += 2) {
+                newLines.push([args[i], args[i+1]]);
+            }
+            setLines(newLines);
+        }
+    }, [searchParams]);
 
     const addLine = () => {
         setLines([...lines, [1, 2]])
@@ -23,10 +41,6 @@ export default function ChineseCodeToInt({updateArgs}) {
         newLines.splice(index, 1)
         setLines(newLines)
     }
-
-    useEffect(() => {
-        updateArgs(lines)
-    }, [lines]);
 
     const customSetFunc = (index, pos) => (value) => {
         editLine(index, pos, value)
