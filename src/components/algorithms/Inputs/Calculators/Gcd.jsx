@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Box, Stack, TextField, Typography} from '@mui/material';
+import {Stack, Typography} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
 import Latex from "react-latex";
 import {useSearchParams} from "react-router-dom";
 
 
-export default function BinGcdInput({updateArgs}) {
+export default function Gcd({updateArgs}) {
 	const [A, setA] = useState(980);
 	const [B, setB] = useState(84);
 
@@ -30,14 +30,13 @@ export default function BinGcdInput({updateArgs}) {
 					$D$
 				</Latex>
 			</Typography>
-			<Typography fontSize={'1em'} color={'gray'}>
+			<Typography fontSize={'1em'} color={'gray'} >
 				{'('}
 			</Typography>
 			<CustomTextField value={A} setValue={setA}/>
 			<Typography fontSize={'1em'} color={'gray'} pr={0.7}>
 				{','}
 			</Typography>
-
 			<CustomTextField value={B} setValue={setB}/>
 			<Typography fontSize={'1em'} color={'gray'} >
 				{')'}

@@ -53,32 +53,37 @@ export default function BaseAlgorithm() {
         }
     };
 
-    function uuidv4() {
-        return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-            (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-        );
-    }
-
     const saveToStorage = (type, args) => {
-        sessionStorage.setItem(sessionStorage.length, JSON.stringify({type, args}))
+        let history;
+        try {
+            history = JSON.parse(sessionStorage.getItem('solve_history'));
+        } catch (e) {
+            history = []
+        }
+        if (!history) history = []
+        history.push({type, args, timestamp: Date.now()})
+
+        sessionStorage.setItem('solve_history', JSON.stringify(history))
         window.dispatchEvent(new Event('storage'))
     }
 
-    const CustomDivider = ({mt}) => <Box mt={mt ? mt : 4} mb={4} width={1} height={1} borderTop={'2px dashed green'}/>
+    const CustomDivider = ({mt, mb}) => (
+        <Box mt={mt ? mt : 4} mb={mb ? mb : 4} width={1} height={1} borderTop={'2px dashed green'}/>
+    )
 
     return algorithm ? (
         <Box display={'flex'} justifyContent={'center'} alignItems={'center'} pt="10px">
             <Box width={9 / 10} display={'flex'} flexDirection={'column'} justifyContent={'center'}
                  alignItems={'center'}>
                 <CustomDivider mt={2}/>
+
                 <Typography fontSize={20} sx={{mb: 2}}>
                     {algorithm.title}
                 </Typography>
 
-                <Box borderRadius={2} border={'1px solid lightgrey'} py={3} px={4} fontSize={'1.6em'}>
+                <Box borderRadius={2} border={'1px solid lightgrey'} py={3} px={4} fontSize={'1.6em'} key={type}>
                     {algorithm.Input && <algorithm.Input updateArgs={setArgs} setDisable={setButtonDisable}/>}
                 </Box>
-
                 <Button
                     disabled={!algorithm.Input || loading || buttonDisable}
                     variant={'outlined'}
@@ -91,14 +96,15 @@ export default function BaseAlgorithm() {
                     Решить
                 </Button>
                 {
-                    answer && (
+                    answer && answer.length > 0 ? (
                         <Fragment>
                             <AnswerBlock answer={answer}/>
                             <CustomDivider/>
                         </Fragment>
+                    ) : (
+                        <CustomDivider mt={2} mb={1}/>
                     )
                 }
-
                 {
                     loading && (
                         <Box mt={4}>
@@ -111,7 +117,6 @@ export default function BaseAlgorithm() {
                         {errorData}
                     </Box>
                 }
-
                 {
                     algorithm.Theory && (
                         <Fragment>

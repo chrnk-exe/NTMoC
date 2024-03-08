@@ -8,7 +8,7 @@ import Latex from "react-latex";
 import {useSearchParams} from "react-router-dom";
 
 
-export default function ChineseCodeToInt({updateArgs, setDisable}) {
+export default function ChineseCode({updateArgs, setDisable}) {
     const [lines, setLines] = useState([[1, 2], [2, 3]]);
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -48,12 +48,12 @@ export default function ChineseCodeToInt({updateArgs, setDisable}) {
 
     return (
         <Box display={"flex"} >
-            <Box mt={1.1} width={25} color={'grey'}>
+            <Box width={25} color={'grey'}>
                 <Latex>
-                    {`$\\left\\{ \\begin{array}{ccc} ${'\\\\'.repeat(lines?.length)} \\end{array} \\right. $`}
+                    {`$\\begin{cases} ${'\\\\'.repeat(lines?.length)} \\end{cases}\\,$`}
                 </Latex>
             </Box>
-            <Box>
+            <Stack spacing={0.35}>
                 {
                     lines?.map((line, index) => (
                         <Stack direction={"row"} spacing={0.7} alignItems={"center"}>
@@ -84,7 +84,7 @@ export default function ChineseCodeToInt({updateArgs, setDisable}) {
                     ))
                 }
                 {
-                    lines?.length < 5 && (
+                    lines?.length < 7 && (
                         <Box display={"flex"} justifyContent={"center"} mt={1.5} alignItems={"center"}>
                             <Button onClick={addLine} startIcon={<AddOutlinedIcon/>}>
                                 Добавить строку
@@ -92,7 +92,7 @@ export default function ChineseCodeToInt({updateArgs, setDisable}) {
                         </Box>
                     )
                 }
-            </Box>
+            </Stack>
         </Box>
     )
 };

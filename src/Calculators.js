@@ -2,24 +2,31 @@ import AddDoubleInput from "./components/algorithms/Inputs/Calculators/AddDouble
 import FastPowInput from "./components/algorithms/Inputs/Calculators/FastPowInput";
 import KaratsubaInput from "./components/algorithms/Inputs/Calculators/KaratsubaInput";
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
-import BinGcdInput from "./components/algorithms/Inputs/Calculators/BinGcdInput";
-import ExtBinGcdInput from "./components/algorithms/Inputs/Calculators/ExtBinGcdInput";
 import GelfondShanksInput from "./components/algorithms/Inputs/DiscreteLogarithms/GelfondShanksInput";
 import LinearComparisonInput from "./components/algorithms/Inputs/Сomparisons/LinearComparisonInput";
 import OneFieldInput from "./components/algorithms/Inputs/common/OneFieldInput";
+import ChineseCode from "./components/algorithms/Inputs/Calculators/ChineseCode";
+import Gcd from "./components/algorithms/Inputs/Calculators/Gcd";
 
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
-import ChineseCodeToInt from "./components/algorithms/Inputs/Calculators/ChineseCodeToInt";
+import ElderlyIcon from '@mui/icons-material/Elderly';
+import AddDoubleTheory from "./components/theory/Calculators/AddDoubleTheory";
+import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
+import KaratsubaTheory from "./components/theory/Calculators/KaratsubaTheory";
+import ChineseCodeTheory from "./components/theory/Calculators/ChineseCodeTheory";
+import GcdTheory from "./components/theory/Calculators/GcdTheory";
+import GelfondShanksTheory from "./components/theory/DiscreteLogarithms/GelfondShanksTheory";
+import LinearComparisonTheory from "./components/theory/Сomparisons/LinearComparisonTheory";
 
 
 export const CalculatorRoutes = [
 	{
-		type: 'add_double', title: 'Произведение чисел по модулю',
-		Input: AddDoubleInput, Theory: null, Example: null
+		type: 'add_double', title: 'Произведение чисел по модулю (алгоритм сложения-удвоения)',
+		Input: AddDoubleInput, Theory: AddDoubleTheory, Example: null
 	},
 	{
 		type: 'fast_pow', title: 'Возведение в степень по модулю',
@@ -30,26 +37,32 @@ export const CalculatorRoutes = [
 		Input: KaratsubaInput, Theory: null, Example: KaratsubaExample
 	},
 	{
+		type: 'cc_to_int', title: 'Перевод китайского кода в число (Китайская теорема об остатках)',
+		Input: ChineseCode, Theory: null, Example: null
+	},
+	{
+		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код (не работает)',
+		Input: ChineseCode, Theory: null, Example: null
+	}
+];
+export const EuclidRoutes = [
+	{
+		type: 'gcd', title: 'Алгоритм Евклида',
+		Input: Gcd, Theory: null, Example: null
+	},
+	{
 		type: 'bin_gcd', title: 'Бинарный алгоритм Евклида',
-		Input: BinGcdInput, Theory: null, Example: null
+		Input: Gcd, Theory: null, Example: null
+	},
+	{
+		type: 'ext_gcd', title: 'Расширенный алгоритм Евклида',
+		Input: Gcd, Theory: null, Example: null
 	},
 	{
 		type: 'ext_bin_gcd', title: 'Расширенный бинарный алгоритм Евклида',
-		Input: ExtBinGcdInput, Theory: null, Example: null
+		Input: Gcd, Theory: null, Example: null
 	},
-	{
-		type: 'cc_to_int', title: 'Перевод китайского кода в число (Китайская теорема об остатках)',
-		Input: ChineseCodeToInt, Theory: null, Example: null
-	},
-	{
-		type: 'int_to_cc', title: 'Перевод числа в китайский код',
-		Input: null, Theory: null, Example: null
-	},
-	{
-		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
-		Input: null, Theory: null, Example: null
-	}
-];
+]
 
 export const FactorizationRoutes = [
 	{
@@ -128,32 +141,34 @@ export const MenuList = [
 	{
 		title: 'Калькуляторы',
 		Routes: CalculatorRoutes,
-		About: 'Страничка о калькуляторах',
 		icon: CalculateOutlinedIcon
+	},
+	{
+		title: 'Алгоритм Евклида',
+		Routes: EuclidRoutes,
+		icon: ElderlyIcon
 	},
 	{
 		title: 'Методы факторизации',
 		Routes: FactorizationRoutes,
-		About: 'Инфа о методах факторизации',
 		icon: AcUnitOutlinedIcon
 	},
 	{
 		title: 'Методы дискретного логарифмирования',
 		Routes: LogarithmRoutes,
-		About: 'Инфа о методах Дискретного логарифмирования',
 		icon: DiamondOutlinedIcon
 	},
 	{
 		title: 'Решение сравнений',
 		Routes: ComparisonsRoutes,
-		About: 'Инфа о методах решения сравнения',
 		icon: BalanceOutlinedIcon
 	}
 ];
 
 export const Algorithms = [
 	...CalculatorRoutes,
+	...EuclidRoutes,
 	...FactorizationRoutes,
 	...LogarithmRoutes,
-	...ComparisonsRoutes
+	...ComparisonsRoutes,
 ];

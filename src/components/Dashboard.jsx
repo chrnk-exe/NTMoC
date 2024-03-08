@@ -13,6 +13,7 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import CalculateOutlinedIcon from "@mui/icons-material/CalculateOutlined";
 import {Remove} from "@mui/icons-material";
 import ClearIcon from '@mui/icons-material/Clear';
+import {MenuList} from "../Calculators";
 
 
 const AD = false;
@@ -27,14 +28,44 @@ export default function Dashboard({children}) {
 
     const [storage, setStorage] = useState({});
 
+
     useEffect(() => {
         const handleStorage = () => {
-            setStorage({...sessionStorage})
+            let temp_storage;
+            try {
+                let val = sessionStorage.getItem('solve_history')
+                console.log(val)
+
+                if (val) {
+                    temp_storage = JSON.parse(val);
+                } else {
+                    temp_storage = []
+                }
+            } catch (e) {
+                temp_storage = []
+            }
+
+            setStorage(temp_storage)
         }
         handleStorage();
         window.addEventListener('storage', handleStorage)
         return () => window.removeEventListener('storage', handleStorage)
-    }, [])
+    }, []);
+
+    const clearStorage = () => {
+        sessionStorage.removeItem('solve_history')
+        setStorage([]);
+    }
+
+    function compareTimestamp(a, b) {
+        if (a.timestamp < b.timestamp) {
+            return -1;
+        }
+        if (a.timestamp > b.timestamp) {
+            return 1;
+        }
+        return 0;
+    }
 
     return (
         <Box display={'flex'}>
@@ -54,7 +85,6 @@ export default function Dashboard({children}) {
                             <Box pl={1}>
                                 Обсуждения
                             </Box>
-
                         </Button>
                     </Box>
                 </Toolbar>
@@ -103,7 +133,7 @@ export default function Dashboard({children}) {
                     </Panel>
                     <PanelResizeHandle hidden={hoverState}/>
 
-                    <Panel minSize={20} >
+                    <Panel minSize={20}>
                         <Box display={"flex"} height={'calc(100vh - 64px)'}>
                             <Box
                                 component="main"
@@ -127,7 +157,7 @@ export default function Dashboard({children}) {
                                 {children}
                             </Box>
                             {
-                                Object.keys(storage).length > 0 &&
+                                storage?.length > 0 &&
                                 <Box
                                     width={85} mx={0.8}
                                     sx={{
@@ -143,10 +173,7 @@ export default function Dashboard({children}) {
                                 >
                                     <Button
                                         sx={{p: 0}}
-                                        onClick={e => {
-                                            sessionStorage.clear();
-                                            window.dispatchEvent(new Event('storage'));
-                                        }}
+                                        onClick={clearStorage}
                                     >
                                         <Box
                                             width={70} height={70}
@@ -161,13 +188,14 @@ export default function Dashboard({children}) {
                                         </Box>
                                     </Button>
                                     {
-                                        Object.keys(storage).reverse().map((key, index) => {
-                                                let values = JSON.parse(storage[key]);
-                                                console.log(values)
+                                        storage.sort(compareTimestamp).reverse().map((record, index) => {
+                                                let alg = MenuList.find(
+                                                    elem => elem.Routes.find(route => route.type === record.type)
+                                                )
                                                 return (
                                                     <Button
                                                         sx={{p: 0}}
-                                                        href={`/${values.type}?args=${values.args}`}
+                                                        href={`/${record.type}?args=${record.args}`}
                                                     >
                                                         <Grow in={true}>
                                                             <Box
@@ -177,7 +205,7 @@ export default function Dashboard({children}) {
                                                                 display={"flex"}
                                                                 justifyContent={"center"} alignItems={"center"}
                                                             >
-                                                                <CalculateOutlinedIcon fontSize={"large"} color={"primary"}/>
+                                                                <alg.icon fontSize={"large"} color={"primary"}/>
                                                             </Box>
                                                         </Grow>
                                                     </Button>
@@ -187,7 +215,6 @@ export default function Dashboard({children}) {
                                     }
                                 </Box>
                             }
-
                         </Box>
                     </Panel>
                     {
