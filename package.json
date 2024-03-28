@@ -1,7 +1,7 @@
 {
-  "name": "CryptomathWebClient",
+  "name": "crypto_math",
   "version": "0.2.0",
-  "proxy": "http://193.42.113.235:8001",
+  "proxy": "http://193.42.113.235:8000",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -15,12 +15,12 @@
     "katex": "^0.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-latex": "^2.0.0",
+    "react-latex": "^1.2.0",
     "react-redux": "^8.0.5",
     "react-resizable-panels": "^2.0.2",
     "react-router": "^6.8.2",
     "react-router-dom": "^6.8.2",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "sass": "^1.58.3",
     "web-vitals": "^2.1.4"
   },

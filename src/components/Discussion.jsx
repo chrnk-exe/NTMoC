@@ -1,9 +1,10 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import {Divider, Stack, TextField} from "@mui/material";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useBaseSolveMutation, useGetMessages, useSendMessage} from "../store/services/api";
 import {json} from "react-router";
+import Copyright from "./Copyright";
 
 export default function Discussion() {
     const [name, setName] = useState('');
@@ -76,8 +77,8 @@ export default function Discussion() {
                         label="Сообщение" variant="outlined" multiline rows={4} fullWidth
                     />
                 </Stack>
-                <Divider/>
-                <Stack spacing={1} maxHeight={'calc(100vh - 300px)'} overflow={'auto'} pb={1}>
+                <Divider sx={{m: 0, p: 0}}/>
+                <Stack spacing={1} maxHeight={'calc(100vh - 325px)'} overflow={'auto'} pb={2} mt={0} >
                     {
                         messages?.map((message, index) =>
                             <Stack direction={"row"} alignItems={"center"} spacing={1}>
@@ -98,6 +99,7 @@ export default function Discussion() {
                     }
                 </Stack>
             </Stack>
+            <Copyright color={'gray'}/>
         </Box>
     )
 }

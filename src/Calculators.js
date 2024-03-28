@@ -14,130 +14,160 @@ import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
 import ElderlyIcon from '@mui/icons-material/Elderly';
-import AddDoubleTheory from "./components/theory/Calculators/AddDoubleTheory";
-import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
-import KaratsubaTheory from "./components/theory/Calculators/KaratsubaTheory";
-import ChineseCodeTheory from "./components/theory/Calculators/ChineseCodeTheory";
-import GcdTheory from "./components/theory/Calculators/GcdTheory";
-import GelfondShanksTheory from "./components/theory/DiscreteLogarithms/GelfondShanksTheory";
-import LinearComparisonTheory from "./components/theory/Сomparisons/LinearComparisonTheory";
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
+import AddDoubleTheory from "./components/theory/Calculators/AddDoubleTheory";
+import InverseInput from "./components/algorithms/Inputs/Base/InverseInput";
+
+
+export const BaseRoutes = [
+	{
+		type: 'inverse', title: 'Обратный элемент по модулю',
+		Input: InverseInput, Theory: null, Example: null, disable: false
+	},
+	{
+		type: 'prime_root', title: 'Первообразный корень',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+	{
+		type: 'l_euler', title: 'Эль-функция Эйлера',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+	{
+		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+	{
+		type: 'order', title: 'Порядок числа',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+	{
+		type: 'phi_euler', title: 'Фи-функция Эйлера',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+];
 
 export const CalculatorRoutes = [
 	{
 		type: 'add_double', title: 'Произведение чисел по модулю (алгоритм сложения-удвоения)',
-		Input: AddDoubleInput, Theory: AddDoubleTheory, Example: null
+		Input: AddDoubleInput, Theory: AddDoubleTheory, Example: null, disable: false
 	},
 	{
 		type: 'fast_pow', title: 'Возведение в степень по модулю',
-		Input: FastPowInput, Theory: null, Example: null
+		Input: FastPowInput, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'karatsuba', title: 'Алгоритм Карацубы',
-		Input: KaratsubaInput, Theory: null, Example: KaratsubaExample
+		Input: KaratsubaInput, Theory: null, Example: KaratsubaExample, disable: false
 	},
 	{
 		type: 'cc_to_int', title: 'Перевод китайского кода в число (Китайская теорема об остатках)',
-		Input: ChineseCode, Theory: null, Example: null
+		Input: ChineseCode, Theory: null, Example: null, disable: false
 	},
 	{
-		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код (не работает)',
-		Input: ChineseCode, Theory: null, Example: null
+		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
+		Input: ChineseCode, Theory: null, Example: null, disable: true
 	}
 ];
+
 export const EuclidRoutes = [
 	{
 		type: 'gcd', title: 'Алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null
+		Input: Gcd, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'bin_gcd', title: 'Бинарный алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null
+		Input: Gcd, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'ext_gcd', title: 'Расширенный алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null
+		Input: Gcd, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'ext_bin_gcd', title: 'Расширенный бинарный алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null
+		Input: Gcd, Theory: null, Example: null, disable: false
 	},
 ]
 
 export const FactorizationRoutes = [
 	{
 		type: 'dixon', title: 'Алгоритм Диксона',
-		Input: OneFieldInput, Theory: null, Example: null
+		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_fact', title: 'Ро-метод Полларда',
-		Input: OneFieldInput, Theory: null, Example: null
+		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
-		Input: OneFieldInput, Theory: null, Example: null
+		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'p_1_pollard', title: 'P-1 метод Полларда',
-		Input: OneFieldInput, Theory: null, Example: null
+		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'fermat', title: 'Метод Ферма',
-		Input: OneFieldInput, Theory: null, Example: null
+		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 ];
 
 export const LogarithmRoutes = [
 	{
 		type: 'adleman', title: 'Алгоритм Адлемана',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
-		Input: GelfondShanksInput, Theory: null, Example: null
+		Input: GelfondShanksInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	}
 ];
 
 export const ComparisonsRoutes = [
 	{
 		type: 'tonelli_shenks', title: 'Алгоритм Тонелли-Шенкса',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'tonelli_shenks_ext', title: 'Обобщённый алгоритм Тонелли-Шенкса',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'chipolla', title: 'Алгоритм Чиполлы',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'berlekamp_rabin', title: 'Алгоритм Берлекэмпа-Рабина',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'polyg_hellman', title: 'Алгоритм Полига-Хеллмана',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'linear_comparison', title: 'Решение линейного сравнения',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'solve_lin_comparison', title: 'Решить линейное сравнение (составной модуль)',
-		Input: LinearComparisonInput, Theory: null, Example: null
+		Input: LinearComparisonInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'solve_lin_comparasion_cto', title: 'Решить линейное сравнение (КТО)',
-		Input: null, Theory: null, Example: null
+		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
 
 export const MenuList = [
+	{
+		title: 'Базовые операции',
+		Routes: BaseRoutes,
+		icon: AccountBalanceIcon
+	},
 	{
 		title: 'Калькуляторы',
 		Routes: CalculatorRoutes,
@@ -166,6 +196,7 @@ export const MenuList = [
 ];
 
 export const Algorithms = [
+	...BaseRoutes,
 	...CalculatorRoutes,
 	...EuclidRoutes,
 	...FactorizationRoutes,

@@ -16,9 +16,6 @@ const KaratsubaExample = () => {
             display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}
             sx={{width: 1}} fontSize={17} gap={0.5}
         >
-            <Typography fontSize={'large'}>
-                Пример:
-            </Typography>
             <Typography fontSize={'inherit'}>
                 Перемножим числа a = 4980 и b = 816 методом Карацубы.
             </Typography>

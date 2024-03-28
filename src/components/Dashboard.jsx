@@ -92,7 +92,7 @@ export default function Dashboard({children}) {
 
             <Box width={1} mt={8}>
                 <PanelGroup direction="horizontal">
-                    <Panel defaultSize={29} minSize={20} maxSize={50} style={{zIndex: 3}}>
+                    <Panel defaultSize={26} minSize={20} maxSize={50} style={{zIndex: 3}}>
                         <Box
                             variant="permanent" open={open}
                             anchor={'left'}
@@ -159,7 +159,7 @@ export default function Dashboard({children}) {
                             {
                                 storage?.length > 0 &&
                                 <Box
-                                    width={85} mx={0.8}
+                                    width={90} mx={0.8}
                                     sx={{
                                         overflowY: 'auto',
                                         height: 'calc(100vh - 64px)',
@@ -172,19 +172,21 @@ export default function Dashboard({children}) {
                                     }}
                                 >
                                     <Button
-                                        sx={{p: 0}}
+                                        sx={{p: 0}} fullWidth
                                         onClick={clearStorage}
                                     >
                                         <Box
-                                            width={70} height={70}
-                                            borderTop={'1px solid #bbb'}
-                                            borderBottom={'1px solid #bbb'}
-                                            display={"flex"}
+                                            width={1} height={90}
+                                            borderBottom={'2px solid #bbb'}
+                                            display={"flex"} flexDirection={"column"}
                                             justifyContent={"center"} alignItems={"center"}
                                         >
                                             <ClearIcon
                                                 fontSize={"large"} color={"error"}
                                             />
+                                            <Box fontSize={14} textTransform={"capitalize"} lineHeight={1.1} color={'error.main'}>
+                                                очистить историю
+                                            </Box>
                                         </Box>
                                     </Button>
                                     {
@@ -194,18 +196,23 @@ export default function Dashboard({children}) {
                                                 )
                                                 return (
                                                     <Button
-                                                        sx={{p: 0}}
+                                                        sx={{p: 0}} key={index} fullWidth
                                                         href={`/${record.type}?args=${record.args}`}
                                                     >
                                                         <Grow in={true}>
                                                             <Box
-                                                                width={70} height={70}
-                                                                borderTop={'1px solid #bbb'}
-                                                                borderBottom={'1px solid #bbb'}
-                                                                display={"flex"}
+                                                                width={1} height={70}
+                                                                borderBottom={'2px solid #ccc'}
+                                                                display={"flex"} flexDirection={"column"}
                                                                 justifyContent={"center"} alignItems={"center"}
+                                                                gap={0.1}
                                                             >
+                                                                <Box height={0.1}/>
+
                                                                 <alg.icon fontSize={"large"} color={"primary"}/>
+                                                                <Box>
+                                                                    {new Date(record.timestamp).toLocaleTimeString('ru')}
+                                                                </Box>
                                                             </Box>
                                                         </Grow>
                                                     </Button>

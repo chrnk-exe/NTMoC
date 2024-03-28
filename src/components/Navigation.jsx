@@ -37,7 +37,7 @@ const Navigation = () => {
     const navigate = useNavigate();
 
     return (
-        <List sx={{pt: 0.7, pb: 3}} maxH>
+        <List sx={{pt: 0.7, pb: 3}}>
             {
                 MenuList.map((list,index) =>
                     <React.Fragment key={index}>
@@ -62,7 +62,7 @@ const Navigation = () => {
                                     list.Routes.map((alg, index) => (
                                         <List key={index} component="div" disablePadding>
                                             <ListItemButton
-
+                                                disabled={alg.disable}
                                                 selected={type === alg.type}
                                                 sx={{
                                                     p: 0.5, pl: 4,

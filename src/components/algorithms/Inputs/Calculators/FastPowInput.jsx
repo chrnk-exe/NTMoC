@@ -12,8 +12,8 @@ export default function FastPowInput({updateArgs}) {
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        updateArgs([A, B, m])
-    }, [A, B, m]);
+        updateArgs([B, A, m])
+    }, [B, A, m]);
 
     useEffect(() => {
         const args = searchParams.get('args')?.split(',')

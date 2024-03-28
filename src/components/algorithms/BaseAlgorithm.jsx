@@ -1,4 +1,4 @@
-import {Box, Button, CircularProgress, Typography} from "@mui/material";
+import {Box, Button, ButtonBase, CircularProgress, Collapse, Slide, Stack, Typography} from "@mui/material";
 import AnswerBlock from "../common/AnswerBlock";
 import React, {Fragment, useEffect, useState} from "react";
 import {useBaseSolveMutation} from "../../store/services/api";
@@ -6,11 +6,15 @@ import {useParams} from "react-router";
 import {Algorithms} from "../../Calculators";
 import ErrorPage from "../ErrorPage";
 import {useSearchParams} from "react-router-dom";
+import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
+import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
+import CircleIcon from '@mui/icons-material/Circle';
+
 
 export default function BaseAlgorithm() {
     const [args, setArgs] = useState([]);
     const [getAnswer] = useBaseSolveMutation();
-    const [answer, setAnswer] = useState([]);
+    const [answer, setAnswer] = useState(null);
     const [algorithm, setAlgorithm] = useState(null);
     const [errorData, setErrorData] = useState(null);
 
@@ -18,7 +22,6 @@ export default function BaseAlgorithm() {
     const [loading, setLoading] = useState(false);
 
     const {type} = useParams();
-
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
@@ -34,13 +37,13 @@ export default function BaseAlgorithm() {
             setAlgorithm(Algorithms.find(alg => alg.type === type))
         }
         setArgs([]);
-        setAnswer([]);
+        setAnswer(null);
         setErrorData(null);
     }, [type]);
 
     const getAnswerHandler = async (type_value, args_value) => {
         setErrorData(null);
-        setAnswer([]);
+        setAnswer(null);
         setLoading(true);
 
         const result = await getAnswer({type: type_value, args: args_value});
@@ -68,14 +71,66 @@ export default function BaseAlgorithm() {
     }
 
     const CustomDivider = ({mt, mb}) => (
-        <Box mt={mt ? mt : 4} mb={mb ? mb : 4} width={1} height={1} borderTop={'2px dashed green'}/>
+        <Box mt={mt !== undefined ? mt : 4} mb={mb !== undefined ? mb : 2} width={1} borderTop={'2px dashed green'}/>
     )
+
+    const Section = ({check, label, children}) => {
+        const [show, setShow] = useState(true);
+
+        return check && (
+            <Box width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+                <CustomDivider mb={0}/>
+
+                <Box display={"flex"} alignItems={"center"} justifyContent={"flex-start"} width={1}>
+                    <Button
+                        fullWidth onClick={e => setShow(!show)}
+                        sx={{p: 0, justifyContent: 'flex-start'}}
+                    >
+                        <Box
+                            border={'1px dashed green'} borderTop={0} py={0.7} ml={0} px={2}
+                            display={"flex"} alignSelf={"flex-start"}
+                        >
+                            <Box display={"flex"} alignItems={"center"} px={1}>
+                                {show ?
+                                    <ArrowUpwardOutlinedIcon fontSize={"small"}/> :
+                                    <ArrowDownwardOutlinedIcon fontSize={"small"}/>}
+                            </Box>
+
+                            <Box color={'primary.main'} fontSize={15} pr={2}>
+                                {label}
+                            </Box>
+                        </Box>
+                    </Button>
+                </Box>
+
+                <Collapse in={show} sx={{width: 1}}>
+                    <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}
+                         mt={3}>
+                        {children}
+                    </Box>
+                </Collapse>
+                {
+                    !show && (
+                        <Button onClick={e => setShow(true)}>
+                            <Stack direction={"row"} spacing={1}>
+                                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>
+                                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>
+                                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>
+                            </Stack>
+                        </Button>
+                    )
+                }
+                {/*<Box height={10}/>*/}
+            </Box>
+        )
+    }
 
     return algorithm ? (
         <Box display={'flex'} justifyContent={'center'} alignItems={'center'} pt="10px">
             <Box width={9 / 10} display={'flex'} flexDirection={'column'} justifyContent={'center'}
-                 alignItems={'center'}>
-                <CustomDivider mt={2}/>
+                 alignItems={'center'}
+            >
+                <CustomDivider mt={2} mb={3.5}/>
 
                 <Typography fontSize={20} sx={{mb: 2}}>
                     {algorithm.title}
@@ -91,48 +146,35 @@ export default function BaseAlgorithm() {
                         saveToStorage(type, args);
                         getAnswerHandler(type, args);
                     }}
-                    sx={{my: 3, width: '150px'}}
+                    sx={{mt: 3, width: '150px'}}
                 >
                     Решить
                 </Button>
-                {
-                    answer && answer.length > 0 ? (
-                        <Fragment>
-                            <AnswerBlock answer={answer}/>
-                            <CustomDivider/>
-                        </Fragment>
-                    ) : (
-                        <CustomDivider mt={2} mb={1}/>
-                    )
-                }
-                {
-                    loading && (
-                        <Box mt={4}>
-                            <CircularProgress size={60} sx={{pt: 0}}/>
-                        </Box>
-                    )
-                }
-                {
+
+                <Section check={loading} label={'Решение'}>
+                    <Box mt={4}>
+                        <CircularProgress size={60} sx={{pt: 0}}/>
+                    </Box>
+                </Section>
+
+                <Section check={errorData} label={'Ошибка'}>
                     <Box mb={3}>
                         {errorData}
                     </Box>
-                }
-                {
-                    algorithm.Theory && (
-                        <Fragment>
-                            <algorithm.Theory/>
-                            <CustomDivider/>
-                        </Fragment>
-                    )
-                }
-                {
-                    algorithm.Example && (
-                        <Fragment>
-                            <algorithm.Example/>
-                            <CustomDivider/>
-                        </Fragment>
-                    )
-                }
+                </Section>
+
+                <Section check={answer} label={'Решение'}>
+                    <AnswerBlock answer={answer}/>
+                </Section>
+
+                <Section check={algorithm.Theory} label={'Теория'}>
+                    {algorithm.Theory && <algorithm.Theory/>}
+                </Section>
+
+                <Section check={algorithm.Example} label={'Пример'}>
+                    {algorithm.Example && <algorithm.Example/>}
+                </Section>
+                <CustomDivider/>
             </Box>
         </Box>
     ) : algorithm === undefined ? (

@@ -21,21 +21,21 @@ export default function AddDoubleTheory() {
                 </Box>
             </Box>
             <Box>
-                <Latex>{'Ассоциативность позволяет существенно сократить количество применений операции $«∗»$ с $O(n)$ до $O(log\\ n)$.\n'}</Latex>
-            </Box>
-            <Box>
                 <Latex>{'Для вычисления используются следующие реккурентные формулы:'}</Latex>
             </Box>
-            <Box pt={1}>
+            <Box pt={2} alignSelf={"center"}>
                 <Latex>
                     {`$\\begin{cases} ${alg_lines.join(', \\\\')} \\\\ \\end{cases}\\,$`}
                 </Latex>
             </Box>
-            <Box>
+            <Box pb={2} alignSelf={"center"}>
                 <Latex>
                     {`где $[P]= \\left[ \\begin{array}{ccc} 1,\\ true\\ \\ \\\\0,\\ false \\end{array} \\right.
                     \\ P\\ -$ некоторый предикат, $\\ a_0=1,\\ b_0=b,\\ c_0=0$`}
                 </Latex>
+            </Box>
+            <Box>
+                <Latex>{'Ассоциативность позволяет существенно сократить количество применений операции $«∗»$ с $O(n)$ до $O(log\\ n)$.\n'}</Latex>
             </Box>
             <Box pt={1}>
                 <Latex>
@@ -43,22 +43,22 @@ export default function AddDoubleTheory() {
                     без использования деления с остатком используются следующие утверждения:`}
                 </Latex>
             </Box>
-            <Box>
+            <Box alignSelf={"center"}>
                 <Latex>
                     {`$\\begin{cases} Q_b(a+bc)=Q_b(a)+c,\\\\ R_b(a+bc)=R_b(a); \\end{cases}\\,$`}
                 </Latex>
             </Box>
-            <Box>
+            <Box alignSelf={"center"}>
                 <Latex>
                     {`$R_c(a+b)=R_c(R_c(a)+R_c(b));$`}
                 </Latex>
             </Box>
-            <Box>
+            <Box alignSelf={"center"}>
                 <Latex>
                     {`$R_c(a\\cdot b)=R_c(R_c(a)\\cdot R_c(b));$`}
                 </Latex>
             </Box>
-            <Box>
+            <Box alignSelf={"center"}>
                 <Latex>
                     {`$R_c(b^a)=R_c((R_c(b))^a).$`}
                 </Latex>
