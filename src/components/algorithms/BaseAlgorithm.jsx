@@ -78,7 +78,7 @@ export default function BaseAlgorithm() {
         const [show, setShow] = useState(true);
 
         return check && (
-            <Box width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+            <Box mt={3} width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 <CustomDivider mb={0}/>
 
                 <Box display={"flex"} alignItems={"center"} justifyContent={"flex-start"} width={1}>
@@ -130,10 +130,11 @@ export default function BaseAlgorithm() {
             <Box width={9 / 10} display={'flex'} flexDirection={'column'} justifyContent={'center'}
                  alignItems={'center'}
             >
-                <CustomDivider mt={2} mb={3.5}/>
+                <CustomDivider mt={2} mb={2}/>
 
-                <Typography fontSize={20} sx={{mb: 2}}>
+                <Typography fontSize={21} sx={{mb: 2}} alignSelf={"flex-start"}>
                     {algorithm.title}
+                    <Box mt={1} mb={1} width={1} borderTop={'1px dashed green'}/>
                 </Typography>
 
                 <Box borderRadius={2} border={'1px solid lightgrey'} py={3} px={4} fontSize={'1.6em'} key={type}>

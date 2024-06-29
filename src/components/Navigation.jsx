@@ -90,13 +90,13 @@ const Navigation = () => {
                                                         </Tooltip>
                                                         <Tooltip title={`Теория: ${alg.Theory ? 'Есть' : 'Нет'}`}>
                                                             <LibraryBooksOutlinedIcon sx={{
-                                                                color: alg.Theory ? '#4caf50' : '#999',
+                                                                color: alg.Theory ? '#ff9800' : '#999',
                                                                 transform: 'scale(0.9)'
                                                             }}/>
                                                         </Tooltip>
                                                         <Tooltip title={`Пример: ${alg.Example ? 'Есть' : 'Нет'}`}>
                                                             <ImageOutlinedIcon sx={{
-                                                                color: alg.Example ? '#ff9800' : '#999',
+                                                                color: alg.Example ? '#4caf50' : '#999',
                                                                 transform: 'scale(0.9)'
                                                             }}/>
                                                         </Tooltip>

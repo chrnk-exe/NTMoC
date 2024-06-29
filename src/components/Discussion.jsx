@@ -2,8 +2,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import {Divider, Stack, TextField} from "@mui/material";
 import React, {useEffect, useState} from "react";
-import {useBaseSolveMutation, useGetMessages, useSendMessage} from "../store/services/api";
-import {json} from "react-router";
 import Copyright from "./Copyright";
 
 export default function Discussion() {

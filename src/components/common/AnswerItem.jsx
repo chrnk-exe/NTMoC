@@ -37,7 +37,7 @@ const AnswerItem = ({data, label, type, showDetails, index, answer}) => {
 
             <Box
                 border={answer ? `2px dashed ${color}` : '1px dashed green'}
-                borderRadius={5} width={1} py={1.5} px={1}
+                borderRadius={5} width={1} py={1.5} px={1} my={0.5}
                 overflow={'auto'}
             >
                 <Collapse in={showDetails || true}>

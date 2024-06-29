@@ -18,12 +18,17 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 import AddDoubleTheory from "./components/theory/Calculators/AddDoubleTheory";
 import InverseInput from "./components/algorithms/Inputs/Base/InverseInput";
+import InverseTheory from "./components/theory/base/InverseTheory";
+import PhiInput from "./components/algorithms/Inputs/Base/PhiInput";
+import PhiTheory from "./components/theory/base/PhiTheory";
+import LEulerTheory from "./components/theory/base/LEulerTheory";
+import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
 
 
 export const BaseRoutes = [
 	{
 		type: 'inverse', title: 'Обратный элемент по модулю',
-		Input: InverseInput, Theory: null, Example: null, disable: false
+		Input: InverseInput, Theory: InverseTheory, Example: null, disable: false
 	},
 	{
 		type: 'prime_root', title: 'Первообразный корень',
@@ -31,7 +36,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: LEulerInput, Theory: LEulerTheory, Example: null, disable: false
 	},
 	{
 		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
@@ -43,7 +48,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: PhiInput, Theory: PhiTheory, Example: null, disable: false
 	},
 ];
 
