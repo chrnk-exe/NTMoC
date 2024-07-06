@@ -4,7 +4,7 @@ import Latex from "react-latex";
 import {CustomTextField} from "./Inputs/common/CustomTextField";
 
 
-export default function BaseInput({updateArgs, vars}) {
+export default function ExtendableBaseInput({updateArgs, vars}) {
     const [data, setData] = useState([]);
 
     useEffect(() => {

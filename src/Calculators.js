@@ -23,6 +23,7 @@ import PhiInput from "./components/algorithms/Inputs/Base/PhiInput";
 import PhiTheory from "./components/theory/base/PhiTheory";
 import LEulerTheory from "./components/theory/base/LEulerTheory";
 import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
+import LCMTheory from "./components/theory/base/LCMTheory";
 
 
 export const BaseRoutes = [
@@ -40,7 +41,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: null, Theory: LCMTheory, Example: null, disable: false
 	},
 	{
 		type: 'order', title: 'Порядок числа',
@@ -75,7 +76,7 @@ export const CalculatorRoutes = [
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: null, Theory: null, Example: null, disable: false
 	},
 ];
 
