@@ -72,7 +72,11 @@ export const CalculatorRoutes = [
 	{
 		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
 		Input: ChineseCode, Theory: null, Example: null, disable: true
-	}
+	},
+	{
+		type: 'power_tower', title: 'Решение степенной башни',
+		Input: null, Theory: null, Example: null, disable: true
+	},
 ];
 
 export const EuclidRoutes = [

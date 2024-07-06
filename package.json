@@ -1,7 +1,7 @@
 {
   "name": "crypto_math",
   "version": "0.2.0",
-  "proxy": "http://193.42.113.235:8000",
+  "proxy": "http://193.42.113.235:8081",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
