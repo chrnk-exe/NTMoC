@@ -76,7 +76,7 @@ export const CalculatorRoutes = [
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
-		Input: null, Theory: null, Example: null, disable: false
+		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
 
