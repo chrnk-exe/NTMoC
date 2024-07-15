@@ -1,8 +1,8 @@
 import React from 'react';
 import {Stack} from '@mui/material';
-import CentralizedMultiFormula from "../components/CentralizedMultiFormula";
-import OutlinedFormula from "../components/OutlinedFormula";
-import SimpleTextFormula from "../components/SimpleTextFormula";
+import CentralizedMultiFormula from "../common/CentralizedMultiFormula";
+import OutlinedFormula from "../common/OutlinedFormula";
+import SimpleTextFormula from "../common/SimpleTextFormula";
 
 
 export default function LCMTheory() {

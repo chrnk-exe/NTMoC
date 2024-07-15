@@ -24,6 +24,8 @@ import PhiTheory from "./components/theory/base/PhiTheory";
 import LEulerTheory from "./components/theory/base/LEulerTheory";
 import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
 import LCMTheory from "./components/theory/base/LCMTheory";
+import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
+import OrderTheory from "./components/theory/base/OrderTheory";
 
 
 export const BaseRoutes = [
@@ -44,8 +46,8 @@ export const BaseRoutes = [
 		Input: null, Theory: LCMTheory, Example: null, disable: false
 	},
 	{
-		type: 'order', title: 'Порядок числа',
-		Input: null, Theory: null, Example: null, disable: true
+		type: 'order', title: 'Порядок числа (Метод перебора)',
+		Input: OrderInput, Theory: OrderTheory, Example: null, disable: false
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
@@ -76,6 +78,10 @@ export const CalculatorRoutes = [
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+	{
+		type: 'smart_order', title: 'Порядок числа (с использованием свойств)',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
