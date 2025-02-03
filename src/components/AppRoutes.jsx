@@ -1,6 +1,6 @@
 import React from 'react';
 import MainPage from './MainPage';
-import {Routes, Route, Outlet} from 'react-router';
+import {Routes, Route} from 'react-router';
 import Dashboard from './Dashboard';
 import NotFound from './NotFound';
 import BaseAlgorithm from "./algorithms/BaseAlgorithm";

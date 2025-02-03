@@ -26,6 +26,7 @@ import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
 import LCMTheory from "./components/theory/base/LCMTheory";
 import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
 import OrderTheory from "./components/theory/base/OrderTheory";
+import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
 
 
 export const BaseRoutes = [
@@ -43,7 +44,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
-		Input: null, Theory: LCMTheory, Example: null, disable: false
+		Input: LCMInput, Theory: LCMTheory, Example: null, disable: false
 	},
 	{
 		type: 'order', title: 'Порядок числа (Метод перебора)',
@@ -219,3 +220,5 @@ export const Algorithms = [
 	...LogarithmRoutes,
 	...ComparisonsRoutes,
 ];
+
+// Algorithms.map(alg => console.log('https://crypto-math.com/' + alg.type) )

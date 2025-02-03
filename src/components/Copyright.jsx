@@ -10,7 +10,8 @@ export default function Copyright({simple, color}) {
     return (
         <Box display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"} >
             <Box
-                width={1} display={"flex"} justifyContent={"center"} alignItems={"center"} flexDirection={"column"}
+                width={1} display={"flex"} justifyContent={"center"}
+                alignItems={"center"} flexDirection={"column"}
                 color={color ? color : '#333'}
             >
                 {

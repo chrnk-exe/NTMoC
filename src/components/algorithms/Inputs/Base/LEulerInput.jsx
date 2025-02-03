@@ -6,7 +6,7 @@ export default function LEulerInput({updateArgs}) {
         <BaseInput
             updateArgs={updateArgs}
             vars={[
-                {label: 'm', defValue: 123},
+                {label: 'm', defValue: 7},
             ]}
         />
     )

@@ -19,6 +19,9 @@ export default function CentralizedMultiFormula({header, formulas}) {
                         <Button
                             key={index}
                             sx={{
+                                bgcolor: '#e1f3e5',
+                                textTransform: 'unset',
+                                borderRadius: 2, py: 1,
                                 mx: 1.5, px: 1.3, color: 'unset', fontSize: 'unset',
                                 '& .MuiTouchRipple-child': {
                                     backgroundColor: 'primary.main',

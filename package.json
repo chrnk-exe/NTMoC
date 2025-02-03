@@ -1,7 +1,7 @@
 {
   "name": "crypto_math",
   "version": "0.2.0",
-  "proxy": "https://dev.zxchrnk.com",
+  "proxy": "http://194.169.163.135:8000",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -15,6 +15,7 @@
     "katex": "^0.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-latex": "^1.2.0",
     "react-redux": "^8.0.5",
     "react-resizable-panels": "^2.0.2",
@@ -29,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "react-scripts build && mv build ../server"
+    "deploy": "react-scripts build && scp -r .\\build\\* dumka@193.42.113.235:/home/dumka/crypto/NTMoC_frontend"
   },
   "eslintConfig": {
     "extends": [

@@ -5,10 +5,11 @@ import {useBaseSolveMutation} from "../../store/services/api";
 import {useParams} from "react-router";
 import {Algorithms} from "../../Calculators";
 import ErrorPage from "../ErrorPage";
-import {useSearchParams} from "react-router-dom";
+import {useLocation, useSearchParams} from "react-router-dom";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import CircleIcon from '@mui/icons-material/Circle';
+import {Helmet} from "react-helmet";
 
 
 export default function BaseAlgorithm() {
@@ -25,6 +26,10 @@ export default function BaseAlgorithm() {
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
+        console.log(args)
+    }, [args]);
+
+    useEffect(() => {
         const query_args = searchParams.get('args')
         if (type && query_args) {
             setArgs(query_args);
@@ -33,12 +38,12 @@ export default function BaseAlgorithm() {
     }, [searchParams, type]);
 
     useEffect(() => {
-        if (type) {
-            setAlgorithm(Algorithms.find(alg => alg.type === type))
-        }
         setArgs([]);
         setAnswer(null);
         setErrorData(null);
+        if (type) {
+            setAlgorithm(Algorithms.find(alg => alg.type === type))
+        }
     }, [type]);
 
     const getAnswerHandler = async (type_value, args_value) => {
@@ -78,7 +83,20 @@ export default function BaseAlgorithm() {
         const [show, setShow] = useState(true);
 
         return check && (
-            <Box mt={3} width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
+            <Box mt={3} width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'}
+                 alignItems={'center'}>
+                <Helmet>
+                    <title>{algorithm.title} - CryptoMath</title>
+                    <meta name="description"
+                          content={`${algorithm.title}, онлайн калькулятор с примерами и теорией. 
+                          CryptoMath – ваш надежный партнер в мире криптографии и математики!`}
+                    />
+                    <meta name="keywords"
+                          content={`${algorithm.title}, онлайн, калькулятор, математика, алгоритм, 
+                          криптография, решение, пример, теория`}
+                    />
+                </Helmet>
+
                 <CustomDivider mb={0}/>
 
                 <Box display={"flex"} alignItems={"center"} justifyContent={"flex-start"} width={1}>
@@ -132,13 +150,20 @@ export default function BaseAlgorithm() {
             >
                 <CustomDivider mt={2} mb={2}/>
 
-                <Typography fontSize={21} sx={{mb: 2}} alignSelf={"flex-start"}>
-                    {algorithm.title}
-                    <Box mt={1} mb={1} width={1} borderTop={'1px dashed green'}/>
-                </Typography>
+                <Box alignSelf={"flex-start"} display={"flex"} gap={2} alignItems={"center"}
+                     justifyContent={"space-between"} width={1}>
+                    <Typography fontSize={21} sx={{mb: 2}} alignSelf={"flex-start"}>
+                        {algorithm.title}
+                        <Box mt={1} mb={1} width={1} borderTop={'1px dashed green'}/>
+                    </Typography>
+                    <Typography fontSize={16} color={'gray'} alignSelf={"flex-start"}>
+                        онлайн калькулятор
+                    </Typography>
+                </Box>
 
                 <Box borderRadius={2} border={'1px solid lightgrey'} py={3} px={4} fontSize={'1.6em'} key={type}>
-                    {algorithm.Input && <algorithm.Input updateArgs={setArgs} setDisable={setButtonDisable}/>}
+                    {algorithm.Input &&
+                        <algorithm.Input updateArgs={setArgs} setDisable={setButtonDisable}/>}
                 </Box>
                 <Button
                     disabled={!algorithm.Input || loading || buttonDisable}

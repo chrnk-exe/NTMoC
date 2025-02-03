@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import {Divider, Stack, TextField} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import Copyright from "./Copyright";
+import {Helmet} from "react-helmet";
 
 export default function Discussion() {
     const [name, setName] = useState('');
@@ -42,6 +43,12 @@ export default function Discussion() {
 
     return (
         <Box m={3}>
+            <Helmet>
+                <title>Обсуждения - CryptoMath</title>
+                <meta name="description" content={`Страница обсуждения, оставьте коментарий, или задайте свой вопрос.`} />
+                <meta name="keywords" content={`Обсуждения, онлайн, калькулятор, математика, алгоритм, криптография, решение, пример, теория`}/>
+            </Helmet>
+
             <Stack spacing={3}>
                 <Stack spacing={2} direction={"row"}>
                     <Stack spacing={3} width={350}>

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Box, Stack} from '@mui/material';
 import Latex from "react-latex";
+import OutlinedFormula from "../common/OutlinedFormula";
+import CentralizedMultiFormula from "../common/CentralizedMultiFormula";
 
 
 export default function AddDoubleTheory() {
@@ -14,20 +16,17 @@ export default function AddDoubleTheory() {
     ]
     return (
         <Stack fontSize={18} alignSelf={"flex-start"} spacing={2}>
-            <Box display={"flex"} alignItems={"center"}>
-                <Latex>{'Произведение чисел по модулю - решение задачи вида'}</Latex>
-                <Box ml={1.5} px={1} py={0.5} border={1}>
-                    <Latex>{'$x=a \\cdot b\\ (mod\\ m)$ '}</Latex>
-                </Box>
-            </Box>
-            <Box>
-                <Latex>{'Для вычисления используются следующие реккурентные формулы:'}</Latex>
-            </Box>
-            <Box pt={2} alignSelf={"center"}>
-                <Latex>
-                    {`$\\begin{cases} ${alg_lines.join(', \\\\')} \\\\ \\end{cases}\\,$`}
-                </Latex>
-            </Box>
+            <OutlinedFormula
+                description={'Произведение чисел по модулю - решение задачи вида'}
+                formula={'x=a \\cdot b\\ (mod\\ m)'}
+            />
+            <CentralizedMultiFormula
+                header={'Для вычисления используются следующие реккурентные формулы'}
+                formulas={[
+                    `\\begin{cases} ${alg_lines.join(', \\\\')} \\\\ \\end{cases}\\,`,
+                ]}
+            />
+
             <Box pb={2} alignSelf={"center"}>
                 <Latex>
                     {`где $[P]= \\left[ \\begin{array}{ccc} 1,\\ true\\ \\ \\\\0,\\ false \\end{array} \\right.
@@ -43,26 +42,16 @@ export default function AddDoubleTheory() {
                     без использования деления с остатком используются следующие утверждения:`}
                 </Latex>
             </Box>
-            <Box alignSelf={"center"}>
-                <Latex>
-                    {`$\\begin{cases} Q_b(a+bc)=Q_b(a)+c,\\\\ R_b(a+bc)=R_b(a); \\end{cases}\\,$`}
-                </Latex>
-            </Box>
-            <Box alignSelf={"center"}>
-                <Latex>
-                    {`$R_c(a+b)=R_c(R_c(a)+R_c(b));$`}
-                </Latex>
-            </Box>
-            <Box alignSelf={"center"}>
-                <Latex>
-                    {`$R_c(a\\cdot b)=R_c(R_c(a)\\cdot R_c(b));$`}
-                </Latex>
-            </Box>
-            <Box alignSelf={"center"}>
-                <Latex>
-                    {`$R_c(b^a)=R_c((R_c(b))^a).$`}
-                </Latex>
-            </Box>
+
+            <CentralizedMultiFormula
+                header={'Для вычисления используются следующие реккурентные формулы'}
+                formulas={[
+                    `\\begin{cases} Q_b(a+bc)=Q_b(a)+c,\\\\ R_b(a+bc)=R_b(a); \\end{cases}\\,`,
+                    `R_c(a+b)=R_c(R_c(a)+R_c(b));`,
+                    `R_c(a\\cdot b)=R_c(R_c(a)\\cdot R_c(b));`,
+                    `R_c(b^a)=R_c((R_c(b))^a).`,
+                ]}
+            />
         </Stack>
     )
 };
