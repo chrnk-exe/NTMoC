@@ -9,7 +9,7 @@ import {useSearchParams} from "react-router-dom";
 
 
 export default function ChineseCode({updateArgs, setDisable}) {
-    const [lines, setLines] = useState([[1, 2], [13, 17]]);
+    const [lines, setLines] = useState([[3, 5], [13, 31]]);
     const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
