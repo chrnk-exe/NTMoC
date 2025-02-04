@@ -3,12 +3,14 @@ import {Stack, Typography} from '@mui/material';
 import {CustomTextField} from "../common/CustomTextField";
 import Latex from "react-latex";
 import {useSearchParams} from "react-router-dom";
+import {useParams} from "react-router";
 
 
 export default function Gcd({updateArgs}) {
-	const [A, setA] = useState(980);
-	const [B, setB] = useState(84);
+	const [A, setA] = useState(0);
+	const [B, setB] = useState(0);
 
+	const {type} = useParams();
 	const [searchParams, setSearchParams] = useSearchParams();
 
 	useEffect(() => {
@@ -16,7 +18,7 @@ export default function Gcd({updateArgs}) {
 	}, [A, B]);
 
 	useEffect(() => {
-		const args = searchParams.get('args')?.split(',')
+		const args = searchParams.get('args')?.split(',');
 		if (args?.length > 1) {
 			setA(args[0]);
 			setB(args[1]);

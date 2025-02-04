@@ -1,33 +1,38 @@
-import React, {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, {Fragment, useEffect, useState} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Navigation from './Navigation';
 import Button from '@mui/material/Button';
-import {AppBar, Grow} from '@mui/material';
+import {AppBar, Collapse, Grow, useMediaQuery} from '@mui/material';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import {Panel, PanelGroup, PanelResizeHandle} from "react-resizable-panels";
 import Advertising from "./Advertising";
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
-import CalculateOutlinedIcon from "@mui/icons-material/CalculateOutlined";
-import {Remove} from "@mui/icons-material";
 import ClearIcon from '@mui/icons-material/Clear';
 import {MenuList} from "../Calculators";
+import ReorderOutlinedIcon from '@mui/icons-material/ReorderOutlined';
+import {useParams} from "react-router";
 
 
 const AD = false;
 
 
 export default function Dashboard({children}) {
-    const [open, setOpen] = useState(true);
-    const drawerToggle = () => setOpen(prev => !prev);
 
     const [hoverState, setHoverState] = useState(false);
     const navigate = useNavigate();
 
     const [storage, setStorage] = useState({});
+    const [showAlgList, setShowAlgList] = useState(false);
+    const location = useLocation();
 
+    useEffect(() => {
+        setShowAlgList(false);
+    }, [location]);
+
+    const width_1000 = useMediaQuery('(min-width:1000px)');
 
     useEffect(() => {
         const handleStorage = () => {
@@ -70,68 +75,126 @@ export default function Dashboard({children}) {
     return (
         <Box display={'flex'}>
             <AppBar component="nav" sx={{bgcolor: '#339353'}}>
-                <Toolbar>
-                    <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={1} mx={1}>
-                        <Box display={'flex'} alignItems={'center'}>
-                            <FunctionsIcon fontSize={'large'}/>
-                            <Button onClick={() => navigate('/')}>
-                                <Typography color={'#FFFFF1'} noWrap>
-                                    Теоретико числовые методы криптографии
-                                </Typography>
-                            </Button>
-                        </Box>
-                        <Button onClick={() => navigate('/discussion')} sx={{color: 'white'}}>
-                            <ChatOutlinedIcon color={"secondary"} fontSize={'large'}/>
-                            <Box pl={1}>
-                                Обсуждения
-                            </Box>
+                <Box
+                    display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={'100vw'}
+                    py={1}
+                >
+                    <Box display={'flex'} alignItems={'center'} pl={2}>
+                        <FunctionsIcon fontSize={'large'}/>
+                        <Button onClick={() => navigate('/')} sx={{textTransform: 'unset'}}>
+                            <Typography color={'#FFFFF1'} noWrap fontSize={19} fontWeight={"bold"}>
+                                Crypto Math
+                            </Typography>
+                            {
+                                width_1000 && (
+                                    <Fragment>
+                                        <Typography color={'#FFFFF1'} noWrap fontSize={19} px={1}>
+                                            -
+                                        </Typography>
+                                        <Typography color={'#FFFFF1'} noWrap fontSize={19}>
+                                            ваш надежный партнер в мире криптографии и математики!
+                                        </Typography>
+                                    </Fragment>
+                                )
+                            }
                         </Button>
                     </Box>
-                </Toolbar>
+                    <Box>
+                        <Button onClick={() => navigate('/discussion')} sx={{color: 'white'}}>
+                            <ChatOutlinedIcon color={"secondary"} fontSize={'large'}/>
+                            {
+                                width_1000 && (
+                                    <Box pl={1}>
+                                        Обсуждения
+                                    </Box>
+                                )
+                            }
+                        </Button>
+                        {
+                            !width_1000 && (
+                                <Button onClick={e => setShowAlgList(!showAlgList)} sx={{color: 'white'}}>
+                                    <ReorderOutlinedIcon color={"secondary"} fontSize={'large'}/>
+                                </Button>
+                            )
+                        }
+                    </Box>
+                </Box>
             </AppBar>
-
             <Box width={1} mt={8}>
                 <PanelGroup direction="horizontal">
-                    <Panel defaultSize={26} minSize={20} maxSize={50} style={{zIndex: 3}}>
-                        <Box
-                            variant="permanent" open={open}
-                            anchor={'left'}
-                            sx={{
-                                height: 'calc(100vh - 64px)',
-                                zIndex: 100,
-                                boxSizing: 'border-box',
-                                backgroundColor: hoverState ? '#43be6d' : '#f5f5f5',
-                                transition: 'all .2s linear',
+                    {
+                        width_1000 ? (
+                            <Fragment>
+                                <Panel defaultSize={26} minSize={20} maxSize={50}>
+                                    <Box
+                                        variant="permanent"
+                                        anchor={'left'}
+                                        sx={{
+                                            height: 'calc(100vh - 64px)',
+                                            zIndex: 3,
+                                            boxSizing: 'border-box',
+                                            backgroundColor: hoverState ? '#43be6d' : '#f5f5f5',
+                                            transition: 'all .2s linear',
 
-                                '&::-webkit-scrollbar-thumb': {
-                                    borderRadius: '5px',
-                                    backgroundColor: 'inherit',
-                                },
-                                '&::-webkit-scrollbar': {
-                                    paddingLeft: '2px',
-                                    backgroundColor: hoverState ? 'white' : '#f5f5f5',
-                                },
-                                overflow: 'auto',
+                                            '&::-webkit-scrollbar-thumb': {
+                                                borderRadius: '5px',
+                                                backgroundColor: 'inherit',
+                                            },
+                                            '&::-webkit-scrollbar': {
+                                                paddingLeft: '2px',
+                                                backgroundColor: hoverState ? 'white' : '#f5f5f5',
+                                            },
+                                            overflow: 'auto',
 
-                                ':hover': {
-                                    overflowY: 'auto',
-                                },
-                            }}
-                            onClose={drawerToggle}
-                        >
-                            <Box
-                                bgcolor={'white'}
-                                onMouseEnter={e => setHoverState(true)}
-                                onMouseLeave={e => setHoverState(false)}
-                                sx={{
-                                    minHeight: 'calc(100vh - 64px)',
-                                }}
-                            >
-                                <Navigation/>
+                                            ':hover': {
+                                                overflowY: 'auto',
+                                            },
+                                        }}
+                                    >
+                                        <Box
+                                            bgcolor={'white'}
+                                            onMouseEnter={e => setHoverState(true)}
+                                            onMouseLeave={e => setHoverState(false)}
+                                            sx={{
+                                                minHeight: 'calc(100vh - 64px)',
+                                            }}
+                                        >
+                                            <Navigation/>
+                                        </Box>
+                                    </Box>
+                                </Panel>
+                                <PanelResizeHandle hidden={hoverState}/>
+                            </Fragment>
+                        ) : (
+                            <Box position={"absolute"} bgcolor={'#f5f5f5'}>
+                                <Collapse in={showAlgList}>
+                                    <Box
+                                        sx={{
+                                            height: 'calc(100vh - 64px)',
+                                            width: 1,
+                                            zIndex: 3,
+                                            transition: 'all .2s linear',
+
+                                            '&::-webkit-scrollbar-thumb': {
+                                                borderRadius: '5px',
+                                                backgroundColor: 'inherit',
+                                            },
+                                            '&::-webkit-scrollbar': {
+                                                paddingLeft: '2px',
+                                                backgroundColor: hoverState ? 'white' : '#f5f5f5',
+                                            },
+                                            overflow: 'auto',
+                                            ':hover': {
+                                                overflowY: 'auto',
+                                            },
+                                        }}
+                                    >
+                                        <Navigation/>
+                                    </Box>
+                                </Collapse>
                             </Box>
-                        </Box>
-                    </Panel>
-                    <PanelResizeHandle hidden={hoverState}/>
+                        )
+                    }
 
                     <Panel minSize={20}>
                         <Box display={"flex"} height={'calc(100vh - 64px)'}>
@@ -157,7 +220,7 @@ export default function Dashboard({children}) {
                                 {children}
                             </Box>
                             {
-                                storage?.length > 0 &&
+                                storage?.length > 0 && width_1000 &&
                                 <Box
                                     width={90} mx={0.8}
                                     sx={{
@@ -184,7 +247,8 @@ export default function Dashboard({children}) {
                                             <ClearIcon
                                                 fontSize={"large"} color={"error"}
                                             />
-                                            <Box fontSize={14} textTransform={"capitalize"} lineHeight={1.1} color={'error.main'}>
+                                            <Box fontSize={14} textTransform={"capitalize"} lineHeight={1.1}
+                                                 color={'error.main'}>
                                                 очистить историю
                                             </Box>
                                         </Box>
@@ -201,11 +265,10 @@ export default function Dashboard({children}) {
                                                     >
                                                         <Grow in={true}>
                                                             <Box
-                                                                width={1} height={70}
+                                                                width={1} height={70} gap={0.1}
                                                                 borderBottom={'2px solid #ccc'}
                                                                 display={"flex"} flexDirection={"column"}
                                                                 justifyContent={"center"} alignItems={"center"}
-                                                                gap={0.1}
                                                             >
                                                                 <Box height={0.1}/>
 
@@ -233,5 +296,6 @@ export default function Dashboard({children}) {
                 </PanelGroup>
             </Box>
         </Box>
-    );
+    )
+        ;
 }

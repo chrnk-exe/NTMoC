@@ -6,8 +6,8 @@ export default function InverseInput({updateArgs}) {
         <BaseInput
             updateArgs={updateArgs}
             vars={[
-                {label: 'a', defValue: 123},
-                {label: 'm', defValue: 123},
+                {label: 'a', defValue: 3},
+                {label: 'm', defValue: 7},
             ]}
         />
     )

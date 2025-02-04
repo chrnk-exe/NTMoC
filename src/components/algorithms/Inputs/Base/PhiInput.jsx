@@ -6,7 +6,7 @@ export default function PhiInput({updateArgs}) {
         <BaseInput
             updateArgs={updateArgs}
             vars={[
-                {label: 'n', defValue: 123},
+                {label: 'n', defValue: 7},
             ]}
         />
     )

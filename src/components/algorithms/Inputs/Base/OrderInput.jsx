@@ -8,8 +8,8 @@ export default function OrderInput({updateArgs}) {
         <BaseInput
             updateArgs={updateArgs}
             vars={[
-                {label: 'a', defValue: 12},
-                {label: 'm', defValue: 13},
+                {label: 'a', defValue: 3},
+                {label: 'm', defValue: 11},
             ]}
         />
     )
