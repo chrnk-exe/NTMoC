@@ -58,7 +58,7 @@ export default function ErrorPage() {
 					</span>
 					Не лезь глупец,
 				</Typography>
-				<Typography sx={{my: 6}} variant={'body1'} align={'center'}>
+				<Typography sx={{my: 6, whiteSpace: 'pre-line'}} variant={'body1'} align={'center'}>
 					— Не вмешивайся, глупец, дурак, недоделка. Ты что, не понимаешь? Отойди, вернись обратно. Неужели тебе не ясно?
 					— Она тебя атакует, опасно.
 					— АААА!
