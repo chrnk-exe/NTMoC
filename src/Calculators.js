@@ -1,13 +1,19 @@
 import AddDoubleInput from "./components/algorithms/Inputs/Calculators/AddDoubleInput";
 import FastPowInput from "./components/algorithms/Inputs/Calculators/FastPowInput";
 import KaratsubaInput from "./components/algorithms/Inputs/Calculators/KaratsubaInput";
-import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import GelfondShanksInput from "./components/algorithms/Inputs/DiscreteLogarithms/GelfondShanksInput";
 import LinearComparisonInput from "./components/algorithms/Inputs/Сomparisons/LinearComparisonInput";
 import OneFieldInput from "./components/algorithms/Inputs/common/OneFieldInput";
 import ChineseCode from "./components/algorithms/Inputs/Calculators/ChineseCode";
 import Gcd from "./components/algorithms/Inputs/Calculators/Gcd";
+import InverseInput from "./components/algorithms/Inputs/Base/InverseInput";
+import PhiInput from "./components/algorithms/Inputs/Base/PhiInput";
+import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
+import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
+import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
+import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 
+import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -17,16 +23,12 @@ import ElderlyIcon from '@mui/icons-material/Elderly';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 import AddDoubleTheory from "./components/theory/Calculators/AddDoubleTheory";
-import InverseInput from "./components/algorithms/Inputs/Base/InverseInput";
 import InverseTheory from "./components/theory/base/InverseTheory";
-import PhiInput from "./components/algorithms/Inputs/Base/PhiInput";
 import PhiTheory from "./components/theory/base/PhiTheory";
 import LEulerTheory from "./components/theory/base/LEulerTheory";
-import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
 import LCMTheory from "./components/theory/base/LCMTheory";
-import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
 import OrderTheory from "./components/theory/base/OrderTheory";
-import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
+import PrimeRootTheory from "./components/theory/base/PrimeRootTheory";
 
 
 export const BaseRoutes = [
@@ -36,7 +38,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'prime_root', title: 'Первообразный корень',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: PrimeRootInput, Theory: PrimeRootTheory, Example: null, disable: false
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',

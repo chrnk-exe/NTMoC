@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 // header - string, formulas - array<string>
 // Тут header, состоящий из текста и возможно переменных и formulas - массив latex формул,
 // возможно доказательство или вывод чего-либо
-export default function CentralizedMultiFormula({header, formulas}) {
+export default function CentralizedMultiFormula({header, formulas, aftertext}) {
     return (
         <Box>
             <Latex>{`${header}`}</Latex>
@@ -32,6 +32,7 @@ export default function CentralizedMultiFormula({header, formulas}) {
                         </Button>
                     ))}
             </Box>
+            {aftertext && <Latex>{`, ${aftertext}.`}</Latex>}
         </Box>
     )
 }
