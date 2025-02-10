@@ -14,6 +14,7 @@ import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
 import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
+import InverseExample from "./components/examples/Base/InverseExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -34,7 +35,7 @@ import PrimeRootTheory from "./components/theory/base/PrimeRootTheory";
 export const BaseRoutes = [
 	{
 		type: 'inverse', title: 'Обратный элемент по модулю',
-		Input: InverseInput, Theory: InverseTheory, Example: null, disable: false
+		Input: InverseInput, Theory: InverseTheory, Example: InverseExample, disable: false
 	},
 	{
 		type: 'prime_root', title: 'Первообразный корень',

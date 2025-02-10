@@ -21,7 +21,7 @@ export default function Copyright({simple, color}) {
                         <Divider flexItem sx={{mb: 2}}/>
                     )
                 }
-                © Copyright 2024 CryptoMath. All rights reserved
+                © Copyright 2025 CryptoMath. All rights reserved
             </Box>
         </Box>
     )
