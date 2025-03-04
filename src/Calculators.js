@@ -15,6 +15,7 @@ import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
+import PrimeRootExample from "./components/examples/Base/PrimeRootExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -39,7 +40,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'prime_root', title: 'Первообразный корень',
-		Input: PrimeRootInput, Theory: PrimeRootTheory, Example: null, disable: false
+		Input: PrimeRootInput, Theory: PrimeRootTheory, Example: PrimeRootExample, disable: false
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',
@@ -56,6 +57,10 @@ export const BaseRoutes = [
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
 		Input: PhiInput, Theory: PhiTheory, Example: null, disable: false
+	},
+	{
+		type: 'order_number', title: 'Число, отвечающее заданному показателю',
+		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
 
