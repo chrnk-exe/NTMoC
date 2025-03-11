@@ -17,6 +17,7 @@ import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample
 import InverseExample from "./components/examples/Base/InverseExample";
 import PrimeRootExample from "./components/examples/Base/PrimeRootExample";
 import LEulerExample from "./components/examples/Base/LEulerExample";
+import LCMExample from './components/examples/Base/LCMExample'
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -49,7 +50,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
-		Input: LCMInput, Theory: LCMTheory, Example: null, disable: false
+		Input: LCMInput, Theory: LCMTheory, Example: LCMExample, disable: false
 	},
 	{
 		type: 'order', title: 'Порядок числа (Метод перебора)',
