@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import OutlinedFormula from '../../theory/common/OutlinedFormula'
 import SimpleTextFormula from '../../theory/common/SimpleTextFormula'
 import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'

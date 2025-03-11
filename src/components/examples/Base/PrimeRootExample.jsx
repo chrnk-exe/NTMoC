@@ -14,16 +14,16 @@ const PrimeRootExample = () => {
 
             <OutlinedFormula
                 description={'Для вычисления первообразного корня по модулю необходимо найти такое число, отвечающее показателю q, равному значению функции Эйлера от этого модуля'}
-                formula={'P^{\\times}_m(q) = \\phi(m)'}
+                formula={'P^{\\times}_m(q) = \\varphi(m)'}
             />
 
             <SimpleTextFormula>А для нахождение всех корней необходимо перебрать все числа от 1 до m, далее найдём только один первообразный корень для модуля 7</SimpleTextFormula>
 
-            <SimpleTextFormula>{'$m = 7,  \\phi(m) = 6$'}</SimpleTextFormula>
-            <SimpleTextFormula>Необходимо найти число, отвечающее порядку $\phi(m) = 6 = 2 \cdot 3$ по модулю $7$</SimpleTextFormula>
+            <SimpleTextFormula>{'$m = 7,  \\varphi(m) = 6$'}</SimpleTextFormula>
+            <SimpleTextFormula>Необходимо найти число, отвечающее порядку $\varphi(m) = 6 = 2 \cdot 3$ по модулю $7$</SimpleTextFormula>
             <SimpleTextFormula>Условние наличия решения - $q | L(m) $, где $L$ - эль-функция Эйлера</SimpleTextFormula>
-            <SimpleTextFormula>Далее необходимо выбрать $a$, которое мы будем перебирать от 2 до $\phi(m) = 6$ и вычислить {'$b \\equiv a^{\\frac{L(m)}{q}} \\neq 1 \\mod m$'}</SimpleTextFormula>
-            <SimpleTextFormula>Если выполняется {'$c_i \\equiv b^{\\frac{q}{p_i}} \\neq 1 \\mod m$'} где $p_i$ - это элемент из множества чисел, получающихся после факторизации $\phi(m)$ (2 и 3 в нашем случае, то есть собственные простые делители), то число $b$ отвечает показателю $q$, то есть $\phi(m)$ </SimpleTextFormula>
+            <SimpleTextFormula>Далее необходимо выбрать $a$, которое мы будем перебирать от 2 до $\varphi(m) = 6$ и вычислить {'$b \\equiv a^{\\frac{L(m)}{q}} \\neq 1 \\mod m$'}</SimpleTextFormula>
+            <SimpleTextFormula>Если выполняется {'$c_i \\equiv b^{\\frac{q}{p_i}} \\neq 1 \\mod m$'} где $p_i$ - это элемент из множества чисел, получающихся после факторизации $\varphi(m)$ (2 и 3 в нашем случае, то есть собственные простые делители), то число $b$ отвечает показателю $q$, то есть $\varphi(m)$ </SimpleTextFormula>
 
             <OutlinedFormula
             description={'Вычислим значение b для a = 2'}

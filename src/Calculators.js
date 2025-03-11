@@ -19,6 +19,7 @@ import PrimeRootExample from "./components/examples/Base/PrimeRootExample";
 import LEulerExample from "./components/examples/Base/LEulerExample";
 import LCMExample from './components/examples/Base/LCMExample'
 import SimpleOrderExample from "./components/examples/Base/SimpleOrderExample";
+import PhiExample from "./components/examples/Base/PhiExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -59,7 +60,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
-		Input: PhiInput, Theory: PhiTheory, Example: null, disable: false
+		Input: PhiInput, Theory: PhiTheory, Example: PhiExample, disable: false
 	},
 	{
 		type: 'order_number', title: 'Число, отвечающее заданному показателю',
