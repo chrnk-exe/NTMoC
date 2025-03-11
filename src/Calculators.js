@@ -16,6 +16,7 @@ import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
 import PrimeRootExample from "./components/examples/Base/PrimeRootExample";
+import LEulerExample from "./components/examples/Base/LEulerExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -44,7 +45,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',
-		Input: LEulerInput, Theory: LEulerTheory, Example: null, disable: false
+		Input: LEulerInput, Theory: LEulerTheory, Example: LEulerExample, disable: false
 	},
 	{
 		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
