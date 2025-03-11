@@ -18,6 +18,7 @@ import InverseExample from "./components/examples/Base/InverseExample";
 import PrimeRootExample from "./components/examples/Base/PrimeRootExample";
 import LEulerExample from "./components/examples/Base/LEulerExample";
 import LCMExample from './components/examples/Base/LCMExample'
+import SimpleOrderExample from "./components/examples/Base/SimpleOrderExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -54,7 +55,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'order', title: 'Порядок числа (Метод перебора)',
-		Input: OrderInput, Theory: OrderTheory, Example: null, disable: false
+		Input: OrderInput, Theory: OrderTheory, Example: SimpleOrderExample, disable: false
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
