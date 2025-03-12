@@ -12,6 +12,7 @@ import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
 import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
 import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
 import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
+import OrderNumberInput from "./components/algorithms/Inputs/Base/OrderNumberInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -20,6 +21,7 @@ import LEulerExample from "./components/examples/Base/LEulerExample";
 import LCMExample from './components/examples/Base/LCMExample'
 import SimpleOrderExample from "./components/examples/Base/SimpleOrderExample";
 import PhiExample from "./components/examples/Base/PhiExample";
+import OrderNumberExample from "./components/examples/Base/OrderNumberExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -35,6 +37,7 @@ import LEulerTheory from "./components/theory/base/LEulerTheory";
 import LCMTheory from "./components/theory/base/LCMTheory";
 import OrderTheory from "./components/theory/base/OrderTheory";
 import PrimeRootTheory from "./components/theory/base/PrimeRootTheory";
+import OrderNumberTheory from "./components/theory/base/OrderNumberTheory";
 
 
 export const BaseRoutes = [
@@ -64,7 +67,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'order_number', title: 'Число, отвечающее заданному показателю',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: OrderNumberInput, Theory: OrderNumberTheory, Example: OrderNumberExample, disable: false
 	},
 ];
 
