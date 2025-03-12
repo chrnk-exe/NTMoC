@@ -9,10 +9,6 @@ const OrderNumberExample = () => {
     <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}
         sx={{width: 1}} fontSize={17} gap={0.5}>
 
-            <SimpleTextFormula>{'.'}</SimpleTextFormula>
-
-            {/* <SimpleTextFormula>Для вычисления этого корня можно воспользоваться следующим алгоритмом</SimpleTextFormula> */}
-
             <SimpleTextFormula>Найдём число, отвечающее показателю $6$ по модулю $21$</SimpleTextFormula>
 
             <SimpleTextFormula>{'$m = 21$,  $P^{\\times}_{21}(b) = 6$'}</SimpleTextFormula>
