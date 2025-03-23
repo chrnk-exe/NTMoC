@@ -20,7 +20,7 @@ export default function BinGcdTheory() {
                     />
 
                     <OutlinedFormula
-                    description={'Шаг 2. Пока $a \\ne b$, применяем:'}
+                    description={'Шаг 2. Пока $a \\ne b$, применяем'}
                 formula={'\\begin{cases}\nD(a/2, b), & a \\text{ чётное} \\\\\nD(a, b/2), & b \\text{ чётное} \\\\\nD((a - b)/2, b), & a > b \\\\\nD((b - a)/2, a), & b > a\n\\end{cases}'}
             />
 

@@ -6,7 +6,128 @@ import {useSearchParams} from "react-router-dom";
 import {useParams} from "react-router";
 
 
-export default function Gcd({updateArgs}) {
+export function GcdInput({updateArgs}) {
+	const [A, setA] = useState(12);
+	const [B, setB] = useState(16);
+
+	const {type} = useParams();
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	useEffect(() => {
+		updateArgs([A, B])
+	}, [A, B]);
+
+	useEffect(() => {
+		const args = searchParams.get('args')?.split(',');
+		if (args?.length > 1) {
+			setA(args[0]);
+			setB(args[1]);
+		}
+	}, [searchParams]);
+
+	return (
+		<Stack direction={"row"} alignItems={"center"} spacing={0.5}>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.5}>
+				<Latex style={{color: 'gray'}} >
+					$D$
+				</Latex>
+			</Typography>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{'('}
+			</Typography>
+			<CustomTextField value={A} setValue={setA}/>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.7}>
+				{','}
+			</Typography>
+			<CustomTextField value={B} setValue={setB}/>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{')'}
+			</Typography>
+		</Stack>
+	);
+}
+
+export function BinGcdInput({updateArgs}) {
+	const [A, setA] = useState(12);
+	const [B, setB] = useState(16);
+
+	const {type} = useParams();
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	useEffect(() => {
+		updateArgs([A, B])
+	}, [A, B]);
+
+	useEffect(() => {
+		const args = searchParams.get('args')?.split(',');
+		if (args?.length > 1) {
+			setA(args[0]);
+			setB(args[1]);
+		}
+	}, [searchParams]);
+
+	return (
+		<Stack direction={"row"} alignItems={"center"} spacing={0.5}>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.5}>
+				<Latex style={{color: 'gray'}} >
+					$D$
+				</Latex>
+			</Typography>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{'('}
+			</Typography>
+			<CustomTextField value={A} setValue={setA}/>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.7}>
+				{','}
+			</Typography>
+			<CustomTextField value={B} setValue={setB}/>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{')'}
+			</Typography>
+		</Stack>
+	);
+}
+export function ExtGcdInput({updateArgs}) {
+	const [A, setA] = useState(12);
+	const [B, setB] = useState(16);
+
+	const {type} = useParams();
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	useEffect(() => {
+		updateArgs([A, B])
+	}, [A, B]);
+
+	useEffect(() => {
+		const args = searchParams.get('args')?.split(',');
+		if (args?.length > 1) {
+			setA(args[0]);
+			setB(args[1]);
+		}
+	}, [searchParams]);
+
+	return (
+		<Stack direction={"row"} alignItems={"center"} spacing={0.5}>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.5}>
+				<Latex style={{color: 'gray'}} >
+					$D$
+				</Latex>
+			</Typography>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{'('}
+			</Typography>
+			<CustomTextField value={A} setValue={setA}/>
+			<Typography fontSize={'1em'} color={'gray'} pr={0.7}>
+				{','}
+			</Typography>
+			<CustomTextField value={B} setValue={setB}/>
+			<Typography fontSize={'1em'} color={'gray'} >
+				{')'}
+			</Typography>
+		</Stack>
+	);
+}
+export function ExtBinGcdInput({updateArgs}) {
 	const [A, setA] = useState(12);
 	const [B, setB] = useState(16);
 

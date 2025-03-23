@@ -5,7 +5,6 @@ import GelfondShanksInput from "./components/algorithms/Inputs/DiscreteLogarithm
 import LinearComparisonInput from "./components/algorithms/Inputs/Сomparisons/LinearComparisonInput";
 import OneFieldInput from "./components/algorithms/Inputs/common/OneFieldInput";
 import ChineseCode from "./components/algorithms/Inputs/Calculators/ChineseCode";
-import Gcd from "./components/algorithms/Inputs/Calculators/Gcd";
 import InverseInput from "./components/algorithms/Inputs/Base/InverseInput";
 import PhiInput from "./components/algorithms/Inputs/Base/PhiInput";
 import LEulerInput from "./components/algorithms/Inputs/Base/LEulerInput";
@@ -46,6 +45,7 @@ import GcdExample from "./components/examples/Euclid/GcdExample";
 import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
 import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
 import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
+import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
 
 
 export const BaseRoutes = [
@@ -128,22 +128,22 @@ export const EuclidRoutes = [
 	{
 		type: 'gcd', title: 'Алгоритм Евклида',
 		origin: 'Euclidean Algorithm',
-		Input: Gcd, Theory: GcdTheory, Example: GcdExample, disable: false
+		Input: GcdInput, Theory: GcdTheory, Example: GcdExample, disable: false
 	},
 	{
 		type: 'bin_gcd', title: 'Бинарный алгоритм Евклида',
 		origin: 'Binary GCD Algorithm',
-		Input: Gcd, Theory: BinGcdTheory, Example: BinGcdExample, disable: false
+		Input: BinGcdInput, Theory: BinGcdTheory, Example: BinGcdExample, disable: false
 	},
 	{
 		type: 'ext_gcd', title: 'Расширенный алгоритм Евклида',
 		origin: 'Extended Euclidean Algorithm',
-		Input: Gcd, Theory: ExtGcdTheory, Example: ExtGcdExample, disable: false
+		Input: ExtGcdInput, Theory: ExtGcdTheory, Example: ExtGcdExample, disable: false
 	},
 	{
 		type: 'ext_bin_gcd', title: 'Расширенный бинарный алгоритм Евклида',
 		origin: 'Extended Binary GCD Algorithm',
-		Input: Gcd, Theory: ExtBinGcdTheory, Example: ExtBinGcdExample, disable: false
+		Input: ExtBinGcdInput, Theory: ExtBinGcdTheory, Example: ExtBinGcdExample, disable: false
 	},
 ]
 
