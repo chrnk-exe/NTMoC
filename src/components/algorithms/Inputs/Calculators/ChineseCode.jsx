@@ -52,18 +52,14 @@ export default function ChineseCode({updateArgs, setDisable}) {
             <Box display={"flex"} >
                 <Box width={25} color={'grey'}>
                     <Latex>
-                        {`$\\begin{cases} ${'\\\\'.repeat(lines?.length)} \\end{cases}\\,$`}
+                        {`$\\begin{cases} ${'\\\\'.repeat(lines?.length + 1)} \\end{cases}\\,$`}
                     </Latex>
                 </Box>
-                <Stack spacing={0.35}>
+                <Stack spacing={0.8}>
                     {
                         lines?.map((line, index) => (
                             <Stack direction={"row"} spacing={0.7} alignItems={"center"}>
-                                <IconButton sx={{mr: 1}} onClick={e => removeLine(index)}>
-                                    <DeleteOutlineOutlinedIcon color={"error"}/>
-                                </IconButton>
-
-                                <Typography fontSize={'1em'} color={'gray'} px={0.3}>
+                                <Typography fontSize={'1em'} color={'gray'} px={0.3} pl={1.5}>
                                     {'𝑥'}
                                 </Typography>
                                 <Typography fontSize={'1em'} color={'gray'} px={0.3}>
@@ -82,12 +78,17 @@ export default function ChineseCode({updateArgs, setDisable}) {
                                 <Typography fontSize={'1em'} color={'gray'} pl={0.2}>
                                     {')'}
                                 </Typography>
+                                <Box>
+                                    <IconButton sx={{ml: 1}} onClick={e => removeLine(index)}>
+                                        <DeleteOutlineOutlinedIcon sx={{color: '#aaa', transform: 'scale(0.9)'}}/>
+                                    </IconButton>
+                                </Box>
                             </Stack>
                         ))
                     }
                     {
                         lines?.length < 7 && (
-                            <Box display={"flex"} justifyContent={"center"} mt={1.5} alignItems={"center"}>
+                            <Box display={"flex"} justifyContent={"center"} mt={1.5} alignItems={"center"} pt={1}>
                                 <Button onClick={addLine} startIcon={<AddOutlinedIcon/>}>
                                     Добавить строку
                                 </Button>

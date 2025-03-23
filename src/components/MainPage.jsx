@@ -55,7 +55,7 @@ const MainPage = () => {
                 {/*<Latex displayMode={true}>{String.raw`$$x_1,_2 = {-b \pm \sqrt{b^2-4ac} \over 2a}$$`}</Latex>*/}
             </Box>
             <Box position={"absolute"} bottom={40}>
-                <Copyright simple/>
+                <Copyright border={'dotted'}/>
             </Box>
         </Box>
     );

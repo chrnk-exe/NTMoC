@@ -10,6 +10,7 @@ import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import CircleIcon from '@mui/icons-material/Circle';
 import {Helmet} from "react-helmet";
+import Copyright from "../Copyright";
 
 
 export default function BaseAlgorithm() {
@@ -84,7 +85,9 @@ export default function BaseAlgorithm() {
 
         return check && (
             <Box mt={3} width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'}
-                 alignItems={'center'}>
+                 alignItems={'center'} border={`${show ? 2 : 0}px dashed green`} borderRadius={5}
+                 p={show ? 3.5 : 0} sx={{transition: 'all 0.3s ease-in-out'}}
+            >
                 <Helmet>
                     <title>{algorithm.title} - CryptoMath</title>
                     <meta name="description"
@@ -97,24 +100,31 @@ export default function BaseAlgorithm() {
                     />
                 </Helmet>
 
-                <CustomDivider mb={0}/>
+                {/*<CustomDivider mb={0}/>*/}
 
                 <Box display={"flex"} alignItems={"center"} justifyContent={"flex-start"} width={1}>
                     <Button
                         fullWidth onClick={e => setShow(!show)}
-                        sx={{p: 0, justifyContent: 'flex-start'}}
+                        sx={{p: 0, justifyContent: 'flex-start', borderRadius: 5}}
                     >
                         <Box
-                            border={'1px dashed green'} borderTop={0} py={0.7} ml={0} px={2}
+                            // border={'1px dashed green'} borderTop={0}
+                            py={0.7} ml={0} px={2}
                             display={"flex"} alignSelf={"flex-start"}
+                            bgcolor={'#58c479'}
+                            borderRadius={5}
+                            width={1}
+                            // sx={{
+                            //     background: 'linear-gradient(to bottom, #4caf50, #81c784)', // green gradient
+                            // }}
                         >
                             <Box display={"flex"} alignItems={"center"} px={1}>
                                 {show ?
-                                    <ArrowUpwardOutlinedIcon fontSize={"small"}/> :
-                                    <ArrowDownwardOutlinedIcon fontSize={"small"}/>}
+                                    <ArrowUpwardOutlinedIcon sx={{color: 'white'}} fontSize={"small"}/> :
+                                    <ArrowDownwardOutlinedIcon sx={{color: 'white'}} fontSize={"small"}/>}
                             </Box>
 
-                            <Box color={'primary.main'} fontSize={15} pr={2}>
+                            <Box color={'white'} fontSize={15} pr={2}>
                                 {label}
                             </Box>
                         </Box>
@@ -127,17 +137,17 @@ export default function BaseAlgorithm() {
                         {children}
                     </Box>
                 </Collapse>
-                {
-                    !show && (
-                        <Button onClick={e => setShow(true)}>
-                            <Stack direction={"row"} spacing={1}>
-                                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>
-                                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>
-                                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>
-                            </Stack>
-                        </Button>
-                    )
-                }
+                {/*{*/}
+                {/*    !show && (*/}
+                {/*        <Button onClick={e => setShow(true)}>*/}
+                {/*            <Stack direction={"row"} spacing={1}>*/}
+                {/*                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>*/}
+                {/*                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>*/}
+                {/*                <CircleIcon sx={{transform: 'scale(0.5)', opacity: 0.8}}/>*/}
+                {/*            </Stack>*/}
+                {/*        </Button>*/}
+                {/*    )*/}
+                {/*}*/}
                 {/*<Box height={10}/>*/}
             </Box>
         )
@@ -153,7 +163,7 @@ export default function BaseAlgorithm() {
                 <Box alignSelf={"flex-start"} display={"flex"} gap={2} alignItems={"center"}
                      justifyContent={"space-between"} width={1}>
                     <Typography fontSize={21} sx={{mb: 2}} alignSelf={"flex-start"}>
-                        {algorithm.title}
+                        {algorithm.title} ({algorithm.origin})
                         <Box mt={1} mb={1} width={1} borderTop={'1px dashed green'}/>
                     </Typography>
                     <Typography fontSize={16} color={'gray'} alignSelf={"flex-start"}>
@@ -167,12 +177,12 @@ export default function BaseAlgorithm() {
                 </Box>
                 <Button
                     disabled={!algorithm.Input || loading || buttonDisable}
-                    variant={'outlined'}
+                    variant={'contained'}
                     onClick={e => {
                         saveToStorage(type, args);
                         getAnswerHandler(type, args);
                     }}
-                    sx={{mt: 3, width: '150px'}}
+                    sx={{mt: 3, width: '200px'}}
                 >
                     Решить
                 </Button>
@@ -200,7 +210,10 @@ export default function BaseAlgorithm() {
                 <Section check={algorithm.Example} label={'Пример'}>
                     {algorithm.Example && <algorithm.Example/>}
                 </Section>
-                <CustomDivider/>
+                {/*<Box mt={4} mb={3}>*/}
+                {/*    <Copyright />*/}
+                {/*</Box>*/}
+                <Box my={3}/>
             </Box>
         </Box>
     ) : algorithm === undefined ? (

@@ -166,7 +166,7 @@ export default function Dashboard({children}) {
                                 <PanelResizeHandle hidden={hoverState}/>
                             </Fragment>
                         ) : (
-                            <Box position={"absolute"} bgcolor={'#f5f5f5'}>
+                            <Box position={"absolute"} bgcolor={'#f5f5f5'} width={1} zIndex={3}>
                                 <Collapse in={showAlgList}>
                                     <Box
                                         sx={{
@@ -189,7 +189,7 @@ export default function Dashboard({children}) {
                                             },
                                         }}
                                     >
-                                        <Navigation/>
+                                        <Navigation mobile/>
                                     </Box>
                                 </Collapse>
                             </Box>

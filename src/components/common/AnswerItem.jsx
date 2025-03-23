@@ -11,7 +11,7 @@ const AnswerItem = ({data, label, type, showDetails, index, answer}) => {
     return (
         <Box
             width={1} display={"flex"} justifyContent={"flex-start"} alignItems={"center"} pt={1}
-            mb={answer ? 1 : 0}
+            mb={answer ? 2 : 0}
         >
             <Box mr={3} fontSize={26}>
                 <Button
@@ -19,7 +19,7 @@ const AnswerItem = ({data, label, type, showDetails, index, answer}) => {
 
                     sx={{
                         border: answer ? `1px dashed ${color}` : '1px dashed green',
-                        borderRadius: '50%',
+                        borderRadius: 20,
                         minWidth: 50,
                         height: 50,
                         display: 'flex',
@@ -36,7 +36,7 @@ const AnswerItem = ({data, label, type, showDetails, index, answer}) => {
             </Box>
 
             <Box
-                border={answer ? `2px dashed ${color}` : '1px dashed green'}
+                border={answer ? `1px dashed ${color}` : '1px dashed green'}
                 borderRadius={5} width={1} py={1.5} px={1} my={0.5}
                 overflow={'auto'}
             >

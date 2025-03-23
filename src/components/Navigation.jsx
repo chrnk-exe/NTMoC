@@ -19,7 +19,7 @@ import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import {useParams} from "react-router";
 
-const Navigation = () => {
+const Navigation = ({mobile}) => {
     const [open, setOpen] = useState(Array(MenuList.length).fill(true));
 
     const {type} = useParams();
@@ -61,7 +61,9 @@ const Navigation = () => {
                                                 disabled={alg.disable}
                                                 selected={type === alg.type}
                                                 sx={{
-                                                    p: 0.5, pl: 4,
+                                                    borderBottom: mobile ? '1px solid #ccc' : 'none',
+                                                    py: mobile ? 2 : 1,
+                                                    px: 0.5, pl: 4,
                                                     "&.Mui-selected": {
                                                         backgroundColor: '#efefef',
                                                         ':hover': {
@@ -96,13 +98,11 @@ const Navigation = () => {
                                                                 transform: 'scale(0.9)'
                                                             }}/>
                                                         </Tooltip>
-
                                                     </Stack>
-
 
                                                     <Typography
                                                         // maxWidth={'20vw'}
-                                                        fontSize={17}
+                                                        fontSize={mobile ? 20 : 17}
                                                         sx={{pr: 3}}
                                                     >
                                                         {alg.title}

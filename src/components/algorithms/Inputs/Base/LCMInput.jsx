@@ -39,7 +39,7 @@ export default function LCMInput({updateArgs}) {
     }
 
     return (
-        <Box display={"flex"} flexDirection={"column"} >
+        <Box display={"flex"} flexDirection={"column"}>
             <Box display={"flex"} alignItems={"center"}>
                 <Box mr={2}>
                     <Latex>$M \Big($</Latex>
@@ -48,11 +48,14 @@ export default function LCMInput({updateArgs}) {
                     args?.map((arg, index) =>
                         <Box display={"flex"} alignItems={"center"}>
                             {index !== 0 && <Box mx={1.5}>,</Box>}
-                            <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}>
-                                <CustomTextField value={arg} setValue={setValueToIndex(index)} />
-                                <IconButton onClick={e => removeArgByIndex(index)} sx={{mt: 1}}>
-                                    <DeleteOutlineOutlinedIcon color={"error"} fontSize={"small"}/>
-                                </IconButton>
+                            <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}
+                                   position={"relative"}>
+                                <Box position={"absolute"} top={'-35px'}>
+                                    <IconButton onClick={e => removeArgByIndex(index)} sx={{mt: 1}}>
+                                        <DeleteOutlineOutlinedIcon sx={{color: 'gray', transform: 'scale(0.7)'}} />
+                                    </IconButton>
+                                </Box>
+                                <CustomTextField value={arg} setValue={setValueToIndex(index)}/>
                             </Stack>
                         </Box>
                     )

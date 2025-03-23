@@ -3,7 +3,7 @@ import React from 'react'
 import OutlinedFormula from '../../theory/common/OutlinedFormula'
 import SimpleTextFormula from '../../theory/common/SimpleTextFormula'
 
-const PrimeRootExample = () => {
+export default function PrimeRootExample () {
   return (
     <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}
         sx={{width: 1}} fontSize={17} gap={0.5}>
@@ -61,6 +61,4 @@ const PrimeRootExample = () => {
             <SimpleTextFormula>Как видно, 3 действительно является порождающим элементом а следовательно - первообразный корень!</SimpleTextFormula>
         </Box>
   )
-}
-
-export default PrimeRootExample
+};

@@ -7,8 +7,8 @@ import {useParams} from "react-router";
 
 
 export default function Gcd({updateArgs}) {
-	const [A, setA] = useState(0);
-	const [B, setB] = useState(0);
+	const [A, setA] = useState(12);
+	const [B, setB] = useState(16);
 
 	const {type} = useParams();
 	const [searchParams, setSearchParams] = useSearchParams();

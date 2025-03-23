@@ -38,35 +38,50 @@ import LCMTheory from "./components/theory/base/LCMTheory";
 import OrderTheory from "./components/theory/base/OrderTheory";
 import PrimeRootTheory from "./components/theory/base/PrimeRootTheory";
 import OrderNumberTheory from "./components/theory/base/OrderNumberTheory";
+import GcdTheory from "./components/theory/Euclid/GcdTheory";
+import BinGcdTheory from "./components/theory/Euclid/BinGcdTheory";
+import ExtGcdTheory from "./components/theory/Euclid/ExtGcdTheory";
+import ExtBinGcdTheory from "./components/theory/Euclid/ExtBinGcdTheory";
+import GcdExample from "./components/examples/Euclid/GcdExample";
+import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
+import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
+import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
 
 
 export const BaseRoutes = [
 	{
 		type: 'inverse', title: 'Обратный элемент по модулю',
+		origin: 'Modular Inverse',
 		Input: InverseInput, Theory: InverseTheory, Example: InverseExample, disable: false
 	},
 	{
 		type: 'prime_root', title: 'Первообразный корень',
+		origin: 'Primitive Root',
 		Input: PrimeRootInput, Theory: PrimeRootTheory, Example: PrimeRootExample, disable: false
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',
+		origin: 'Euler’s Totient Function (λ-function)',
 		Input: LEulerInput, Theory: LEulerTheory, Example: LEulerExample, disable: false
 	},
 	{
 		type: 'lcm', title: 'Наименьшее общее кратное (НОК)',
+		origin: 'Least Common Multiple (LCM)',
 		Input: LCMInput, Theory: LCMTheory, Example: LCMExample, disable: false
 	},
 	{
 		type: 'order', title: 'Порядок числа (Метод перебора)',
+		origin: 'Order of an Element (Brute Force)',
 		Input: OrderInput, Theory: OrderTheory, Example: SimpleOrderExample, disable: false
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
+		origin: 'Euler’s Totient Function (φ-function)',
 		Input: PhiInput, Theory: PhiTheory, Example: PhiExample, disable: false
 	},
 	{
 		type: 'order_number', title: 'Число, отвечающее заданному показателю',
+		origin: 'Element with Given Order',
 		Input: OrderNumberInput, Theory: OrderNumberTheory, Example: OrderNumberExample, disable: false
 	},
 ];
@@ -74,30 +89,37 @@ export const BaseRoutes = [
 export const CalculatorRoutes = [
 	{
 		type: 'add_double', title: 'Произведение чисел по модулю (алгоритм сложения-удвоения)',
+		origin: 'Multiply using Add-and-Double',
 		Input: AddDoubleInput, Theory: AddDoubleTheory, Example: null, disable: false
 	},
 	{
 		type: 'fast_pow', title: 'Возведение в степень по модулю',
+		origin: 'Fast Modular Exponentiation',
 		Input: FastPowInput, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'karatsuba', title: 'Алгоритм Карацубы',
+		origin: 'Karatsuba Algorithm',
 		Input: KaratsubaInput, Theory: null, Example: KaratsubaExample, disable: false
 	},
 	{
 		type: 'cc_to_int', title: 'Перевод китайского кода в число (Китайская теорема об остатках)',
+		origin: 'Chinese Remainder Theorem (CRT) to Integer',
 		Input: ChineseCode, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
+		origin: 'Chinese Remainder Theorem (CRT) to Polyadic Code',
 		Input: ChineseCode, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
+		origin: 'Power Tower Evaluation',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'smart_order', title: 'Порядок числа (с использованием свойств)',
+		origin: 'Order of an Element (with Properties)',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
@@ -105,41 +127,50 @@ export const CalculatorRoutes = [
 export const EuclidRoutes = [
 	{
 		type: 'gcd', title: 'Алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null, disable: false
+		origin: 'Euclidean Algorithm',
+		Input: Gcd, Theory: GcdTheory, Example: GcdExample, disable: false
 	},
 	{
 		type: 'bin_gcd', title: 'Бинарный алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null, disable: false
+		origin: 'Binary GCD Algorithm',
+		Input: Gcd, Theory: BinGcdTheory, Example: BinGcdExample, disable: false
 	},
 	{
 		type: 'ext_gcd', title: 'Расширенный алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null, disable: false
+		origin: 'Extended Euclidean Algorithm',
+		Input: Gcd, Theory: ExtGcdTheory, Example: ExtGcdExample, disable: false
 	},
 	{
 		type: 'ext_bin_gcd', title: 'Расширенный бинарный алгоритм Евклида',
-		Input: Gcd, Theory: null, Example: null, disable: false
+		origin: 'Extended Binary GCD Algorithm',
+		Input: Gcd, Theory: ExtBinGcdTheory, Example: ExtBinGcdExample, disable: false
 	},
 ]
 
 export const FactorizationRoutes = [
 	{
 		type: 'dixon', title: 'Алгоритм Диксона',
+		origin: 'Dixon’s Factorization Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_fact', title: 'Ро-метод Полларда',
+		origin: 'Pollard’s Rho Factorization',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
+		origin: 'Pollard’s Rho with Floyd’s Cycle Detection',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'p_1_pollard', title: 'P-1 метод Полларда',
+		origin: 'Pollard’s P-1 Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'fermat', title: 'Метод Ферма',
+		origin: 'Fermat’s Factorization Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 ];
@@ -147,14 +178,17 @@ export const FactorizationRoutes = [
 export const LogarithmRoutes = [
 	{
 		type: 'adleman', title: 'Алгоритм Адлемана',
+		origin: 'Adleman’s Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
+		origin: 'Gelfond–Shanks Algorithm',
 		Input: GelfondShanksInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
+		origin: 'Pollard’s Rho for Discrete Logarithm (Floyd)',
 		Input: null, Theory: null, Example: null, disable: true
 	}
 ];
@@ -162,34 +196,42 @@ export const LogarithmRoutes = [
 export const ComparisonsRoutes = [
 	{
 		type: 'tonelli_shenks', title: 'Алгоритм Тонелли-Шенкса',
+		origin: 'Tonelli–Shanks Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'tonelli_shenks_ext', title: 'Обобщённый алгоритм Тонелли-Шенкса',
+		origin: 'Generalized Tonelli–Shanks Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'chipolla', title: 'Алгоритм Чиполлы',
+		origin: 'Cipolla’s Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'berlekamp_rabin', title: 'Алгоритм Берлекэмпа-Рабина',
+		origin: 'Berlekamp–Rabin Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'polyg_hellman', title: 'Алгоритм Полига-Хеллмана',
+		origin: 'Pohlig–Hellman Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'linear_comparison', title: 'Решение линейного сравнения',
+		origin: 'Solve Linear Congruence',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'solve_lin_comparison', title: 'Решить линейное сравнение (составной модуль)',
+		origin: 'Solve Linear Congruence (Composite Modulus)',
 		Input: LinearComparisonInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'solve_lin_comparasion_cto', title: 'Решить линейное сравнение (КТО)',
+		origin: 'Solve Linear Congruence (CRT)',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 ];

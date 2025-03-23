@@ -104,7 +104,7 @@ export default function Discussion() {
                     }
                 </Stack>
             </Stack>
-            <Copyright color={'gray'}/>
+            <Copyright color={'gray'} border={'solid'}/>
         </Box>
     )
 }

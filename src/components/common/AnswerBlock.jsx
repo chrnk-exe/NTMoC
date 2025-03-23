@@ -11,29 +11,37 @@ const AnswerBlock = ({answer}) => {
     return answer && answer.length > 0 && (
         <Box width={1}>
             <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
-                <AnswerItem {...answer[0]} index={<Box fontSize={14}>Ответ</Box>}/>
-                {
-                    answer.length > 1 &&
-                    <Box my={0.5} mt={1.5} display={"flex"} justifyContent={"center"} alignItems={"center"} width={1}>
-                        {
-                            showDetails ? (
-                                <Button
-                                    startIcon={<ArrowUpwardOutlinedIcon/>}
-                                    onClick={e => setShowDetails(false)}
-                                >
-                                    Скрыть пошаговое решение
-                                </Button>
-                            ) : (
-                                <Button
-                                    startIcon={<ArrowDownwardOutlinedIcon/>}
-                                    onClick={e => setShowDetails(true)}
-                                >
-                                    Показать пошаговое решение
-                                </Button>
-                            )
-                        }
+                <AnswerItem {...answer[0]} answer index={
+                    <Box
+                        fontSize={14} lineHeight={1.2} fontWeight={600}
+                        // color={'#ff6c00'}
+                        color={'primary.main'}
+                    >
+                        Быстрый Ответ
                     </Box>
-                }
+                }/>
+                {/*{*/}
+                {/*    answer.length > 1 &&*/}
+                {/*    <Box my={0.5} mt={1.5} display={"flex"} justifyContent={"center"} alignItems={"center"} width={1}>*/}
+                {/*        {*/}
+                {/*            showDetails ? (*/}
+                {/*                <Button*/}
+                {/*                    startIcon={<ArrowUpwardOutlinedIcon/>}*/}
+                {/*                    onClick={e => setShowDetails(false)}*/}
+                {/*                >*/}
+                {/*                    Скрыть пошаговое решение*/}
+                {/*                </Button>*/}
+                {/*            ) : (*/}
+                {/*                <Button*/}
+                {/*                    startIcon={<ArrowDownwardOutlinedIcon/>}*/}
+                {/*                    onClick={e => setShowDetails(true)}*/}
+                {/*                >*/}
+                {/*                    Показать пошаговое решение*/}
+                {/*                </Button>*/}
+                {/*            )*/}
+                {/*        }*/}
+                {/*    </Box>*/}
+                {/*}*/}
                 {
                     showDetails && answer.slice(1).map((item, index) =>
                         <AnswerItem key={index} index={index + 1} {...item} />
