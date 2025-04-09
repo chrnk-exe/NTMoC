@@ -12,6 +12,8 @@ import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
 import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
 import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 import OrderNumberInput from "./components/algorithms/Inputs/Base/OrderNumberInput";
+import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
+import ChineseCodeToPolycode from "./components/algorithms/Inputs/Calculators/ChineseCodeToPolycode";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -21,6 +23,11 @@ import LCMExample from './components/examples/Base/LCMExample'
 import SimpleOrderExample from "./components/examples/Base/SimpleOrderExample";
 import PhiExample from "./components/examples/Base/PhiExample";
 import OrderNumberExample from "./components/examples/Base/OrderNumberExample";
+import GcdExample from "./components/examples/Euclid/GcdExample";
+import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
+import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
+import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
+import FastPowExample from "./components/examples/Calculators/FastPowExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -41,13 +48,7 @@ import GcdTheory from "./components/theory/Euclid/GcdTheory";
 import BinGcdTheory from "./components/theory/Euclid/BinGcdTheory";
 import ExtGcdTheory from "./components/theory/Euclid/ExtGcdTheory";
 import ExtBinGcdTheory from "./components/theory/Euclid/ExtBinGcdTheory";
-import GcdExample from "./components/examples/Euclid/GcdExample";
-import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
-import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
-import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
-import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
 import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
-import FastPowExample from "./components/examples/Calculators/FastPowExample";
 
 
 export const BaseRoutes = [
@@ -112,7 +113,7 @@ export const CalculatorRoutes = [
 	{
 		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
 		origin: 'Chinese Remainder Theorem (CRT) to Polyadic Code',
-		Input: ChineseCode, Theory: null, Example: null, disable: true
+		Input: ChineseCodeToPolycode, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
