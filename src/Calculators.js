@@ -46,6 +46,8 @@ import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
 import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
 import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
 import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
+import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
+import FastPowExample from "./components/examples/Calculators/FastPowExample";
 
 
 export const BaseRoutes = [
@@ -95,7 +97,7 @@ export const CalculatorRoutes = [
 	{
 		type: 'fast_pow', title: 'Возведение в степень по модулю',
 		origin: 'Fast Modular Exponentiation',
-		Input: FastPowInput, Theory: null, Example: null, disable: false
+		Input: FastPowInput, Theory: FastPowTheory, Example: FastPowExample, disable: false
 	},
 	{
 		type: 'karatsuba', title: 'Алгоритм Карацубы',
