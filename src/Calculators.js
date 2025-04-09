@@ -113,7 +113,7 @@ export const CalculatorRoutes = [
 	{
 		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
 		origin: 'Chinese Remainder Theorem (CRT) to Polyadic Code',
-		Input: ChineseCodeToPolycode, Theory: null, Example: null, disable: false
+		Input: ChineseCodeToPolycode, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
