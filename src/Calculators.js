@@ -28,6 +28,7 @@ import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
 import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
 import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
 import FastPowExample from "./components/examples/Calculators/FastPowExample";
+import ChineseCodeToPolycodeExample from "./components/examples/Calculators/ChineseCodeToPolycodeExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -49,6 +50,7 @@ import BinGcdTheory from "./components/theory/Euclid/BinGcdTheory";
 import ExtGcdTheory from "./components/theory/Euclid/ExtGcdTheory";
 import ExtBinGcdTheory from "./components/theory/Euclid/ExtBinGcdTheory";
 import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
+import ChineseCodeToPolycodeTheory from "./components/theory/Calculators/ChineseCodeToPolycodeTheory";
 
 
 export const BaseRoutes = [
@@ -113,7 +115,7 @@ export const CalculatorRoutes = [
 	{
 		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
 		origin: 'Chinese Remainder Theorem (CRT) to Polyadic Code',
-		Input: ChineseCodeToPolycode, Theory: null, Example: null, disable: true
+		Input: ChineseCodeToPolycode, Theory: ChineseCodeToPolycodeTheory, Example: ChineseCodeToPolycodeExample, disable: false
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',

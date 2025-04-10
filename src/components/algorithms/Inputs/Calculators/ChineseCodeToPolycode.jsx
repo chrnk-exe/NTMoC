@@ -69,7 +69,7 @@ export default function ChineseCodeToPolycode({ updateArgs, setDisable }) {
                             position={'relative'}>
                             <Box
                                 position={'absolute'}
-                                top={'-14px'}
+                                top={'-25px'}
                                 left={'-9px'}>
                                 <IconButton onClick={(e) => removeLine(index)}>
                                     <DeleteOutlineOutlinedIcon
@@ -83,19 +83,10 @@ export default function ChineseCodeToPolycode({ updateArgs, setDisable }) {
                             <Box
                                 display={'flex'}
                                 flexDirection={'column'}
-                                alignItems={'center'}
-                                position={'relative'}
-                                top={'15px'}>
+                                alignItems={'center'}>
                                 <CustomTextField
                                     value={line[0]}
                                     setValue={setValueToIndex(index)}
-                                    size={1}
-                                    allowZero
-                                />
-
-                                <CustomTextField
-                                    value={line[1]}
-                                    setValue={setValueToIndex(index, true)}
                                     size={1}
                                     allowZero
                                 />
@@ -115,8 +106,42 @@ export default function ChineseCodeToPolycode({ updateArgs, setDisable }) {
                     </Box>
                 )}
 
-                <Box ml={2}>
+                <Box ml={lines?.length === 5 ? 2 : -1}>
                     <Latex>$\Big)$</Latex>
+                </Box>
+            </Box>
+
+            <Box display={'flex'} alignItems={'center'} mt={2}>
+                <Box ml={-1}>
+                    <Latex>{'$M = \\Big\\{$'}</Latex>
+                </Box>
+
+                {lines.map((line, index) => (
+                    <Box display={'flex'} alignItems={'center'} key={index}>
+                        {index !== 0 && <Box mx={1.5}>,</Box>}
+                        <Box
+                            display={'flex'}
+                            alignItems={'center'}
+                            justifyContent={'center'}
+                            direction={'row'}
+                            position={'relative'}>
+                            <Box
+                                display={'flex'}
+                                flexDirection={'column'}
+                                alignItems={'center'}>
+                                <CustomTextField
+                                    value={line[1]}
+                                    setValue={setValueToIndex(index, true)}
+                                    size={1}
+                                    allowZero
+                                />
+                            </Box>
+                        </Box>
+                    </Box>
+                ))}
+
+                <Box ml={0}>
+                    <Latex>{'$\\Big\\}$'}</Latex>
                 </Box>
             </Box>
 
@@ -134,11 +159,6 @@ export default function ChineseCodeToPolycode({ updateArgs, setDisable }) {
                     />
                     <Typography color={'gray'} fontSize={16}>
                         - нажми чтобы удалить аргумент
-                    </Typography>
-                </Box>
-                <Box display={'flex'} alignItems={'center'}>
-                    <Typography color={'gray'} fontSize={16}>
-                        Снизу - значения модулей!
                     </Typography>
                 </Box>
             </Stack>
