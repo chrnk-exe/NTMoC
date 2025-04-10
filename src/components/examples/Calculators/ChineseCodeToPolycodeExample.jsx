@@ -8,8 +8,8 @@ const ChineseCodeToPolycodeExample = () => {
     return (
         <Stack fontSize={18} alignSelf={'flex-start'} spacing={2}>
             <SimpleTextFormula>
-                Преобразование китайского кода CC(1,2,3,4) в полиадический код
-                по модулям 2,3,5,7
+                Преобразование китайского кода $CC(1,2,3,4)$ в полиадический код
+                по модулям $(2,3,5,7)$
             </SimpleTextFormula>
 
             <OutlinedFormula
