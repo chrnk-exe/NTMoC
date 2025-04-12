@@ -125,7 +125,7 @@ export const CalculatorRoutes = [
 	{
 		type: 'smart_order', title: 'Порядок числа (с использованием свойств)',
 		origin: 'Order of an Element (with Properties)',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: null, Theory: null, Example: null, disable: false
 	},
 ];
 
