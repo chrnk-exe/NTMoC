@@ -120,12 +120,12 @@ export const CalculatorRoutes = [
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
 		origin: 'Power Tower Evaluation',
-		Input: null, Theory: null, Example: null, disable: false
+		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'smart_order', title: 'Порядок числа (с использованием свойств)',
 		origin: 'Order of an Element (with Properties)',
-		Input: null, Theory: null, Example: null, disable: false
+		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
 
