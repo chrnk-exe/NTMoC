@@ -14,6 +14,7 @@ import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 import OrderNumberInput from "./components/algorithms/Inputs/Base/OrderNumberInput";
 import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
 import ChineseCodeToPolycode from "./components/algorithms/Inputs/Calculators/ChineseCodeToPolycode";
+import ThePowerTowerInput from "./components/algorithms/Inputs/Calculators/ThePowerTowerInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -29,6 +30,7 @@ import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
 import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
 import FastPowExample from "./components/examples/Calculators/FastPowExample";
 import ChineseCodeToPolycodeExample from "./components/examples/Calculators/ChineseCodeToPolycodeExample";
+import ThePowerTowerExample from "./components/examples/Calculators/ThePowerTowerExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -51,6 +53,7 @@ import ExtGcdTheory from "./components/theory/Euclid/ExtGcdTheory";
 import ExtBinGcdTheory from "./components/theory/Euclid/ExtBinGcdTheory";
 import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
 import ChineseCodeToPolycodeTheory from "./components/theory/Calculators/ChineseCodeToPolycodeTheory";
+import ThePowerTowerTheory from "./components/theory/Calculators/ThePowerTowerTheory";
 
 
 export const BaseRoutes = [
@@ -120,12 +123,12 @@ export const CalculatorRoutes = [
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
 		origin: 'Power Tower Evaluation',
-		Input: null, Theory: null, Example: null, disable: false
+		Input: ThePowerTowerInput, Theory: ThePowerTowerTheory, Example: ThePowerTowerExample, disable: false
 	},
 	{
 		type: 'smart_order', title: 'Порядок числа (с использованием свойств)',
 		origin: 'Order of an Element (with Properties)',
-		Input: null, Theory: null, Example: null, disable: false
+		Input: null, Theory: null, Example: null, disable: true
 	},
 ];
 
