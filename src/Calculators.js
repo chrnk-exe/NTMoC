@@ -31,6 +31,7 @@ import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
 import FastPowExample from "./components/examples/Calculators/FastPowExample";
 import ChineseCodeToPolycodeExample from "./components/examples/Calculators/ChineseCodeToPolycodeExample";
 import ThePowerTowerExample from "./components/examples/Calculators/ThePowerTowerExample";
+import GelfondShanksLogarithmExample from "./components/examples/Logarithms/GelfondShanksLogarithmExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -54,6 +55,7 @@ import ExtBinGcdTheory from "./components/theory/Euclid/ExtBinGcdTheory";
 import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
 import ChineseCodeToPolycodeTheory from "./components/theory/Calculators/ChineseCodeToPolycodeTheory";
 import ThePowerTowerTheory from "./components/theory/Calculators/ThePowerTowerTheory";
+import GelfondShanksLogarithmTheory from "./components/theory/DiscreteLogarithms/GelfondShanksTheory";
 
 
 export const BaseRoutes = [
@@ -192,7 +194,7 @@ export const LogarithmRoutes = [
 	{
 		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
 		origin: 'Gelfond–Shanks Algorithm',
-		Input: GelfondShanksInput, Theory: null, Example: null, disable: true
+		Input: GelfondShanksInput, Theory: GelfondShanksLogarithmTheory, Example: GelfondShanksLogarithmExample, disable: false
 	},
 	{
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
