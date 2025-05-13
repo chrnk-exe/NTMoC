@@ -15,6 +15,8 @@ import OrderNumberInput from "./components/algorithms/Inputs/Base/OrderNumberInp
 import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
 import ChineseCodeToPolycode from "./components/algorithms/Inputs/Calculators/ChineseCodeToPolycode";
 import ThePowerTowerInput from "./components/algorithms/Inputs/Calculators/ThePowerTowerInput";
+import AdlemanLogarithmInput from "./components/algorithms/Inputs/DiscreteLogarithms/AdlemanLogarithmInput";
+import RhoPollardInput from "./components/algorithms/Inputs/DiscreteLogarithms/RhoPollardInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -32,6 +34,8 @@ import FastPowExample from "./components/examples/Calculators/FastPowExample";
 import ChineseCodeToPolycodeExample from "./components/examples/Calculators/ChineseCodeToPolycodeExample";
 import ThePowerTowerExample from "./components/examples/Calculators/ThePowerTowerExample";
 import GelfondShanksLogarithmExample from "./components/examples/Logarithms/GelfondShanksLogarithmExample";
+import AdlemanLogarithmExample from "./components/examples/Logarithms/AdlemanLogarithmExample";
+import RhoPollardExample from "./components/examples/Logarithms/RhoPollardExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -56,6 +60,8 @@ import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
 import ChineseCodeToPolycodeTheory from "./components/theory/Calculators/ChineseCodeToPolycodeTheory";
 import ThePowerTowerTheory from "./components/theory/Calculators/ThePowerTowerTheory";
 import GelfondShanksLogarithmTheory from "./components/theory/DiscreteLogarithms/GelfondShanksTheory";
+import AdlemanLogarithmTheory from "./components/theory/DiscreteLogarithms/AdlemanLogarithmTheory";
+import RhoPollardTheory from "./components/theory/DiscreteLogarithms/RhoPollardTheory";
 
 
 export const BaseRoutes = [
@@ -71,7 +77,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',
-		origin: 'Euler’s Totient Function (λ-function)',
+		origin: 'Euler\'s Totient Function (λ-function)',
 		Input: LEulerInput, Theory: LEulerTheory, Example: LEulerExample, disable: false
 	},
 	{
@@ -86,7 +92,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
-		origin: 'Euler’s Totient Function (φ-function)',
+		origin: 'Euler\'s Totient Function (φ-function)',
 		Input: PhiInput, Theory: PhiTheory, Example: PhiExample, disable: false
 	},
 	{
@@ -160,27 +166,27 @@ export const EuclidRoutes = [
 export const FactorizationRoutes = [
 	{
 		type: 'dixon', title: 'Алгоритм Диксона',
-		origin: 'Dixon’s Factorization Method',
+		origin: 'Dixon\'s Factorization Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_fact', title: 'Ро-метод Полларда',
-		origin: 'Pollard’s Rho Factorization',
+		origin: 'Pollard\'s Rho Factorization',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
-		origin: 'Pollard’s Rho with Floyd’s Cycle Detection',
+		origin: 'Pollard\'s Rho with Floyd\'s Cycle Detection',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'p_1_pollard', title: 'P-1 метод Полларда',
-		origin: 'Pollard’s P-1 Method',
+		origin: 'Pollard\'s P-1 Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'fermat', title: 'Метод Ферма',
-		origin: 'Fermat’s Factorization Method',
+		origin: 'Fermat\'s Factorization Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 ];
@@ -188,8 +194,8 @@ export const FactorizationRoutes = [
 export const LogarithmRoutes = [
 	{
 		type: 'adleman', title: 'Алгоритм Адлемана',
-		origin: 'Adleman’s Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		origin: 'Adleman\'s Algorithm',
+		Input: AdlemanLogarithmInput, Theory: AdlemanLogarithmTheory, Example: AdlemanLogarithmExample, disable: false
 	},
 	{
 		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
@@ -198,8 +204,8 @@ export const LogarithmRoutes = [
 	},
 	{
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
-		origin: 'Pollard’s Rho for Discrete Logarithm (Floyd)',
-		Input: null, Theory: null, Example: null, disable: true
+		origin: 'Pollard\'s Rho for Discrete Logarithm (Floyd)',
+		Input: RhoPollardInput, Theory: RhoPollardTheory, Example: RhoPollardExample, disable: false
 	}
 ];
 
@@ -216,7 +222,7 @@ export const ComparisonsRoutes = [
 	},
 	{
 		type: 'chipolla', title: 'Алгоритм Чиполлы',
-		origin: 'Cipolla’s Algorithm',
+		origin: 'Cipolla\'s Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
