@@ -195,7 +195,7 @@ export const LogarithmRoutes = [
 	{
 		type: 'adleman', title: 'Алгоритм Адлемана',
 		origin: 'Adleman\'s Algorithm',
-		Input: AdlemanLogarithmInput, Theory: AdlemanLogarithmTheory, Example: AdlemanLogarithmExample, disable: false
+		Input: AdlemanLogarithmInput, Theory: AdlemanLogarithmTheory, Example: AdlemanLogarithmExample, disable: true
 	},
 	{
 		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
