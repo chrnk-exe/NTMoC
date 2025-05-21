@@ -205,7 +205,7 @@ export const LogarithmRoutes = [
 	{
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
 		origin: 'Pollard\'s Rho for Discrete Logarithm (Floyd)',
-		Input: RhoPollardInput, Theory: RhoPollardTheory, Example: RhoPollardExample, disable: false
+		Input: RhoPollardInput, Theory: RhoPollardTheory, Example: null, disable: false
 	}
 ];
 

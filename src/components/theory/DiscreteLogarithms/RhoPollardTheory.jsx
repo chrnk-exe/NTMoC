@@ -61,11 +61,74 @@ const RhoPollardTheory = () => {
                     \\right.
                     \\pmod{p-1}$`}
             </SimpleTextFormula>
+
+            <CentralizedMultiFormula
+                header={
+                    'Подробнее следует указать следующую последовательность шагов'
+                }
+                formulas={[
+                    '$y = a^ub^v$',
+                    '$a^x=b \\pmod p$',
+                    '$y = a^ua^vx = a^{u+vx}$',
+                    '$ind_a(y) = u+vx$',
+                ]}
+                alignItems={'flex-start'}
+            />
+            {/* <OutlinedFormula
+                description={'Условия завершения алгоритма'}
+                formula={
+                    '$f(y_1) \\equiv f(y_2) \\pmod p \\Rightarrow u_1+v_1x \\equiv u_2+v_2x \\pmod{p-1}$'
+                }
+                aftertext={
+                    'где $ind_a(f(y_i)) \\equiv u_i+v_ix \\pmod{p-1}, i \\in \\{1,2\\}$'
+                }
+            /> */}
             <SimpleTextFormula>
-                Таким образом, для нахождения $x$ достаточно найти такие $u$ и
-                $v$, что
+                Далее возможно применить модификацию Флойда для поиска цикла и
+                мы получим следующее выражение
             </SimpleTextFormula>
-            <SimpleTextFormula></SimpleTextFormula>
+            <SimpleTextFormula>
+                {`$
+                \\begin{cases}
+                (u,v) \\in N^2_{(1..p-1)} \\\\
+                w_{k+1} = \\left[
+                    \\begin{aligned} 
+                        w_k + 1, x_k < \\frac{p-1}{2} \\\\
+                        w_k + x, x_k \\geq \\frac{p-1}{2} \\\\
+                    \\end{aligned}, w_1 = u+vx
+                    \\right. \\\\
+                z_{k+1} = \\left[
+                    \\begin{aligned}
+                        z_k + 2, f(y_k) < \\frac{p-1}{2}, y_k < \\frac{p-1}{2} \\\\
+                        z_k + 2x, f(y_k) \\geq \\frac{p-1}{2}, y_k \\geq \\frac{p-1}{2} \\\\
+                        z_k + 1 + x, иначе
+                    \\end{aligned}, z_1 = w_1
+                    \\right. \\\\
+                x_{k+1} = f(x_k), x_1 = a^ub^v \\\\
+                y_{k+1} = f(f(y_k)), y_1 = x_1 \\\\
+                \\end{cases}
+                $`}
+            </SimpleTextFormula>
+            <SimpleTextFormula>
+                здесь {'$z_{k+1}$'} и {'$w_{k+1}$'} - это линейные функции от
+                решения $x$ исходного сравнения.
+            </SimpleTextFormula>
+            <SimpleTextFormula>
+                Алгоритм завершается, когда найдётся $k$, для которого
+                {'$x_{k+1} = y_{k+1}$'}.
+            </SimpleTextFormula>
+            <SimpleTextFormula>
+                Искомый логарифм $x$ находится как решение линейного сравнения{' '}
+                {'$w_{k+1} \\equiv z_{k+1} \\mod{p-1}$'}
+            </SimpleTextFormula>
+
+            <SimpleTextFormula>
+                В случае, если
+                {
+                    '$P^{\\times}_{\\frac{p-1}{2}}(a) > Q_{\\gamma}(p-1), где \\ \\gamma=D(u_i-u_j, p-1)$'
+                }
+                следует изменить значения $u$ и $v$
+            </SimpleTextFormula>
         </Stack>
     );
 };

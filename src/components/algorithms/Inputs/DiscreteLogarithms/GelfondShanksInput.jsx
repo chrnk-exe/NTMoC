@@ -24,13 +24,16 @@ export default function GelfondShanksInput({ updateArgs }) {
                     }}>
                     {'𝑥'}
                 </Typography>
-                <CustomTextField value={degreeBasis} setValue={setFreeVar} />
+                <CustomTextField
+                    value={degreeBasis}
+                    setValue={setDegreeBases}
+                />
             </Box>
             <Typography fontSize={'1em'} color={'gray'} px={0.3}>
                 {'≡'}
             </Typography>
             <Box position={'relative'}>
-                <CustomTextField value={FreeVar} setValue={setDegreeBases} />
+                <CustomTextField value={FreeVar} setValue={setFreeVar} />
             </Box>
             <Typography fontSize={'1em'} color={'gray'} pl={0.7}>
                 {'('}
