@@ -17,6 +17,7 @@ import ChineseCodeToPolycode from "./components/algorithms/Inputs/Calculators/Ch
 import ThePowerTowerInput from "./components/algorithms/Inputs/Calculators/ThePowerTowerInput";
 import AdlemanLogarithmInput from "./components/algorithms/Inputs/DiscreteLogarithms/AdlemanLogarithmInput";
 import RhoPollardInput from "./components/algorithms/Inputs/DiscreteLogarithms/RhoPollardInput";
+import RhoPollardFloydInput from "./components/algorithms/Inputs/Factorization/RhoPollardFloydInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -36,6 +37,7 @@ import ThePowerTowerExample from "./components/examples/Calculators/ThePowerTowe
 import GelfondShanksLogarithmExample from "./components/examples/Logarithms/GelfondShanksLogarithmExample";
 import AdlemanLogarithmExample from "./components/examples/Logarithms/AdlemanLogarithmExample";
 import RhoPollardExample from "./components/examples/Logarithms/RhoPollardExample";
+import RhoPollardFloydExample from "./components/examples/Factorization/RhoPollardFloydExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -62,6 +64,7 @@ import ThePowerTowerTheory from "./components/theory/Calculators/ThePowerTowerTh
 import GelfondShanksLogarithmTheory from "./components/theory/DiscreteLogarithms/GelfondShanksTheory";
 import AdlemanLogarithmTheory from "./components/theory/DiscreteLogarithms/AdlemanLogarithmTheory";
 import RhoPollardTheory from "./components/theory/DiscreteLogarithms/RhoPollardTheory";
+import RhoPollardFloyd from "./components/theory/Factorization/RhoPollardFloyd";
 
 
 export const BaseRoutes = [
@@ -177,7 +180,7 @@ export const FactorizationRoutes = [
 	{
 		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
 		origin: 'Pollard\'s Rho with Floyd\'s Cycle Detection',
-		Input: OneFieldInput, Theory: null, Example: null, disable: true
+		Input: RhoPollardFloydInput, Theory: RhoPollardFloyd, Example: RhoPollardFloydExample, disable: false
 	},
 	{
 		type: 'p_1_pollard', title: 'P-1 метод Полларда',
