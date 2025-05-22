@@ -38,6 +38,8 @@ import GelfondShanksLogarithmExample from "./components/examples/Logarithms/Gelf
 import AdlemanLogarithmExample from "./components/examples/Logarithms/AdlemanLogarithmExample";
 import RhoPollardExample from "./components/examples/Logarithms/RhoPollardExample";
 import RhoPollardFloydExample from "./components/examples/Factorization/RhoPollardFloydExample";
+import FermatFactorExample from "./components/examples/Factorization/FermatFactorExample";
+import FermatFactorEtuExample from "./components/examples/Factorization/FermatFactorEtuExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -65,6 +67,8 @@ import GelfondShanksLogarithmTheory from "./components/theory/DiscreteLogarithms
 import AdlemanLogarithmTheory from "./components/theory/DiscreteLogarithms/AdlemanLogarithmTheory";
 import RhoPollardTheory from "./components/theory/DiscreteLogarithms/RhoPollardTheory";
 import RhoPollardFloyd from "./components/theory/Factorization/RhoPollardFloyd";
+import FermatFactorEtuTheory from "./components/theory/Factorization/FermatFactorEtuTheory";
+import FermatFactorTheory from "./components/theory/Factorization/FermatFactorTheory";
 
 
 export const BaseRoutes = [
@@ -188,9 +192,14 @@ export const FactorizationRoutes = [
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
-		type: 'fermat', title: 'Метод Ферма',
+		type: 'fermat_etu', title: 'Метод Ферма',
 		origin: 'Fermat\'s Factorization Method',
-		Input: OneFieldInput, Theory: null, Example: null, disable: true
+		Input: OneFieldInput, Theory: FermatFactorEtuTheory, Example: FermatFactorEtuExample, disable: false
+	},
+	{
+		type: 'fermat_wiki', title: 'Метод Ферма (Википедия)',
+		origin: 'Fermat\'s Factorization Method',
+		Input: OneFieldInput, Theory: FermatFactorTheory, Example: FermatFactorExample, disable: false
 	},
 ];
 
