@@ -18,6 +18,8 @@ import ThePowerTowerInput from "./components/algorithms/Inputs/Calculators/ThePo
 import AdlemanLogarithmInput from "./components/algorithms/Inputs/DiscreteLogarithms/AdlemanLogarithmInput";
 import RhoPollardInput from "./components/algorithms/Inputs/DiscreteLogarithms/RhoPollardInput";
 import RhoPollardFloydInput from "./components/algorithms/Inputs/Factorization/RhoPollardFloydInput";
+import TonelliShanksInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksInput";
+import TonelliShanksExtInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksExtInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -40,6 +42,8 @@ import RhoPollardExample from "./components/examples/Logarithms/RhoPollardExampl
 import RhoPollardFloydExample from "./components/examples/Factorization/RhoPollardFloydExample";
 import FermatFactorExample from "./components/examples/Factorization/FermatFactorExample";
 import FermatFactorEtuExample from "./components/examples/Factorization/FermatFactorEtuExample";
+import TonelliShanksExample from "./components/examples/Сomparisons/TonelliShanksExample";
+import TonelliShanksExtExample from "./components/examples/Сomparisons/TonelliShanksExtExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -69,6 +73,8 @@ import RhoPollardTheory from "./components/theory/DiscreteLogarithms/RhoPollardT
 import RhoPollardFloyd from "./components/theory/Factorization/RhoPollardFloyd";
 import FermatFactorEtuTheory from "./components/theory/Factorization/FermatFactorEtuTheory";
 import FermatFactorTheory from "./components/theory/Factorization/FermatFactorTheory";
+import TonelliShanksTheory from "./components/theory/Сomparisons/TonelliShanksTheory";
+import TonelliShanksExtTheory from "./components/theory/Сomparisons/TonelliShanksExtTheory";
 
 
 export const BaseRoutes = [
@@ -223,14 +229,24 @@ export const LogarithmRoutes = [
 
 export const ComparisonsRoutes = [
 	{
-		type: 'tonelli_shenks', title: 'Алгоритм Тонелли-Шенкса',
+		type: 'tonelli_shenks',
+		title: 'Алгоритм Тонелли-Шенкса',
 		origin: 'Tonelli–Shanks Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: TonelliShanksInput,
+		Theory: TonelliShanksTheory,
+		Example: TonelliShanksExample,
+		disable: true
 	},
 	{
-		type: 'tonelli_shenks_ext', title: 'Обобщённый алгоритм Тонелли-Шенкса',
+		type: 'tonelli_shenks_ext',
+		title: 'Обобщённый алгоритм Тонелли-Шенкса (Beta)',
 		origin: 'Generalized Tonelli–Shanks Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: TonelliShanksExtInput,
+		// Theory: TonelliShanksExtTheory,
+		// Example: TonelliShanksExtExample,
+		Theory: null,
+		Example: null,
+		disable: false
 	},
 	{
 		type: 'chipolla', title: 'Алгоритм Чиполлы',
