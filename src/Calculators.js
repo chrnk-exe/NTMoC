@@ -235,7 +235,7 @@ export const ComparisonsRoutes = [
 		Input: TonelliShanksInput,
 		Theory: TonelliShanksTheory,
 		Example: TonelliShanksExample,
-		disable: true
+		disable: false
 	},
 	{
 		type: 'tonelli_shenks_ext',
