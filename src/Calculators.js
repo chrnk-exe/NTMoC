@@ -12,6 +12,14 @@ import OrderInput from "./components/algorithms/Inputs/Base/OrderInput";
 import LCMInput from "./components/algorithms/Inputs/Base/LCMInput";
 import PrimeRootInput from "./components/algorithms/Inputs/Base/PrimeRootInput";
 import OrderNumberInput from "./components/algorithms/Inputs/Base/OrderNumberInput";
+import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
+import ChineseCodeToPolycode from "./components/algorithms/Inputs/Calculators/ChineseCodeToPolycode";
+import ThePowerTowerInput from "./components/algorithms/Inputs/Calculators/ThePowerTowerInput";
+import AdlemanLogarithmInput from "./components/algorithms/Inputs/DiscreteLogarithms/AdlemanLogarithmInput";
+import RhoPollardInput from "./components/algorithms/Inputs/DiscreteLogarithms/RhoPollardInput";
+import RhoPollardFloydInput from "./components/algorithms/Inputs/Factorization/RhoPollardFloydInput";
+import TonelliShanksInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksInput";
+import TonelliShanksExtInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksExtInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -21,6 +29,21 @@ import LCMExample from './components/examples/Base/LCMExample'
 import SimpleOrderExample from "./components/examples/Base/SimpleOrderExample";
 import PhiExample from "./components/examples/Base/PhiExample";
 import OrderNumberExample from "./components/examples/Base/OrderNumberExample";
+import GcdExample from "./components/examples/Euclid/GcdExample";
+import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
+import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
+import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
+import FastPowExample from "./components/examples/Calculators/FastPowExample";
+import ChineseCodeToPolycodeExample from "./components/examples/Calculators/ChineseCodeToPolycodeExample";
+import ThePowerTowerExample from "./components/examples/Calculators/ThePowerTowerExample";
+import GelfondShanksLogarithmExample from "./components/examples/Logarithms/GelfondShanksLogarithmExample";
+import AdlemanLogarithmExample from "./components/examples/Logarithms/AdlemanLogarithmExample";
+import RhoPollardExample from "./components/examples/Logarithms/RhoPollardExample";
+import RhoPollardFloydExample from "./components/examples/Factorization/RhoPollardFloydExample";
+import FermatFactorExample from "./components/examples/Factorization/FermatFactorExample";
+import FermatFactorEtuExample from "./components/examples/Factorization/FermatFactorEtuExample";
+import TonelliShanksExample from "./components/examples/Сomparisons/TonelliShanksExample";
+import TonelliShanksExtExample from "./components/examples/Сomparisons/TonelliShanksExtExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -41,11 +64,17 @@ import GcdTheory from "./components/theory/Euclid/GcdTheory";
 import BinGcdTheory from "./components/theory/Euclid/BinGcdTheory";
 import ExtGcdTheory from "./components/theory/Euclid/ExtGcdTheory";
 import ExtBinGcdTheory from "./components/theory/Euclid/ExtBinGcdTheory";
-import GcdExample from "./components/examples/Euclid/GcdExample";
-import BinGcdExample from "./components/examples/Euclid/BinGcdExample";
-import ExtGcdExample from "./components/examples/Euclid/ExtGcdExample";
-import ExtBinGcdExample from "./components/examples/Euclid/ExtBinGcdExample";
-import {BinGcdInput, ExtBinGcdInput, ExtGcdInput, GcdInput} from "./components/algorithms/Inputs/Calculators/Gcd";
+import FastPowTheory from "./components/theory/Calculators/FastPowTheory";
+import ChineseCodeToPolycodeTheory from "./components/theory/Calculators/ChineseCodeToPolycodeTheory";
+import ThePowerTowerTheory from "./components/theory/Calculators/ThePowerTowerTheory";
+import GelfondShanksLogarithmTheory from "./components/theory/DiscreteLogarithms/GelfondShanksTheory";
+import AdlemanLogarithmTheory from "./components/theory/DiscreteLogarithms/AdlemanLogarithmTheory";
+import RhoPollardTheory from "./components/theory/DiscreteLogarithms/RhoPollardTheory";
+import RhoPollardFloyd from "./components/theory/Factorization/RhoPollardFloyd";
+import FermatFactorEtuTheory from "./components/theory/Factorization/FermatFactorEtuTheory";
+import FermatFactorTheory from "./components/theory/Factorization/FermatFactorTheory";
+import TonelliShanksTheory from "./components/theory/Сomparisons/TonelliShanksTheory";
+import TonelliShanksExtTheory from "./components/theory/Сomparisons/TonelliShanksExtTheory";
 
 
 export const BaseRoutes = [
@@ -61,7 +90,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'l_euler', title: 'Эль-функция Эйлера',
-		origin: 'Euler’s Totient Function (λ-function)',
+		origin: 'Euler\'s Totient Function (λ-function)',
 		Input: LEulerInput, Theory: LEulerTheory, Example: LEulerExample, disable: false
 	},
 	{
@@ -76,7 +105,7 @@ export const BaseRoutes = [
 	},
 	{
 		type: 'phi_euler', title: 'Фи-функция Эйлера',
-		origin: 'Euler’s Totient Function (φ-function)',
+		origin: 'Euler\'s Totient Function (φ-function)',
 		Input: PhiInput, Theory: PhiTheory, Example: PhiExample, disable: false
 	},
 	{
@@ -95,7 +124,7 @@ export const CalculatorRoutes = [
 	{
 		type: 'fast_pow', title: 'Возведение в степень по модулю',
 		origin: 'Fast Modular Exponentiation',
-		Input: FastPowInput, Theory: null, Example: null, disable: false
+		Input: FastPowInput, Theory: FastPowTheory, Example: FastPowExample, disable: false
 	},
 	{
 		type: 'karatsuba', title: 'Алгоритм Карацубы',
@@ -110,12 +139,12 @@ export const CalculatorRoutes = [
 	{
 		type: 'cc_to_poly', title: 'Перевод китайского кода в полиадический код',
 		origin: 'Chinese Remainder Theorem (CRT) to Polyadic Code',
-		Input: ChineseCode, Theory: null, Example: null, disable: true
+		Input: ChineseCodeToPolycode, Theory: ChineseCodeToPolycodeTheory, Example: ChineseCodeToPolycodeExample, disable: false
 	},
 	{
 		type: 'power_tower', title: 'Решение степенной башни',
 		origin: 'Power Tower Evaluation',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: ThePowerTowerInput, Theory: ThePowerTowerTheory, Example: ThePowerTowerExample, disable: false
 	},
 	{
 		type: 'smart_order', title: 'Порядок числа (с использованием свойств)',
@@ -150,63 +179,78 @@ export const EuclidRoutes = [
 export const FactorizationRoutes = [
 	{
 		type: 'dixon', title: 'Алгоритм Диксона',
-		origin: 'Dixon’s Factorization Method',
+		origin: 'Dixon\'s Factorization Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_fact', title: 'Ро-метод Полларда',
-		origin: 'Pollard’s Rho Factorization',
+		origin: 'Pollard\'s Rho Factorization',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
-		origin: 'Pollard’s Rho with Floyd’s Cycle Detection',
-		Input: OneFieldInput, Theory: null, Example: null, disable: true
+		origin: 'Pollard\'s Rho with Floyd\'s Cycle Detection',
+		Input: RhoPollardFloydInput, Theory: RhoPollardFloyd, Example: RhoPollardFloydExample, disable: false
 	},
 	{
 		type: 'p_1_pollard', title: 'P-1 метод Полларда',
-		origin: 'Pollard’s P-1 Method',
+		origin: 'Pollard\'s P-1 Method',
 		Input: OneFieldInput, Theory: null, Example: null, disable: true
 	},
 	{
-		type: 'fermat', title: 'Метод Ферма',
-		origin: 'Fermat’s Factorization Method',
-		Input: OneFieldInput, Theory: null, Example: null, disable: true
+		type: 'fermat_etu', title: 'Метод Ферма',
+		origin: 'Fermat\'s Factorization Method',
+		Input: OneFieldInput, Theory: FermatFactorEtuTheory, Example: FermatFactorEtuExample, disable: false
+	},
+	{
+		type: 'fermat_wiki', title: 'Метод Ферма (Википедия)',
+		origin: 'Fermat\'s Factorization Method',
+		Input: OneFieldInput, Theory: FermatFactorTheory, Example: FermatFactorExample, disable: false
 	},
 ];
 
 export const LogarithmRoutes = [
 	{
 		type: 'adleman', title: 'Алгоритм Адлемана',
-		origin: 'Adleman’s Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		origin: 'Adleman\'s Algorithm',
+		Input: AdlemanLogarithmInput, Theory: AdlemanLogarithmTheory, Example: AdlemanLogarithmExample, disable: true
 	},
 	{
 		type: 'gelfond_shanks', title: 'Алгоритм Гельфонда-Шенкса',
 		origin: 'Gelfond–Shanks Algorithm',
-		Input: GelfondShanksInput, Theory: null, Example: null, disable: true
+		Input: GelfondShanksInput, Theory: GelfondShanksLogarithmTheory, Example: GelfondShanksLogarithmExample, disable: false
 	},
 	{
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
-		origin: 'Pollard’s Rho for Discrete Logarithm (Floyd)',
-		Input: null, Theory: null, Example: null, disable: true
+		origin: 'Pollard\'s Rho for Discrete Logarithm (Floyd)',
+		Input: RhoPollardInput, Theory: RhoPollardTheory, Example: null, disable: false
 	}
 ];
 
 export const ComparisonsRoutes = [
 	{
-		type: 'tonelli_shenks', title: 'Алгоритм Тонелли-Шенкса',
+		type: 'tonelli_shenks',
+		title: 'Алгоритм Тонелли-Шенкса',
 		origin: 'Tonelli–Shanks Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: TonelliShanksInput,
+		Theory: TonelliShanksTheory,
+		Example: TonelliShanksExample,
+		disable: false
 	},
 	{
-		type: 'tonelli_shenks_ext', title: 'Обобщённый алгоритм Тонелли-Шенкса',
+		type: 'tonelli_shenks_ext',
+		title: 'Обобщённый алгоритм Тонелли-Шенкса (Beta)',
 		origin: 'Generalized Tonelli–Shanks Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: TonelliShanksExtInput,
+		// Theory: TonelliShanksExtTheory,
+		// Example: TonelliShanksExtExample,
+		Theory: null,
+		Example: null,
+		disable: false
 	},
 	{
 		type: 'chipolla', title: 'Алгоритм Чиполлы',
-		origin: 'Cipolla’s Algorithm',
+		origin: 'Cipolla\'s Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{

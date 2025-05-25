@@ -1,7 +1,7 @@
 {
   "name": "crypto_math",
   "version": "0.2.0",
-  "proxy": "https://dev-crypto-math.zxchrnk.com",
+  "proxy": "http://zxchrnk.com:9000",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",

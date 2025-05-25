@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, Stack, TextField, Typography } from '@mui/material';
 import { CustomTextField } from '../common/CustomTextField';
 
-export default function GelfondShanksInput({ updateArgs }) {
+export default function AdlemanLogarithmInput({ updateArgs }) {
     const [FreeVar, setFreeVar] = useState(16);
     const [degreeBasis, setDegreeBases] = useState(4);
     const [Module, setModule] = useState(29);
@@ -24,16 +24,13 @@ export default function GelfondShanksInput({ updateArgs }) {
                     }}>
                     {'𝑥'}
                 </Typography>
-                <CustomTextField
-                    value={degreeBasis}
-                    setValue={setDegreeBases}
-                />
+                <CustomTextField value={degreeBasis} setValue={setFreeVar} />
             </Box>
             <Typography fontSize={'1em'} color={'gray'} px={0.3}>
                 {'≡'}
             </Typography>
             <Box position={'relative'}>
-                <CustomTextField value={FreeVar} setValue={setFreeVar} />
+                <CustomTextField value={FreeVar} setValue={setDegreeBases} />
             </Box>
             <Typography fontSize={'1em'} color={'gray'} pl={0.7}>
                 {'('}
