@@ -87,6 +87,7 @@ export default function BaseAlgorithm() {
             <Box mt={3} width={1} display={'flex'} flexDirection={'column'} justifyContent={'center'}
                  alignItems={'center'} border={`${show ? 2 : 0}px dashed green`} borderRadius={5}
                  p={show ? 3.5 : 0} sx={{transition: 'all 0.3s ease-in-out'}}
+                 bgcolor={'#fffdfd'}
             >
                 <Helmet>
                     <title>{algorithm.title} - CryptoMath</title>
