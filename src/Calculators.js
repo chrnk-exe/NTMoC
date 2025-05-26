@@ -20,6 +20,7 @@ import RhoPollardInput from "./components/algorithms/Inputs/DiscreteLogarithms/R
 import RhoPollardFloydInput from "./components/algorithms/Inputs/Factorization/RhoPollardFloydInput";
 import TonelliShanksInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksInput";
 import TonelliShanksExtInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksExtInput";
+import TonelliShanksExtRootsInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksExtRootsInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -44,6 +45,7 @@ import FermatFactorExample from "./components/examples/Factorization/FermatFacto
 import FermatFactorEtuExample from "./components/examples/Factorization/FermatFactorEtuExample";
 import TonelliShanksExample from "./components/examples/Сomparisons/TonelliShanksExample";
 import TonelliShanksExtExample from "./components/examples/Сomparisons/TonelliShanksExtExample";
+import TonelliShanksExtRootsExample from "./components/examples/Сomparisons/TonelliShanksExtRootsExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -75,6 +77,7 @@ import FermatFactorEtuTheory from "./components/theory/Factorization/FermatFacto
 import FermatFactorTheory from "./components/theory/Factorization/FermatFactorTheory";
 import TonelliShanksTheory from "./components/theory/Сomparisons/TonelliShanksTheory";
 import TonelliShanksExtTheory from "./components/theory/Сomparisons/TonelliShanksExtTheory";
+import TonelliShanksExtRootsTheory from "./components/theory/Сomparisons/TonelliShanksExtRootsTheory";
 
 
 export const BaseRoutes = [
@@ -242,10 +245,19 @@ export const ComparisonsRoutes = [
 		title: 'Обобщённый алгоритм Тонелли-Шенкса (Beta)',
 		origin: 'Generalized Tonelli–Shanks Algorithm',
 		Input: TonelliShanksExtInput,
-		// Theory: TonelliShanksExtTheory,
-		// Example: TonelliShanksExtExample,
-		Theory: null,
-		Example: null,
+		Theory: TonelliShanksExtTheory,
+		Example: TonelliShanksExtExample,
+		// Theory: null,
+		// Example: null,
+		disable: false
+	},
+	{
+		type: 'tonelli_shenks_ext_roots',
+		title: 'Алгоритм Тонелли-Шенкса - нахождение всех корней',
+		origin: 'Generalized Tonelli–Shanks Algorithm Find All Roots',
+		Input: TonelliShanksExtRootsInput,
+		Theory: TonelliShanksExtRootsTheory,
+		Example: TonelliShanksExtRootsExample,
 		disable: false
 	},
 	{
