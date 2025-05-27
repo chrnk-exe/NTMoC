@@ -21,6 +21,7 @@ import RhoPollardFloydInput from "./components/algorithms/Inputs/Factorization/R
 import TonelliShanksInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksInput";
 import TonelliShanksExtInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksExtInput";
 import TonelliShanksExtRootsInput from "./components/algorithms/Inputs/Сomparisons/TonelliShanksExtRootsInput";
+import RhoPollardFactInput from "./components/algorithms/Inputs/Factorization/RhoPollardFactInput";
 
 import KaratsubaExample from "./components/examples/Calculators/KaratsubaExample";
 import InverseExample from "./components/examples/Base/InverseExample";
@@ -46,6 +47,7 @@ import FermatFactorEtuExample from "./components/examples/Factorization/FermatFa
 import TonelliShanksExample from "./components/examples/Сomparisons/TonelliShanksExample";
 import TonelliShanksExtExample from "./components/examples/Сomparisons/TonelliShanksExtExample";
 import TonelliShanksExtRootsExample from "./components/examples/Сomparisons/TonelliShanksExtRootsExample";
+import RhoPollardFactExample from "./components/examples/Factorization/RhoPollardExample";
 
 import CalculateOutlinedIcon from '@mui/icons-material/CalculateOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
@@ -78,6 +80,7 @@ import FermatFactorTheory from "./components/theory/Factorization/FermatFactorTh
 import TonelliShanksTheory from "./components/theory/Сomparisons/TonelliShanksTheory";
 import TonelliShanksExtTheory from "./components/theory/Сomparisons/TonelliShanksExtTheory";
 import TonelliShanksExtRootsTheory from "./components/theory/Сomparisons/TonelliShanksExtRootsTheory";
+import RhoPollardFactTheory from "./components/theory/Factorization/RhoPollardFactTheory";
 
 
 export const BaseRoutes = [
@@ -188,7 +191,7 @@ export const FactorizationRoutes = [
 	{
 		type: 'rho_pollard_fact', title: 'Ро-метод Полларда',
 		origin: 'Pollard\'s Rho Factorization',
-		Input: OneFieldInput, Theory: null, Example: null, disable: true
+		Input: RhoPollardFactInput, Theory: RhoPollardFactTheory, Example: RhoPollardFactExample, disable: false
 	},
 	{
 		type: 'rho_pollard_floyd_fact', title: 'Ро-метод Полларда (Мод. Флойда)',
