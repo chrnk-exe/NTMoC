@@ -55,6 +55,7 @@ import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
 import ElderlyIcon from '@mui/icons-material/Elderly';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import HttpsIcon from '@mui/icons-material/Https';
 
 import AddDoubleTheory from "./components/theory/Calculators/AddDoubleTheory";
 import InverseTheory from "./components/theory/base/InverseTheory";
@@ -230,6 +231,11 @@ export const LogarithmRoutes = [
 		type: 'rho_pollard_floyd_ind', title: 'Ро-метод Полларда',
 		origin: 'Pollard\'s Rho for Discrete Logarithm (Floyd)',
 		Input: RhoPollardInput, Theory: RhoPollardTheory, Example: null, disable: false
+	},
+	{
+		type: 'pohlig_hellman_ind', title: 'Алгоритм Полига-Хеллмана',
+		origin: 'Pohlig–Hellman Discrete Logarithm Algorithm',
+		Input: null, Theory: null, Example: null, disable: true
 	}
 ];
 
@@ -295,6 +301,19 @@ export const ComparisonsRoutes = [
 	},
 ];
 
+export const EllipticCurveRoutes = [
+	{
+		type: 'ec_add_point', title: 'Сложить точки эллиптической кривой',
+		origin: 'Adding points of an elliptic curve',
+		Input: null, Theory: null, Example: null, disable: true
+	},
+	{
+		type: 'ec_double_point', title: 'Удвоение точки эллиптической кривой',
+		origin: 'Doubling the point of an elliptic curve',
+		Input: null, Theory: null, Example: null, disable: true
+	}
+]
+
 export const MenuList = [
 	{
 		title: 'Базовые операции',
@@ -325,6 +344,11 @@ export const MenuList = [
 		title: 'Решение сравнений',
 		Routes: ComparisonsRoutes,
 		icon: BalanceOutlinedIcon
+	},
+	{
+		title: 'Эллиптическая кривая',
+		Routes: EllipticCurveRoutes,
+		icon: HttpsIcon
 	}
 ];
 
@@ -335,6 +359,7 @@ export const Algorithms = [
 	...FactorizationRoutes,
 	...LogarithmRoutes,
 	...ComparisonsRoutes,
+	...EllipticCurveRoutes
 ];
 
 // Algorithms.map(alg => console.log('https://crypto-math.com/' + alg.type) )
