@@ -270,9 +270,14 @@ export const ComparisonsRoutes = [
 		disable: false
 	},
 	{
-		type: 'chipolla', title: 'Алгоритм Чиполлы',
+		type: 'chipolla', title: 'Алгоритм Чиполлы (квадратное)',
 		origin: 'Cipolla\'s Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: TonelliShanksInput, Theory: null, Example: null, disable: false
+	},
+	{
+		type: 'chipolla_ext', title: 'Алгоритм Чиполлы (случаи n > 2)',
+		origin: 'Cipolla\'s Algorithm',
+		Input: TonelliShanksInput, Theory: null, Example: null, disable: true
 	},
 	{
 		type: 'berlekamp_rabin', title: 'Алгоритм Берлекэмпа-Рабина',
@@ -280,7 +285,7 @@ export const ComparisonsRoutes = [
 		Input: null, Theory: null, Example: null, disable: true
 	},
 	{
-		type: 'polyg_hellman', title: 'Алгоритм Полига-Хеллмана',
+		type: 'pohlig_hellman', title: 'Алгоритм Полига-Хеллмана',
 		origin: 'Pohlig–Hellman Algorithm',
 		Input: null, Theory: null, Example: null, disable: true
 	},
