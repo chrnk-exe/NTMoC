@@ -282,7 +282,7 @@ export const ComparisonsRoutes = [
 	{
 		type: 'berlekamp_rabin', title: 'Алгоритм Берлекэмпа-Рабина',
 		origin: 'Berlekamp–Rabin Algorithm',
-		Input: null, Theory: null, Example: null, disable: true
+		Input: TonelliShanksInput, Theory: null, Example: null, disable: false
 	},
 	{
 		type: 'pohlig_hellman', title: 'Алгоритм Полига-Хеллмана',
